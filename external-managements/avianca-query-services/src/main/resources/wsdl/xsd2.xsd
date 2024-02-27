@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified"
+           targetNamespace="http://schemas.datacontract.org/2004/07/AviancaDemoWcfService"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://schemas.datacontract.org/2004/07/AviancaDemoWcfService">
+    <xs:complexType name="FlightOption">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="DepartureDate" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="DestinationCityDescription" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="OneWay" type="xs:boolean"/>
+            <xs:element minOccurs="0" name="OriginCityDescription" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="PassengersNumber" type="xs:int"/>
+            <xs:element minOccurs="0" name="ReturnDate" type="xs:dateTime"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="FlightOption" nillable="true" type="tns:FlightOption"/>
+    <xs:complexType name="AvalaibleItinerary">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="DepartureFlights" nillable="true" type="tns:ArrayOfAvalaibleFlight"/>
+            <xs:element minOccurs="0" name="ReturnFlights" nillable="true" type="tns:ArrayOfAvalaibleFlight"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="AvalaibleItinerary" nillable="true" type="tns:AvalaibleItinerary"/>
+    <xs:complexType name="ArrayOfAvalaibleFlight">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" name="AvalaibleFlight" nillable="true"
+                        type="tns:AvalaibleFlight"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="ArrayOfAvalaibleFlight" nillable="true" type="tns:ArrayOfAvalaibleFlight"/>
+    <xs:complexType name="AvalaibleFlight">
+        <xs:sequence>
+            <xs:element minOccurs="0" name="AirLine" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="Amount" type="xs:double"/>
+            <xs:element minOccurs="0" name="CityFrom" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="CityTo" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="DestinationAirportCode" type="xs:int"/>
+            <xs:element minOccurs="0" name="DestinationAirportName" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="DurationString" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="FlightEnd" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="FlightNumber" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="FlightScale" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="FlightScaleNumber" type="xs:int"/>
+            <xs:element minOccurs="0" name="FlightStart" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="Id" type="xs:int"/>
+            <xs:element minOccurs="0" name="OriginAirportCode" type="xs:int"/>
+            <xs:element minOccurs="0" name="OriginAirportName" nillable="true" type="xs:string"/>
+            <xs:element minOccurs="0" name="PassengersNumber" type="xs:int"/>
+            <xs:element minOccurs="0" name="TotalDurationInMinutes" type="xs:double"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="AvalaibleFlight" nillable="true" type="tns:AvalaibleFlight"/>
+</xs:schema>

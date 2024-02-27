@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.9.14" id="PG_SolicitarRecursosPageDef"
+                Package="edu.javeriana.verificarasignarrecursos.pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <methodIterator Binds="getTaskDetails.result" DataControl="ADF_Estrategico_HT_SolicitarRecursos" RangeSize="25"
+                    BeanClass="ADF_Estrategico_HT_SolicitarRecursos.getTaskDetails" id="getTaskDetailsIterator"/>
+    <accessorIterator MasterBinding="getTaskDetailsIterator" Binds="task" RangeSize="25"
+                      DataControl="ADF_Estrategico_HT_SolicitarRecursos"
+                      BeanClass="ADF_Estrategico_HT_SolicitarRecursos.task" id="taskIterator"/>
+    <accessorIterator MasterBinding="taskIterator" Binds="payload" RangeSize="25"
+                      DataControl="ADF_Estrategico_HT_SolicitarRecursos"
+                      BeanClass="ADF_Estrategico_HT_SolicitarRecursos.HT_SolicitarRecursosPayloadType"
+                      id="payloadIterator"/>
+    <accessorIterator MasterBinding="payloadIterator" Binds="Solicitud" RangeSize="25"
+                      DataControl="ADF_Estrategico_HT_SolicitarRecursos"
+                      BeanClass="ADF_Estrategico_HT_SolicitarRecursos.SolicitudType" id="SolicitudIterator"/>
+    <accessorIterator MasterBinding="SolicitudIterator" Binds="prototipo" RangeSize="25"
+                      DataControl="ADF_Estrategico_HT_SolicitarRecursos"
+                      BeanClass="ADF_Estrategico_HT_SolicitarRecursos.PrototipoType" id="prototipoIterator"/>
+  </executables>
+  <bindings>
+    <methodAction id="getTaskDetails" RequiresUpdateModel="true" Action="invokeMethod" MethodName="getTaskDetails"
+                  IsViewObjectMethod="false" DataControl="ADF_Estrategico_HT_SolicitarRecursos"
+                  InstanceName="bindings.getTaskDetails.dataControl"
+                  ReturnName="data.ADF_Estrategico_HT_SolicitarRecursos.methodResults.getTaskDetails_getTaskDetails_dataControl_getTaskDetails_result">
+      <NamedData NDName="bpmWorklistContext" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskId" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskVersion" NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

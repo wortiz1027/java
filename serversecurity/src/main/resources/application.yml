@@ -1,0 +1,96 @@
+# +-----------------------------------------------------
+# |         APP INFO
+# +-----------------------------------------------------
+info:
+  app:
+    name: serversecurity
+    version: 0.0.1-SNAPSHOT
+
+# +-----------------------------------------------------
+# |         SERVER CONFIG
+# +-----------------------------------------------------
+
+server:
+  port: 8443
+  servlet:
+    context-path: /serversecurity
+    session:
+        cookie:
+          name: UISESSION
+  #ssl:
+    #key-store: classpath:ssl/server.p12
+    #key-store-password: server2018++
+    #key-store-type: PKCS12
+    #key-store-type: JKS
+    #key-store-provider: SUN
+    #key-password: server2018++
+    #key-alias: tomcat
+    #enabled: true
+
+# +-----------------------------------------------------
+# |         JPA AND DATABASE CONFIG
+# +-----------------------------------------------------
+
+spring:
+  application:
+    name: securityserver
+  profiles:
+    active:
+    - development
+    - productions
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    database: MYSQL
+    open-in-view: false
+    generate-ddl: false
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        cache:
+          use_second_level_cache: false
+          use_query_cache: false
+        generate_statistics: true
+        naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+  datasource:
+    url: jdbc:mysql://localhost:6603/security?verifyServerCertificate=false&useSSL=false&requireSSL=false
+    driver-class-name: com.mysql.jdbc.Driver
+    username: security
+    password: security
+    platform: MYSQL
+    hikari:
+      data-source-properties:
+          cachePrepStmts: true
+          useServerPrepStmts: true
+          prepStmtCacheSize: 250
+          prepStmtCacheSqlLimit: 2048
+          useLocalSessionState: true
+          useLocalTransactionState: true
+          rewriteBatchedStatements: true
+          cacheResultSetMetadata: true
+          cacheServerConfiguration: true
+          elideSetAutoCommits: true
+          maintainTimeStats: false
+      pool-name: mypoolconection
+      connection-timeout: 60000
+      maximum-pool-size: 5
+  jmx:
+    default-domain: startertest
+management:
+    endpoint:
+      health:
+        show-details: WHEN_AUTHORIZED
+
+# +-----------------------------------------------------
+# |         LOGGIN CONFIG
+# +-----------------------------------------------------
+logging:
+  level:
+    org.springframework.web: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.data: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file: c:\tmp\microservice.log

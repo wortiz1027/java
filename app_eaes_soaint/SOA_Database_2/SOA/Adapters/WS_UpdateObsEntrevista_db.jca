@@ -1,0 +1,12 @@
+<adapter-config name="WS_UpdateObsEntrevista" adapter="db" wsdlLocation="../WSDLs/WS_UpdateObsEntrevista.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  
+  <connection-factory UIConnectionName="conn_javeriana" location="eis/DB/Javeriana"/>
+  <endpoint-interaction portType="WS_UpdateObsEntrevista_ptt" operation="WS_UpdateObsEntrevista">
+    <interaction-spec className="oracle.tip.adapter.db.DBStoredProcedureInteractionSpec">
+      <property name="SchemaName" value="JAVERIANA"/>
+      <property name="ProcedureName" value="UPD_OBS_ENTREVISTA"/>
+      <property name="GetActiveUnitOfWork" value="false"/>
+    </interaction-spec>
+  </endpoint-interaction>
+
+</adapter-config>

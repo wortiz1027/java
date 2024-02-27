@@ -1,0 +1,6 @@
+# +-----------------------------------------------------
+# |         SPRING DATASOURCE CONFIG
+# +-----------------------------------------------------
+spring:
+  datasource:
+    url: jdbc:tc:mysql:5.7.31:///dbcomunication?TC_INITSCRIPT=database/mysql-communication-schema-v1.0.sql

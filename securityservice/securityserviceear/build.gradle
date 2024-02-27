@@ -1,0 +1,31 @@
+apply plugin: 'ear'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    deploy project(path:':securityserver', configuration:'archives')
+
+}
+
+ear {
+    appDirName 'src/main/app'  // use application metadata found in this folder
+    // put dependent libraries into APP-INF/lib inside the generated EAR
+    libDirName 'APP-INF/lib'
+    deploymentDescriptor {  // custom entries for application.xml:
+            // fileName = "application.xml"  // same as the default value
+            version = "6"  // same as the default value
+            applicationName = "securityear"
+            initializeInOrder = true
+            displayName = "Security Service"  // defaults to project.name
+            // defaults to project.description if not set
+            description = "Ear con la implementacion de spring security oauth2"
+            libraryDirectory = "APP-INF/lib"  // not needed, above libDirName setting does this
+            module("securitymodel-1.0-SNAPSHOT.jar", "java")  // won't deploy as my.jar isn't deploy dependency
+            webModule("securityserver-1.0-SNAPSHOT.war", "/securityserver")  // won't deploy as my.war isn't deploy dependency
+            //securityRole "admin"
+            //securityRole "superadmin"
+    }
+}

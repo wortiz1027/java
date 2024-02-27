@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>co.com.adf.configuraciones</groupId>
+  <artifactId>adf_configuracion1</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <description>Project for adf_configuracion1</description>
+  
+  <!-- 
+		Informacion de la organizacion 
+	-->
+    <organization>
+        <name>developer.io</name>
+        <url>http://willmanortiz.wordpress.com/</url>
+    </organization>
+    
+    <!-- 
+		Informacion de la licencia 
+	-->
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+            <comments>A business-friendly OSS license</comments>
+        </license>
+    </licenses>
+    
+    <!-- 
+		Informacion del equipo de desarrollo :p 
+	-->
+    <developers>
+        <developer>
+            <id>wortiz</id>
+            <name>Wilman Ortiz</name>
+            <url>http://willmanortiz.wordpress.com/</url>
+            <organization>Developer</organization>
+            <organizationUrl>http://willmanortiz.wordpress.com/</organizationUrl>
+            <roles>
+                <role>Arquitecto</role>
+                <role>Desarrollador</role>
+            </roles>
+            <timezone>America/Bogota</timezone>
+            <properties>
+                <picture>http://www.oorsprong.org/WebSamples.CountryInfo/Images/Colombia.jpg</picture>
+            </properties>
+        </developer>
+    </developers>
+    
+    <!-- 
+		Repositorios privados 
+	-->
+    <repositories>
+        <repository>
+            <id>maven-public</id>
+            <url>http://centos-cicd1:8081/repository/maven-public/</url>
+        </repository>
+    </repositories>
+    
+    <!-- 
+		Configuracion repositorios de distribucion de artefactos 
+	-->
+    <distributionManagement>
+        <snapshotRepository>
+            <id>devops-snapshots</id>
+            <url>http://centos-cicd1:8081/repository/devops-snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>devops-releases</id>
+            <url>http://centos-cicd1:8081/repository/devops-releases/</url>
+        </repository>
+    </distributionManagement>
+    
+    <properties>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <adf.libraries.version>12.1.3-0-0</adf.libraries.version>
+    </properties>
+    
+    <dependencies>
+        <dependency>
+            <groupId>com.oracle.adf.library</groupId>
+            <artifactId>ADF-Common-Runtime</artifactId>
+            <version>${adf.libraries.version}</version>
+            <scope>provided</scope>
+            <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>com.oracle.adf.library</groupId>
+            <artifactId>Oracle-XML-Parser-v2</artifactId>
+            <version>${adf.libraries.version}</version>
+            <scope>provided</scope>
+            <type>pom</type>
+        </dependency>
+    </dependencies>
+    
+    <build>
+        <sourceDirectory>src/</sourceDirectory>
+        <resources>
+            <resource>
+                <directory>${basedir}</directory>
+                <includes>
+                    <include>*</include>
+                </includes>
+            </resource>
+        </resources>
+        <outputDirectory>classes/</outputDirectory>
+    </build>
+</project>

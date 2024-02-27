@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:javeriana="http://xmlns.javeriana.edu.co/co/schemas/process/bpm/ConsultarCandidatos/v1.0"
+            targetNamespace="http://xmlns.javeriana.edu.co/co/schemas/process/bpm/ConsultarCandidatos/v1.0"
+            elementFormDefault="qualified">
+  
+  <xsd:complexType name="GenericoType">
+    <xsd:sequence>
+      <xsd:element name="numero" type="xsd:string" maxOccurs="1" minOccurs="0"/>
+	</xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="CandidatoType">
+    <xsd:sequence>
+      <xsd:element name="codigoCandidato" type="xsd:decimal" maxOccurs="1" minOccurs="0"/>
+	  <xsd:element name="primer_nombre" type="xsd:string" maxOccurs="1" minOccurs="0"/>
+	  <xsd:element name="segundo_nombre" type="xsd:string" maxOccurs="1" minOccurs="0"/>
+	  <xsd:element name="primer_apellido" type="xsd:string" maxOccurs="1" minOccurs="0"/>
+	  <xsd:element name="segundo_apellido" type="xsd:string" maxOccurs="1" minOccurs="0"/>
+	  <xsd:element name="tipo_identificacion" type="xsd:string" maxOccurs="1" minOccurs="0"/>
+	  <xsd:element name="numero_identificacion" type="xsd:string" maxOccurs="1" minOccurs="0"/>
+	  <xsd:element name="email" type="xsd:string" maxOccurs="1" minOccurs="0"/>
+	  <xsd:element name="telefono" type="xsd:string" maxOccurs="1" minOccurs="0"/>
+	  <xsd:element name="fecha_nacimiento" type="xsd:date" maxOccurs="1" minOccurs="0"/>
+	</xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="CandidatosType">
+    <xsd:sequence>
+      <xsd:element name="CandidatosType" type="javeriana:CandidatoType" maxOccurs="unbounded" minOccurs="0" nillable="true"/>
+	</xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:element name="Generico" type="javeriana:GenericoType"/>
+  <xsd:element name="Candidatos" type="javeriana:CandidatosType"/>
+</xsd:schema>

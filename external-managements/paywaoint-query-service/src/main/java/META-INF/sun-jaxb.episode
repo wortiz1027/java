@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<bindings xmlns="http://java.sun.com/xml/ns/jaxb" if-exists="true" version="2.1">
+      
+    <!--
+
+Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.0 
+Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
+Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
+Generado el: 2020.10.24 a las 08:30:10 AM COT 
+
+  -->
+      
+    <bindings xmlns:tns="http://services.creditverifier.com/" if-exists="true" scd="x-schema::tns">
+            
+        <schemaBindings map="false">
+                  
+            <package name="co.edu.javeriana.external.services.paywaoint.infraestructure.wsdl.model"/>
+                
+        </schemaBindings>
+            
+        <bindings if-exists="true" scd="tns:chargeCreditCardElement">
+                  
+            <class ref="co.edu.javeriana.external.services.paywaoint.infraestructure.wsdl.model.ChargeCreditCardElement"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:chargeCreditCardResponseElement">
+                  
+            <class ref="co.edu.javeriana.external.services.paywaoint.infraestructure.wsdl.model.ChargeCreditCardResponseElement"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="~tns:CreditCardValidationFaultMessage">
+                  
+            <class ref="co.edu.javeriana.external.services.paywaoint.infraestructure.wsdl.model.CreditCardValidationFaultMessage"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:verifyCreditCardElement">
+                  
+            <class ref="co.edu.javeriana.external.services.paywaoint.infraestructure.wsdl.model.VerifyCreditCardElement"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:verifyCreditCardResponseElement">
+                  
+            <class ref="co.edu.javeriana.external.services.paywaoint.infraestructure.wsdl.model.VerifyCreditCardResponseElement"/>
+                
+        </bindings>
+          
+    </bindings>
+      
+    <bindings xmlns:tns="http://services.creditverifier.com/types/" if-exists="true" scd="x-schema::tns">
+            
+        <schemaBindings map="false">
+                  
+            <package name="co.edu.javeriana.external.services.paywaoint.infraestructure.wsdl.model"/>
+                
+        </schemaBindings>
+            
+        <bindings if-exists="true" scd="~tns:CreditCard">
+                  
+            <class ref="co.edu.javeriana.external.services.paywaoint.infraestructure.wsdl.model.CreditCard"/>
+                
+        </bindings>
+          
+    </bindings>
+    
+</bindings>

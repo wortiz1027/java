@@ -1,0 +1,83 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Oracle JDeveloper BPEL Designer 
+  
+  Created: Thu Apr 02 23:25:52 COT 2020
+  Author:  brian
+  Type: BPEL 2.0 Process
+  Purpose: Synchronous BPEL Process
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<process name="bpel_consultacandidatos"
+               targetNamespace="http://xmlns.oracle.com/app_eaes_soaint/SOA_Database_2/bpel_consultacandidatos"
+               xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+               xmlns:client="http://xmlns.oracle.com/app_eaes_soaint/SOA_Database_2/bpel_consultacandidatos"
+               xmlns:ora="http://schemas.oracle.com/xpath/extension"
+               xmlns:ui="http://xmlns.oracle.com/soa/designer"
+               xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+         xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:ns1="http://xmlns.oracle.com/pcbpel/adapter/db/app_eaes_soaint/SOA_Database_2/WS_ConsultarCandidatos">
+
+    <import ui:processWSDL="true" namespace="http://xmlns.oracle.com/app_eaes_soaint/SOA_Database_2/bpel_consultacandidatos" location="../WSDLs/bpel_consultacandidatos.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <!-- 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        PARTNERLINKS                                                      
+        List of services participating in this BPEL process               
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    --> 
+  <partnerLinks>
+    <!-- 
+      The 'client' role represents the requester of this service. It is 
+      used for callback. The location and correlation information associated
+      with the client role are automatically set using WS-Addressing.
+    -->
+    <partnerLink name="bpel_consultacandidatos_client" partnerLinkType="client:bpel_consultacandidatos" myRole="bpel_consultacandidatosProvider"/>
+    <partnerLink name="WS_ConsultarCandidatos" partnerLinkType="ns1:WS_ConsultarCandidatos_plt"
+                 partnerRole="WS_ConsultarCandidatos_role"/>
+  </partnerLinks>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      VARIABLES                                                        
+      List of messages and XML documents used within this BPEL process 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <variables>
+    <!-- Reference to the message passed as input during initiation -->
+    <variable name="inputVariable" messageType="client:bpel_consultacandidatosRequestMessage"/>
+
+    <!-- Reference to the message that will be returned to the requester-->
+    <variable name="outputVariable" messageType="client:bpel_consultacandidatosResponseMessage"/>
+    <variable name="invk_consultarcandidatos_input" messageType="ns1:args_in_msg"/>
+    <variable name="invk_consultarcandidatos_output" messageType="ns1:args_out_msg"/>
+  </variables>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     ORCHESTRATION LOGIC                                               
+     Set of activities coordinating the flow of messages across the    
+     services integrated within this business process                  
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <sequence name="main">
+
+    <!-- Receive input from requestor. (Note: This maps to operation defined in bpel_consultacandidatos.wsdl) -->
+    <receive name="receiveInput" partnerLink="bpel_consultacandidatos_client" portType="client:bpel_consultacandidatos" operation="process" variable="inputVariable" createInstance="yes"/>
+    <invoke name="invk_consultarcandidatos" partnerLink="WS_ConsultarCandidatos"
+            portType="ns1:WS_ConsultarCandidatos_ptt" operation="WS_ConsultarCandidatos"
+            inputVariable="invk_consultarcandidatos_input" outputVariable="invk_consultarcandidatos_output"
+            bpelx:invokeAsDetail="no"/>
+    <assign name="T1_candidatos">
+      <bpelx:annotation>
+        <bpelx:pattern patternName="bpelx:transformation"></bpelx:pattern>
+      </bpelx:annotation>
+      <copy>
+        <from>ora:doXSLTransformForDoc("../Transformations/T1_candidatos.xsl", $invk_consultarcandidatos_output.OutputParameters)</from>
+        <to variable="outputVariable" part="payload"/>
+      </copy>
+    </assign>
+    <!-- Generate reply to synchronous request -->
+    <reply name="replyOutput" partnerLink="bpel_consultacandidatos_client" portType="client:bpel_consultacandidatos" operation="process" variable="outputVariable"/>
+  </sequence>
+</process>

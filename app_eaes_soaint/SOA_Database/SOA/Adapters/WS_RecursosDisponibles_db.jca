@@ -1,0 +1,13 @@
+<adapter-config name="WS_RecursosDisponibles" adapter="db" wsdlLocation="../WSDLs/WS_RecursosDisponibles.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  
+  <connection-factory UIConnectionName="conn_javeriana" location="eis/DB/Javeriana"/>
+  <endpoint-interaction portType="WS_RecursosDisponibles_ptt" operation="WS_RecursosDisponibles">
+    <interaction-spec className="oracle.tip.adapter.db.DBStoredProcedureInteractionSpec">
+      <property name="SchemaName" value="JAVERIANA"/>
+      <property name="PackageName" value="PAQUETE_CONSULTAS"/>
+      <property name="ProcedureName" value="CON_DISPONIBILIDAD_RECURSOS"/>
+      <property name="GetActiveUnitOfWork" value="false"/>
+    </interaction-spec>
+  </endpoint-interaction>
+
+</adapter-config>

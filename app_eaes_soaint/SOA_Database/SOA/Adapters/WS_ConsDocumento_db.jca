@@ -1,0 +1,13 @@
+<adapter-config name="WS_ConsDocumento" adapter="db" wsdlLocation="../WSDLs/WS_ConsDocumento.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  
+  <connection-factory UIConnectionName="conn_javeriana" location="eis/DB/Javeriana"/>
+  <endpoint-interaction portType="WS_ConsDocumento_ptt" operation="WS_ConsDocumento">
+    <interaction-spec className="oracle.tip.adapter.db.DBStoredProcedureInteractionSpec">
+      <property name="SchemaName" value="JAVERIANA"/>
+      <property name="PackageName" value="PAQUETE_CONSULTAS"/>
+      <property name="ProcedureName" value="CON_DOCUMENTO"/>
+      <property name="GetActiveUnitOfWork" value="false"/>
+    </interaction-spec>
+  </endpoint-interaction>
+
+</adapter-config>

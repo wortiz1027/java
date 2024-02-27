@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:javeriana="http://xmlns.javeriana.edu.co/co/schemas/process/bpm/WCC_Search/v1.0"
+            targetNamespace="http://xmlns.javeriana.edu.co/co/schemas/process/bpm/WCC_Search/v1.0"
+            elementFormDefault="qualified">
+  
+	<xsd:complexType name="AdvancedSearch">
+		<xsd:sequence>
+			<xsd:element name="queryText" type="xsd:string"         minOccurs="1" maxOccurs="1"/>
+			<xsd:element name="property"  type="javeriana:Property" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="Property">
+		<xsd:sequence>
+			<xsd:element name="name"  type="xsd:string" minOccurs="0"/>
+			<xsd:element name="value" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+  
+    <xsd:complexType name="ListaPropiedades">
+		<xsd:sequence>
+			<xsd:element name="propiedades" type="javeriana:Property"  minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+  
+	<xsd:complexType name="Search">
+		<xsd:sequence>
+			<xsd:element name="dID"               type="xsd:string" minOccurs="0"/>
+			<xsd:element name="revision"          type="xsd:string" minOccurs="0"/>
+			<xsd:element name="dDocName"          type="xsd:string" minOccurs="0"/>
+			<xsd:element name="titulo"            type="xsd:string" minOccurs="0"/>
+			<xsd:element name="tipo"              type="xsd:string" minOccurs="0"/>
+			<xsd:element name="autor"             type="xsd:string" minOccurs="0"/>
+			<xsd:element name="grupoSeguridad"    type="xsd:string" minOccurs="0"/>
+			<xsd:element name="cuenta"            type="xsd:string" minOccurs="0"/>
+			<xsd:element name="extension"         type="xsd:string" minOccurs="0"/>
+			<xsd:element name="extensionWeb"      type="xsd:string" minOccurs="0"/>
+			<xsd:element name="revision"          type="xsd:string" minOccurs="0"/>
+			<xsd:element name="fechaCreacion"     type="xsd:string" minOccurs="0"/>
+			<xsd:element name="formato"           type="xsd:string" minOccurs="0"/>
+			<xsd:element name="nombreOriginal"    type="xsd:string" minOccurs="0"/>
+			<xsd:element name="url"               type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+  
+	<xsd:complexType name="AdvancedSearchResult">
+		<xsd:sequence>
+			<xsd:element name="informacion"       type="javeriana:Search"           minOccurs="0" maxOccurs="1"/>
+			<xsd:element name="customDocMetaData" type="javeriana:ListaPropiedades" minOccurs="0" maxOccurs="1"/>
+		</xsd:sequence>
+	</xsd:complexType>
+  
+	<xsd:complexType name="SearchResponse">
+		<xsd:sequence>
+			<xsd:element name="searchResults" type="javeriana:AdvancedSearchResult" minOccurs="0" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+  
+  <xsd:element name="input"  type="javeriana:AdvancedSearch"/>
+  <xsd:element name="output" type="javeriana:SearchResponse"/>
+</xsd:schema>

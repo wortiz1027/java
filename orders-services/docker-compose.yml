@@ -1,0 +1,25 @@
+version: '3.7'
+services:
+  orders-service:
+    image: co.edu.javeriana.pica.services/orders-service:latest
+    container_name: orders-service
+    hostname: orders-service
+    restart: always
+    networks:
+      - ntw_cloud
+      - ntw_backend
+    volumes:
+      - ./config-data:/var/config-data
+    environment:
+      - JAVA_OPTS=
+        -DCONFIG_SERVER=http://config-server:9090
+        -DEUREKA_SERVER=http://discovery-server:9091/eureka
+        -Dspring.cloud.config.server.native.searchLocations=/var/config-data
+    ports:
+      - 8001
+
+networks:
+  ntw_cloud:
+    external: true
+  ntw_backend:
+    external: true

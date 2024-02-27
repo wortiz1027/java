@@ -1,0 +1,75 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:dcn="http://co.dancarlton.com/reservas"
+           targetNamespace="http://co.dancarlton.com/reservas"
+           elementFormDefault="qualified">
+
+    <xs:complexType name="tipoHabitacion">
+        <xs:sequence>
+            <xs:element name="id_tipo" type="xs:string"/>
+            <xs:element name="descripcion" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Reserva">
+        <xs:sequence>
+            <xs:element name="idReserva"       type="xs:string"/>
+            <xs:element name="codigoReserva"   type="xs:string"/>
+            <xs:element name="fechaInicio"     type="xs:string"/>
+            <xs:element name="fechaFin"        type="xs:string"/>
+            <xs:element name="nombreHuesped"   type="xs:string"/>
+            <xs:element name="tienePasaporte"  type="xs:string"/>
+            <xs:element name="numeroPasaporte" type="xs:string"/>
+            <xs:element name="numeroDocumento" type="xs:string"/>
+            <xs:element name="observaciones"   type="xs:string"/>
+            <xs:element name="tipoHabitacion"  type="dcn:tipoHabitacion"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ReservasList">
+        <xs:sequence>
+            <xs:element name="reservas" type="dcn:Reserva" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Header">
+        <xs:sequence>
+            <xs:element name="code" type="xs:string"/>
+            <xs:element name="description" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="GetReservasRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="key" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetReservasResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="header" type="dcn:Header"/>
+                <xs:element name="information" type="dcn:ReservasList"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetReservasByCodigoRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="key" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetReservasByCodigoResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="header" type="dcn:Header"/>
+                <xs:element name="detail" type="dcn:Reserva"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

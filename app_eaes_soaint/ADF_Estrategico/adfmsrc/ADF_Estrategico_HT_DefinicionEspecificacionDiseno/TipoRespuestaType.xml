@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="12.2.1.9.14" id="TipoRespuestaType"
+          Package="ADF_Estrategico_HT_DefinicionEspecificacionDiseno"
+          BeanClass="ADF_Estrategico_HT_DefinicionEspecificacionDiseno.TipoRespuestaType" isJavaBased="false">
+  <Attribute Name="codigo" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace" Value="http://xmlns.javeriana.edu/edu/schemas/util/comunes/v1.0"/>
+        <Property Name="nextSibling" Value="descripcion"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Codigo"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="codigo"/>
+        <Property Name="targetNamespace" Value="http://xmlns.javeriana.edu/edu/schemas/util/comunes/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="descripcion" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Descripcion"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="descripcion"/>
+        <Property Name="targetNamespace" Value="http://xmlns.javeriana.edu/edu/schemas/util/comunes/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+</JavaBean>

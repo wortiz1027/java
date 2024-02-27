@@ -1,0 +1,41 @@
+server:
+  port: 9090
+
+spring:
+  application:
+    name: server-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitlab.com/bcamilo/configuration.git
+          timeout: 5
+  profiles:
+    active: dev
+#management:
+#  endpoint:
+#    health:
+#      show-details: always
+
+# +-----------------------------------------------------
+# |         MONITORING CONFIG
+# +-----------------------------------------------------
+management:
+  endpoints:
+    web:
+      base-path: /monitor/actuator
+      exposure:
+        include: "*"
+  server:
+    port: 6190
+
+# +-----------------------------------------------------
+# |         SPRING LOGGIN CONFIG
+# +-----------------------------------------------------
+logging:
+  level:
+    com.netflix.discovery: OFF
+    org.springframework.cloud: DEBUG
+  pattern:
+    console: "%d{yyyy-MMM-dd HH:mm:ss a} [%t] %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"

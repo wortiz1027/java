@@ -1,0 +1,91 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Oracle JDeveloper BPEL Designer 
+  
+  Created: Wed Apr 08 17:10:12 COT 2020
+  Author:  javeriana
+  Type: BPEL 2.0 Process
+  Purpose: Synchronous BPEL Process
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<process name="bpel_conscurriculumcandidatos"
+               targetNamespace="http://xmlns.oracle.com/app_eaes_soaint/SOA_Database_2/bpel_conscurriculumcandidatos"
+               xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+               xmlns:client="http://xmlns.oracle.com/app_eaes_soaint/SOA_Database_2/bpel_conscurriculumcandidatos"
+               xmlns:ora="http://schemas.oracle.com/xpath/extension"
+               xmlns:ui="http://xmlns.oracle.com/soa/designer"
+               xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+         xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:ns1="http://xmlns.oracle.com/pcbpel/adapter/db/app_eaes_soaint/SOA_Database_2/WS_ConsCurriculumCandidato"
+         xmlns:ns3="http://xmlns.oracle.com/pcbpel/adapter/db/sp/WS_ConsCurriculumCandidato"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:ns2="http://xmlns.javeriana.edu.co/co/schemas/process/bpm/ConsultarCurriculumCandidatos/v1.0">
+
+    <import ui:processWSDL="true" namespace="http://xmlns.oracle.com/app_eaes_soaint/SOA_Database_2/bpel_conscurriculumcandidatos" location="../WSDLs/bpel_conscurriculumcandidatos.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <!-- 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        PARTNERLINKS                                                      
+        List of services participating in this BPEL process               
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    --> 
+  <partnerLinks>
+    <!-- 
+      The 'client' role represents the requester of this service. It is 
+      used for callback. The location and correlation information associated
+      with the client role are automatically set using WS-Addressing.
+    -->
+    <partnerLink name="bpel_conscurriculumcandidatos_client" partnerLinkType="client:bpel_conscurriculumcandidatos" myRole="bpel_conscurriculumcandidatosProvider"/>
+    <partnerLink name="WS_ConsCurriculumCandidato" partnerLinkType="ns1:WS_ConsCurriculumCandidato_plt"
+                 partnerRole="WS_ConsCurriculumCandidato_role"/>
+  </partnerLinks>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      VARIABLES                                                        
+      List of messages and XML documents used within this BPEL process 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <variables>
+    <!-- Reference to the message passed as input during initiation -->
+    <variable name="inputVariable" messageType="client:bpel_conscurriculumcandidatosRequestMessage"/>
+
+    <!-- Reference to the message that will be returned to the requester-->
+    <variable name="outputVariable" messageType="client:bpel_conscurriculumcandidatosResponseMessage"/>
+    <variable name="invk_input" messageType="ns1:args_in_msg"/>
+    <variable name="invk_output" messageType="ns1:args_out_msg"/>
+  </variables>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     ORCHESTRATION LOGIC                                               
+     Set of activities coordinating the flow of messages across the    
+     services integrated within this business process                  
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <sequence name="main">
+
+    <!-- Receive input from requestor. (Note: This maps to operation defined in bpel_conscurriculumcandidatos.wsdl) -->
+    <receive name="receiveInput" partnerLink="bpel_conscurriculumcandidatos_client" portType="client:bpel_conscurriculumcandidatos" operation="process" variable="inputVariable" createInstance="yes"/>
+    <assign name="Asignar_request">
+      <copy>
+        <from>$inputVariable.payload/ns2:codigoVacante</from>
+        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$invk_input.InputParameters/ns3:V_ID_VACANTE</to>
+      </copy>
+    </assign>
+    <invoke name="invk_consultarcurriculumcandidatos" bpelx:invokeAsDetail="no"
+            partnerLink="WS_ConsCurriculumCandidato" portType="ns1:WS_ConsCurriculumCandidato_ptt"
+            operation="WS_ConsCurriculumCandidato" inputVariable="invk_input" outputVariable="invk_output"/>
+    <assign name="T4_consultar_curriculum_response">
+      <bpelx:annotation>
+        <bpelx:pattern patternName="bpelx:transformation"></bpelx:pattern>
+      </bpelx:annotation>
+      <copy>
+        <from>ora:doXSLTransformForDoc("../Transformations/T4_consultar_curriculum_response.xsl", $invk_output.OutputParameters)</from>
+        <to variable="outputVariable" part="payload"/>
+      </copy>
+    </assign>
+    <!-- Generate reply to synchronous request -->
+    <reply name="replyOutput" partnerLink="bpel_conscurriculumcandidatos_client" portType="client:bpel_conscurriculumcandidatos" operation="process" variable="outputVariable"/>
+  </sequence>
+</process>

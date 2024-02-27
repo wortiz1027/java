@@ -1,0 +1,11 @@
+<adapter-config name="WS_InsertarEntrevista" adapter="db" wsdlLocation="../WSDLs/WS_InsertarEntrevista.wsdl"
+                xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  <connection-factory UIConnectionName="conn_javeriana" location="eis/DB/Javeriana"/>
+  <endpoint-interaction portType="WS_InsertarEntrevista_ptt" operation="WS_InsertarEntrevista">
+    <interaction-spec className="oracle.tip.adapter.db.DBStoredProcedureInteractionSpec">
+      <property name="SchemaName" value="JAVERIANA"/>
+      <property name="ProcedureName" value="INS_ENTREVISTA"/>
+      <property name="GetActiveUnitOfWork" value="false"/>
+    </interaction-spec>
+  </endpoint-interaction>
+</adapter-config>

@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<schema targetNamespace="http://xmlns.oracle.com/bpel/workflow/task" xmlns:tns="http://xmlns.oracle.com/bpel/workflow/task" attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://xmlns.javeriana.edu/edu/schemas/process/reclutamiento/v1.0" xmlns:ns0="http://xmlns.javeriana.edu/edu/schemas/util/comunes/v1.0">
+   <import namespace="http://xmlns.javeriana.edu/edu/schemas/util/comunes/v1.0" schemaLocation="oramds:/apps/resources/BPM/SCHEMAs/Comun/Comun.xsd"/>
+   <import namespace="http://xmlns.javeriana.edu/edu/schemas/process/reclutamiento/v1.0" schemaLocation="oramds:/apps/resources/BPM/SCHEMAs/Misional/Misional.xsd"/>
+   <complexType name="HT_SolicitarRecursosPayloadType">
+      <sequence>
+         <element ref="ns0:DatosProcesoMisional"/>
+         <element ref="ns1:Solicitud"/>
+      </sequence>
+   </complexType>
+</schema>

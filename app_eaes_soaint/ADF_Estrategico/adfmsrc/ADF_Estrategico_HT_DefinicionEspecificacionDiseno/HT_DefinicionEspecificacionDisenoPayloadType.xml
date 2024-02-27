@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="12.2.1.9.14"
+          id="HT_DefinicionEspecificacionDisenoPayloadType" Package="ADF_Estrategico_HT_DefinicionEspecificacionDiseno"
+          BeanClass="ADF_Estrategico_HT_DefinicionEspecificacionDiseno.HT_DefinicionEspecificacionDisenoPayloadType"
+          isJavaBased="false">
+  <AccessorAttribute id="DatosProcesoMisional" IsCollection="true"
+                     BeanClass="ADF_Estrategico_HT_DefinicionEspecificacionDiseno.DatosProcesoMisionalType"
+                     CollectionBeanClass="ADF_Estrategico_HT_DefinicionEspecificacionDiseno.DatosProcesoMisionalType_DatosProcesoMisional_Operations">
+    <Properties>
+      <Property Name="nextSiblingNamespace" Value="http://xmlns.javeriana.edu/edu/schemas/process/reclutamiento/v1.0"/>
+      <Property Name="nextSibling" Value="Solicitud"/>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Datos Proceso Misional"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="DatosProcesoMisional"/>
+      <Property Name="targetNamespace" Value="http://xmlns.javeriana.edu/edu/schemas/util/comunes/v1.0"/>
+    </Properties>
+  </AccessorAttribute>
+  <AccessorAttribute id="Solicitud" IsCollection="true"
+                     BeanClass="ADF_Estrategico_HT_DefinicionEspecificacionDiseno.SolicitudType"
+                     CollectionBeanClass="ADF_Estrategico_HT_DefinicionEspecificacionDiseno.SolicitudType_Solicitud_Operations">
+    <Properties>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Solicitud"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="Solicitud"/>
+      <Property Name="targetNamespace" Value="http://xmlns.javeriana.edu/edu/schemas/process/reclutamiento/v1.0"/>
+    </Properties>
+  </AccessorAttribute>
+</JavaBean>

@@ -1,0 +1,31 @@
+# -------------------------------------------------------------------
+# - DOCKER COMPOSE FILE
+# - AUTOR: ian.beltran@segurosalfa.com.co
+# - FECHA: 05-Noviembre-2020
+# - DESCRIPCION: Docker compose file que permite la
+# -              creacion de 1 contendor para el servicio de 
+# -              las transacciones en estado approve y sin notificar a acsele 
+# -------------------------------------------------------------------
+
+version: '3.7'
+services:
+  notifications-service:
+    image: notificationsrecurring-service:latest
+    container_name: notificationsrecurring-service
+    hostname: notificationsrecurring-service
+    restart: always
+    ports:
+      - 8089:8089
+    networks:
+      - backend
+    environment:
+      - SERVICE_PORTS=8089
+      - SPRING_PROFILES_ACTIVE=stg
+      - AWS_REGION=us-east-1
+      - AWS_ACCESS_KEY_ID=<replace_your_access_key_id>
+      - AWS_SECRET_ACCESS_KEY=<replace_your_secret_access_key>
+volumes:
+  data_convenios:
+networks:
+  backend:
+    external: true

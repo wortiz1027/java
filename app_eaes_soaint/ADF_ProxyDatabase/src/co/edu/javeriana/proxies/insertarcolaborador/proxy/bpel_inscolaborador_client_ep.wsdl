@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<wsdl:definitions name="bpel_inscolaborador" targetNamespace="http://xmlns.oracle.com/app_eaes_soaint/SOA_Database/bpel_inscolaborador" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:client="http://xmlns.oracle.com/app_eaes_soaint/SOA_Database/bpel_inscolaborador" xmlns:ns1="http://xmlns.javeriana.edu.co/co/schemas/process/bpm/InsertarColaborador/v1.0" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:documentation>
+    <abstractWSDL>http://bpm-dv1:7003/soa-infra/services/default/SOA_Database!1.0.0/WSDLs/bpel_inscolaborador.wsdl</abstractWSDL>
+  </wsdl:documentation>
+  <plnk:partnerLinkType name="bpel_inscolaborador">
+    <plnk:role name="bpel_inscolaboradorProvider" portType="client:bpel_inscolaborador"/>
+  </plnk:partnerLinkType>
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="http://xmlns.javeriana.edu.co/co/schemas/process/bpm/InsertarColaborador/v1.0" schemaLocation="InsertarColaborador.xsd"/>
+    </schema>
+  </wsdl:types>
+  <wsdl:message name="bpel_inscolaboradorRequestMessage">
+    <wsdl:part name="payload" element="ns1:request"/>
+  </wsdl:message>
+  <wsdl:message name="bpel_inscolaboradorResponseMessage">
+    <wsdl:part name="payload" element="ns1:response"/>
+  </wsdl:message>
+  <wsdl:portType name="bpel_inscolaborador">
+    <wsdl:operation name="process">
+      <wsdl:input message="client:bpel_inscolaboradorRequestMessage"/>
+      <wsdl:output message="client:bpel_inscolaboradorResponseMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="bpel_inscolaboradorBinding" type="client:bpel_inscolaborador">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="process">
+      <soap:operation style="document" soapAction="process"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="bpel_inscolaborador_client_ep">
+    <wsdl:port name="bpel_inscolaborador_pt" binding="client:bpel_inscolaboradorBinding">
+      <soap:address location="http://bpm-dv1:7003/soa-infra/services/default/SOA_Database/bpel_inscolaborador_client_ep"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

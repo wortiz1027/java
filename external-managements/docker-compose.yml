@@ -1,0 +1,123 @@
+# -----------------------------------------------------------------------------
+# - DOCKERFILE
+# - AUTOR: Brian Suarez | Eduardo Franco | Jhon Celemin | Wilman Ortiz
+# - FECHA: 06-Octubre-2020
+# - DESCRIPCION: Docker-compose que permite la creacion del
+# -              contenedor con el servicio de comandos y queries de productos
+# ------------------------------------------------------------------------------
+
+version: '3.7'
+services:
+  aa-query-service:
+    image: wortiz1027/aa-query-service:latest
+    container_name: aa-query-service
+    hostname: aa-query-service
+    restart: always
+    ports:
+      - 8085:8085
+      - 6085:6085
+    networks:
+      - ntw_backend
+    environment:
+      - CONFIG_SERVER=http://10.39.1.85:9090
+      - EUREKA_SERVER=http://10.39.1.85:9091/eureka
+      - EUREKA_HOST=10.39.1.85
+      - AA_HOST=10.39.1.130
+      - AA_PORT=7070
+  avianca-query-services:
+    image: wortiz1027/avianca-query-services:latest
+    container_name: avianca-query-services
+    hostname: avianca-query-services
+    restart: always
+    ports:
+      - 8086:8086
+      - 6086:6086
+    environment:
+      - CONFIG_SERVER=http://10.39.1.85:9090
+      - EUREKA_SERVER=http://10.39.1.85:9091/eureka
+      - EUREKA_HOST=10.39.1.85  
+    networks:
+      - ntw_backend
+  bl-query-service:
+    image: wortiz1027/bl-query-service:latest
+    container_name: bl-query-service
+    hostname: bl-query-service
+    restart: always
+    ports:
+      - 8091:8091
+      - 6091:6091
+    networks:
+      - ntw_backend
+    environment:
+      - CONFIG_SERVER=http://10.39.1.85:9090
+      - EUREKA_SERVER=http://10.39.1.85:9091/eureka
+      - EUREKA_HOST=10.39.1.85
+      - BL_HOST=10.39.1.130
+      - BL_PORT=7071
+  cc-query-services:
+    image: wortiz1027/cc-query-services:latest
+    container_name: cc-query-services
+    hostname: cc-query-services
+    restart: always
+    ports:
+      - 8098:8098
+      - 6098:6098
+    networks:
+      - ntw_backend
+    environment:
+      - CONFIG_SERVER=http://10.39.1.85:9090
+      - EUREKA_SERVER=http://10.39.1.85:9091/eureka
+      - EUREKA_HOST=10.39.1.85
+      - CC_HOST=creditcard-services
+      - CC_PORT=7000      
+  dc-query-services:
+    image: wortiz1027/dc-query-services:latest
+    container_name: dc-query-services
+    hostname: dc-query-services
+    restart: always
+    ports:
+      - 8092:8092
+      - 6092:6092
+    networks:
+      - ntw_backend
+    environment:
+      - CONFIG_SERVER=http://10.39.1.85:9090
+      - EUREKA_SERVER=http://10.39.1.85:9091/eureka
+      - EUREKA_HOST=10.39.1.85
+      - DC_HOST=10.39.1.130
+      - DC_PORT=7072       
+  ht-query-services:
+    image: wortiz1027/ht-query-services:latest
+    container_name: ht-query-services
+    hostname: ht-query-services
+    restart: always
+    ports:
+      - 8096:8096
+      - 6096:6096
+    environment:
+      - CONFIG_SERVER=http://10.39.1.85:9090
+      - EUREKA_SERVER=http://10.39.1.85:9091/eureka
+      - EUREKA_HOST=10.39.1.85
+      - HT_HOST=10.39.1.59
+      - HT_PORT=80
+    networks:
+      - ntw_backend
+  paywoaint-query-service:
+    image: wortiz1027/paywoaint-query-service:latest
+    container_name: paywoaint-query-service
+    hostname: paywoaint-query-service
+    restart: always
+    ports:
+      - 8097:8097
+      - 6097:6097
+    networks:
+      - ntw_backend
+    environment:
+      - CONFIG_SERVER=http://10.39.1.85:9090
+      - EUREKA_SERVER=http://10.39.1.85:9091/eureka
+      - EUREKA_HOST=10.39.1.85
+      - PAYWOAINT_HOST=10.39.1.130
+      - PAYWOAINT_PORT=7075      
+networks:
+  ntw_backend:
+    external: true

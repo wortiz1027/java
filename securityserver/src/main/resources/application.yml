@@ -1,0 +1,95 @@
+# +-----------------------------------------------------
+# |         SERVER CONFIG
+# +-----------------------------------------------------
+server:
+  port: 8443
+  context-path: /securityserver
+  ssl:
+    enabled: true
+    key-alias: tomcat
+    key-store: "classpath:keystore.p12"
+    key-store-type: PKCS12
+    key-store-password: tomcatSecurity
+    key-password: tomcatSecurity
+
+# +-----------------------------------------------------
+# |         JPA AND DATABASE CONFIG
+# +-----------------------------------------------------
+spring:
+  application:
+    name: securityserver
+  profiles:
+    active: development
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    database: MYSQL
+    openInView: false
+    generate-ddl: false
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        cache:
+          use_second_level_cache: false
+          use_query_cache: false
+        generate_statistics: true
+        naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+  datasource:
+      url: jdbc:mysql://localhost:6603/security?verifyServerCertificate=false&useSSL=false&requireSSL=false
+      driver-class-name: com.mysql.jdbc.Driver
+      username: security
+      password: security
+      platform: mysql
+      hikari:
+        connection-timeout: 60000
+        maximum-pool-size: 5
+  mail:
+    host: smtp.gmail.com
+    username:
+    password:
+    properties:
+      mail:
+        smtp:
+          auth: true
+          ssl:
+            enable: true
+          socketFactory:
+            port: 465
+            class: javax.net.ssl.SSLSocketFactory
+            fallback: false
+
+# +-----------------------------------------------------
+# |         JAVAMELODY CONFIG
+# +-----------------------------------------------------
+#javamelody:
+  # Initialization parameters for JavaMelody
+  # See: https://github.com/javamelody/javamelody/wiki/UserGuide#6-optional-parameters
+  #init-parameters:
+    # log http requests
+    #log: true
+
+    # to exclude images, css, fonts and js urls from the monitoring:
+    #url-exclude-pattern: (/webjars/.*|/css/.*|/images/.*|/fonts/.*|/js/.*)
+
+    # to add basic auth:
+    #authorized-users: admin:pwd
+
+    # to change the default storage directory:
+    #storage-directory: /tmp/javamelody
+
+    # to change the default "/monitoring" path
+    #monitoring-path: /admin/performance
+
+# +-----------------------------------------------------
+# |         LOGGIN CONFIG
+# +-----------------------------------------------------
+logging:
+  level:
+    org.springframework.web: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.data: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file: /tmp/securityserver.log

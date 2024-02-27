@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<DataControlConfigs xmlns="http://xmlns.oracle.com/adfm/configuration" version="12.2.1.9.14" id="DataControls"
+                    Package="adf_estrategico">
+  <AdapterDataControl id="ADF_Estrategico_HT_ValidarProblemasCalidad"
+                      FactoryClass="oracle.adf.model.adapter.DataControlFactoryImpl"
+                      ImplDef="oracle.bpel.services.datacontrol.XSDDataControlDefinition" SupportsTransactions="true"
+                      SupportsSortCollection="false" SupportsResetState="false" SupportsRangesize="false"
+                      SupportsFindMode="false" SupportsUpdates="false"
+                      Definition="ADF_Estrategico_HT_ValidarProblemasCalidad"
+                      BeanClass="ADF_Estrategico_HT_ValidarProblemasCalidad"
+                      xmlns="http://xmlns.oracle.com/adfm/datacontrol">
+    <Source>
+      <XSDDataControl xmlns="http://xmlns.oracle.com/bpel/workflow/task"
+                      SchemaLocation="file:/C:/Proyectos/app_eaes_soaint/BPM_Estrategico/SOA/Schemas/HT_ValidarProblemasCalidadWorkflowTask.xsd"
+                      RootElement="task" rootelementnamespace="http://xmlns.oracle.com/bpel/workflow/task"
+                      taskLoc="../BPM_Estrategico/SOA/HumanTasks/HT_ValidarProblemasCalidad.task" InitiationTask="false"
+                      DocumentStoreConfiguration="false"/>
+    </Source>
+  </AdapterDataControl>
+  <AdapterDataControl id="ADF_Estrategico_HT_DefinicionEspecificacionDiseno"
+                      FactoryClass="oracle.adf.model.adapter.DataControlFactoryImpl"
+                      ImplDef="oracle.bpel.services.datacontrol.XSDDataControlDefinition" SupportsTransactions="true"
+                      SupportsSortCollection="false" SupportsResetState="false" SupportsRangesize="false"
+                      SupportsFindMode="false" SupportsUpdates="false"
+                      Definition="ADF_Estrategico_HT_DefinicionEspecificacionDiseno"
+                      BeanClass="ADF_Estrategico_HT_DefinicionEspecificacionDiseno"
+                      xmlns="http://xmlns.oracle.com/adfm/datacontrol">
+    <Source>
+      <XSDDataControl xmlns="http://xmlns.oracle.com/bpel/workflow/task"
+                      SchemaLocation="file:/C:/Proyectos/app_eaes_soaint/BPM_Estrategico/SOA/Schemas/HT_DefinicionEspecificacionDisenoWorkflowTask.xsd"
+                      RootElement="task" rootelementnamespace="http://xmlns.oracle.com/bpel/workflow/task"
+                      taskLoc="../BPM_Estrategico/SOA/HumanTasks/HT_DefinicionEspecificacionDiseno.task"
+                      InitiationTask="false" DocumentStoreConfiguration="false"/>
+    </Source>
+  </AdapterDataControl>
+  <AdapterDataControl id="ADF_Estrategico_HT_ConcluirRevisiones"
+                      FactoryClass="oracle.adf.model.adapter.DataControlFactoryImpl"
+                      ImplDef="oracle.bpel.services.datacontrol.XSDDataControlDefinition" SupportsTransactions="true"
+                      SupportsSortCollection="false" SupportsResetState="false" SupportsRangesize="false"
+                      SupportsFindMode="false" SupportsUpdates="false"
+                      Definition="ADF_Estrategico_HT_ConcluirRevisiones"
+                      BeanClass="ADF_Estrategico_HT_ConcluirRevisiones"
+                      xmlns="http://xmlns.oracle.com/adfm/datacontrol">
+    <Source>
+      <XSDDataControl xmlns="http://xmlns.oracle.com/bpel/workflow/task"
+                      SchemaLocation="file:/C:/Proyectos/app_eaes_soaint/BPM_Estrategico/SOA/Schemas/HT_ConcluirRevisionesWorkflowTask.xsd"
+                      RootElement="task" rootelementnamespace="http://xmlns.oracle.com/bpel/workflow/task"
+                      taskLoc="../BPM_Estrategico/SOA/HumanTasks/HT_ConcluirRevisiones.task" InitiationTask="false"
+                      DocumentStoreConfiguration="false"/>
+    </Source>
+  </AdapterDataControl>
+  <AdapterDataControl id="ADF_Estrategico_HT_SolicitarRecursos"
+                      FactoryClass="oracle.adf.model.adapter.DataControlFactoryImpl"
+                      ImplDef="oracle.bpel.services.datacontrol.XSDDataControlDefinition" SupportsTransactions="true"
+                      SupportsSortCollection="false" SupportsResetState="false" SupportsRangesize="false"
+                      SupportsFindMode="false" SupportsUpdates="false" Definition="ADF_Estrategico_HT_SolicitarRecursos"
+                      BeanClass="ADF_Estrategico_HT_SolicitarRecursos" xmlns="http://xmlns.oracle.com/adfm/datacontrol">
+    <Source>
+      <XSDDataControl xmlns="http://xmlns.oracle.com/bpel/workflow/task"
+                      SchemaLocation="file:/C:/Proyectos/app_eaes_soaint/BPM_Estrategico/SOA/Schemas/HT_SolicitarRecursosWorkflowTask.xsd"
+                      RootElement="task" rootelementnamespace="http://xmlns.oracle.com/bpel/workflow/task"
+                      taskLoc="../BPM_Estrategico/SOA/HumanTasks/HT_SolicitarRecursos.task" InitiationTask="false"
+                      DocumentStoreConfiguration="false"/>
+    </Source>
+  </AdapterDataControl>
+  <AdapterDataControl id="ADF_Estrategico_HT_EvaluarAsignarRecursoPrototipado"
+                      FactoryClass="oracle.adf.model.adapter.DataControlFactoryImpl"
+                      ImplDef="oracle.bpel.services.datacontrol.XSDDataControlDefinition" SupportsTransactions="true"
+                      SupportsSortCollection="false" SupportsResetState="false" SupportsRangesize="false"
+                      SupportsFindMode="false" SupportsUpdates="false"
+                      Definition="ADF_Estrategico_HT_EvaluarAsignarRecursoPrototipado"
+                      BeanClass="ADF_Estrategico_HT_EvaluarAsignarRecursoPrototipado"
+                      xmlns="http://xmlns.oracle.com/adfm/datacontrol">
+    <Source>
+      <XSDDataControl xmlns="http://xmlns.oracle.com/bpel/workflow/task"
+                      SchemaLocation="file:/C:/Proyectos/app_eaes_soaint/BPM_Estrategico/SOA/Schemas/HT_EvaluarAsignarRecursoPrototipadoWorkflowTask.xsd"
+                      RootElement="task" rootelementnamespace="http://xmlns.oracle.com/bpel/workflow/task"
+                      taskLoc="../BPM_Estrategico/SOA/HumanTasks/HT_EvaluarAsignarRecursoPrototipado.task"
+                      InitiationTask="false" DocumentStoreConfiguration="false"/>
+    </Source>
+  </AdapterDataControl>
+  <AdapterDataControl id="ADF_Estrategico_HT_ConstruirPrototiposPruebasConceptos"
+                      FactoryClass="oracle.adf.model.adapter.DataControlFactoryImpl"
+                      ImplDef="oracle.bpel.services.datacontrol.XSDDataControlDefinition" SupportsTransactions="true"
+                      SupportsSortCollection="false" SupportsResetState="false" SupportsRangesize="false"
+                      SupportsFindMode="false" SupportsUpdates="false"
+                      Definition="ADF_Estrategico_HT_ConstruirPrototiposPruebasConceptos"
+                      BeanClass="ADF_Estrategico_HT_ConstruirPrototiposPruebasConceptos"
+                      xmlns="http://xmlns.oracle.com/adfm/datacontrol">
+    <Source>
+      <XSDDataControl xmlns="http://xmlns.oracle.com/bpel/workflow/task"
+                      SchemaLocation="file:/C:/Proyectos/app_eaes_soaint/BPM_Estrategico/SOA/Schemas/HT_ConstruirPrototiposPruebasConceptosWorkflowTask.xsd"
+                      RootElement="task" rootelementnamespace="http://xmlns.oracle.com/bpel/workflow/task"
+                      taskLoc="../BPM_Estrategico/SOA/HumanTasks/HT_ConstruirPrototiposPruebasConceptos.task"
+                      InitiationTask="false" DocumentStoreConfiguration="false"/>
+    </Source>
+  </AdapterDataControl>
+  <AdapterDataControl id="ADF_Estrategico_HT_DisenarProductos"
+                      FactoryClass="oracle.adf.model.adapter.DataControlFactoryImpl"
+                      ImplDef="oracle.bpel.services.datacontrol.XSDDataControlDefinition" SupportsTransactions="true"
+                      SupportsSortCollection="false" SupportsResetState="false" SupportsRangesize="false"
+                      SupportsFindMode="false" SupportsUpdates="false" Definition="ADF_Estrategico_HT_DisenarProductos"
+                      BeanClass="ADF_Estrategico_HT_DisenarProductos" xmlns="http://xmlns.oracle.com/adfm/datacontrol">
+    <Source>
+      <XSDDataControl xmlns="http://xmlns.oracle.com/bpel/workflow/task"
+                      SchemaLocation="file:/C:/Proyectos/app_eaes_soaint/BPM_Estrategico/SOA/Schemas/HT_DisenarProductosWorkflowTask.xsd"
+                      RootElement="task" rootelementnamespace="http://xmlns.oracle.com/bpel/workflow/task"
+                      taskLoc="../BPM_Estrategico/SOA/HumanTasks/HT_DisenarProductos.task" InitiationTask="false"
+                      DocumentStoreConfiguration="false"/>
+    </Source>
+  </AdapterDataControl>
+  <AdapterDataControl id="ADF_Estrategico_HT_RealizarPruebasInternasProducto"
+                      FactoryClass="oracle.adf.model.adapter.DataControlFactoryImpl"
+                      ImplDef="oracle.bpel.services.datacontrol.XSDDataControlDefinition" SupportsTransactions="true"
+                      SupportsSortCollection="false" SupportsResetState="false" SupportsRangesize="false"
+                      SupportsFindMode="false" SupportsUpdates="false"
+                      Definition="ADF_Estrategico_HT_RealizarPruebasInternasProducto"
+                      BeanClass="ADF_Estrategico_HT_RealizarPruebasInternasProducto"
+                      xmlns="http://xmlns.oracle.com/adfm/datacontrol">
+    <Source>
+      <XSDDataControl xmlns="http://xmlns.oracle.com/bpel/workflow/task"
+                      SchemaLocation="file:/C:/Proyectos/app_eaes_soaint/BPM_Estrategico/SOA/Schemas/HT_RealizarPruebasInternasProductoWorkflowTask.xsd"
+                      RootElement="task" rootelementnamespace="http://xmlns.oracle.com/bpel/workflow/task"
+                      taskLoc="../BPM_Estrategico/SOA/HumanTasks/HT_RealizarPruebasInternasProducto.task"
+                      InitiationTask="false" DocumentStoreConfiguration="false"/>
+    </Source>
+  </AdapterDataControl>
+</DataControlConfigs>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.9.14"
+                id="HT_DefinicionEspecificacionDiseno_HT_DefinicionEspecificacionDiseno_inicializarManageBeanPageDef"
+                Package="edu.javeriana.desarrollarespecificaciondiseno.taskflows" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <methodIterator Binds="getTaskDetails.result" DataControl="ADF_Estrategico_HT_DefinicionEspecificacionDiseno"
+                    RangeSize="25" BeanClass="ADF_Estrategico_HT_DefinicionEspecificacionDiseno.getTaskDetails"
+                    id="getTaskDetailsIterator"/>
+    <accessorIterator MasterBinding="getTaskDetailsIterator" Binds="task" RangeSize="25"
+                      DataControl="ADF_Estrategico_HT_DefinicionEspecificacionDiseno"
+                      BeanClass="ADF_Estrategico_HT_DefinicionEspecificacionDiseno.task" id="taskIterator"/>
+    <accessorIterator MasterBinding="taskIterator" Binds="payload" RangeSize="25"
+                      DataControl="ADF_Estrategico_HT_DefinicionEspecificacionDiseno"
+                      BeanClass="ADF_Estrategico_HT_DefinicionEspecificacionDiseno.HT_DefinicionEspecificacionDisenoPayloadType"
+                      id="payloadIterator"/>
+    <accessorIterator MasterBinding="payloadIterator" Binds="Solicitud" RangeSize="25"
+                      DataControl="ADF_Estrategico_HT_DefinicionEspecificacionDiseno"
+                      BeanClass="ADF_Estrategico_HT_DefinicionEspecificacionDiseno.SolicitudType"
+                      id="SolicitudIterator"/>
+    <accessorIterator MasterBinding="SolicitudIterator" Binds="prototipo" RangeSize="10"
+                      DataControl="ADF_Estrategico_HT_DefinicionEspecificacionDiseno"
+                      BeanClass="ADF_Estrategico_HT_DefinicionEspecificacionDiseno.PrototipoType"
+                      id="prototipoIterator"/>
+  </executables>
+  <bindings>
+    <methodAction id="getTaskDetails" RequiresUpdateModel="true" Action="invokeMethod" MethodName="getTaskDetails"
+                  IsViewObjectMethod="false" DataControl="ADF_Estrategico_HT_DefinicionEspecificacionDiseno"
+                  InstanceName="bindings.getTaskDetails.dataControl"
+                  ReturnName="data.ADF_Estrategico_HT_DefinicionEspecificacionDiseno.methodResults.getTaskDetails_getTaskDetails_dataControl_getTaskDetails_result">
+      <NamedData NDName="bpmWorklistContext" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskId" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskVersion" NDType="java.lang.String"/>
+    </methodAction>
+    <attributeValues IterBinding="prototipoIterator" id="codigo">
+      <AttrNames>
+        <Item Value="codigo"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

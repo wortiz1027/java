@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--########################################################################################-->
+<!--####                                                                                ####-->
+<!--####          THIS IS AN AUTO GENERATED FILE. PLEASE DO NOT MANUALLY MODIFY         ####-->
+<!--#### CHANGES TO THIS FILE MAY PRODUCE UNEXPECTED BEHAVIOR AND WOULD BE OVERWRITTEN  ####-->
+<!--####                                                                                ####-->
+<!--########################################################################################-->
+<wsdl:definitions targetNamespace="http://xmlns.oracle.com/bpmn/bpmnProcess/BPM_Estrategico" xmlns:tns2="http://xmlns.javeriana.com/bpmn/bpmnProcess/verificarAsignarRecursos"  xmlns:tns="http://xmlns.oracle.com/bpmn/bpmnProcess/BPM_Estrategico"  xmlns:tns5="http://xmlns.javeriana.com/bpmn/bpmnProcess/disenoPrototipoProductosServicios"  xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop"  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"  xmlns:xsd="http://www.w3.org/2001/XMLSchema"  xmlns:tns3="http://xmlns.javeriana.com/bpmn/bpmnProcess/desarrollarEspecificacionesDiseno"  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"  xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"  xmlns:tns4="http://xmlns.javeriana.com/bpmn/bpmnProcess/construirProbarPrototipo" >
+    <vprop:property name="corrMisional" type="xsd:string"/>
+    <vprop:propertyAlias messageType="tns2:inicioVerificarAsignarRecursos" propertyName="tns:corrMisional" part="parameters">
+        <vprop:query xmlns:ns="http://xmlns.javeriana.com/bpmn/bpmnProcess/verificarAsignarRecursos" xmlns:ns1="http://xmlns.javeriana.edu/edu/schemas/process/reclutamiento/v1.0">
+            /ns:inicioVerificarAsignarRecursos/ns1:Solicitud/ns1:idSolicitud
+        </vprop:query>
+    </vprop:propertyAlias>
+    <vprop:propertyAlias messageType="tns3:inicioDesarrollarEspecificacionesDiseno" propertyName="tns:corrMisional" part="parameters">
+        <vprop:query xmlns:ns="http://xmlns.javeriana.com/bpmn/bpmnProcess/desarrollarEspecificacionesDiseno" xmlns:ns1="http://xmlns.javeriana.edu/edu/schemas/process/reclutamiento/v1.0">
+            /ns:inicioDesarrollarEspecificacionesDiseno/ns1:Solicitud/ns1:idSolicitud
+        </vprop:query>
+    </vprop:propertyAlias>
+    <vprop:propertyAlias messageType="tns4:inicioConstruirProbarPrototipo" propertyName="tns:corrMisional" part="parameters">
+        <vprop:query xmlns:ns="http://xmlns.javeriana.com/bpmn/bpmnProcess/construirProbarPrototipo" xmlns:ns1="http://xmlns.javeriana.edu/edu/schemas/process/reclutamiento/v1.0">
+            /ns:inicioConstruirProbarPrototipo/ns1:Solicitud/ns1:idSolicitud
+        </vprop:query>
+    </vprop:propertyAlias>
+    <vprop:propertyAlias messageType="tns5:inicioDisenoPrototipoProductosServicios" propertyName="tns:corrMisional" part="parameters">
+        <vprop:query xmlns:ns="http://xmlns.javeriana.com/bpmn/bpmnProcess/disenoPrototipoProductosServicios" xmlns:ns1="http://xmlns.javeriana.edu/edu/schemas/process/reclutamiento/v1.0">
+            /ns:inicioDisenoPrototipoProductosServicios/ns1:Solicitud/ns1:idSolicitud
+        </vprop:query>
+    </vprop:propertyAlias>
+</wsdl:definitions>

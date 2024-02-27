@@ -1,0 +1,107 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Oracle JDeveloper BPEL Designer 
+  
+  Created: Fri Apr 03 00:51:06 COT 2020
+  Author:  brian
+  Type: BPEL 2.0 Process
+  Purpose: Synchronous BPEL Process
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<process name="bpel_insertarentrevista"
+               targetNamespace="http://xmlns.oracle.com/app_eaes_soaint/SOA_Database_2/bpel_insertarentrevista"
+               xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+               xmlns:client="http://xmlns.oracle.com/app_eaes_soaint/SOA_Database_2/bpel_insertarentrevista"
+               xmlns:ora="http://schemas.oracle.com/xpath/extension"
+               xmlns:ui="http://xmlns.oracle.com/soa/designer"
+               xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+         xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:ns1="http://xmlns.oracle.com/pcbpel/adapter/db/app_eaes_soaint/SOA_Database_2/WS_InsertarEntrevista"
+         xmlns:ns2="http://xmlns.javeriana.edu.co/co/schemas/process/bpm/InsertarEntrevista/v1.0">
+
+    <import ui:processWSDL="true" namespace="http://xmlns.oracle.com/app_eaes_soaint/SOA_Database_2/bpel_insertarentrevista" location="../WSDLs/bpel_insertarentrevista.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <!-- 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        PARTNERLINKS                                                      
+        List of services participating in this BPEL process               
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    --> 
+  <partnerLinks>
+    <!-- 
+      The 'client' role represents the requester of this service. It is 
+      used for callback. The location and correlation information associated
+      with the client role are automatically set using WS-Addressing.
+    -->
+    <partnerLink name="bpel_insertarentrevista_client" partnerLinkType="client:bpel_insertarentrevista" myRole="bpel_insertarentrevistaProvider"/>
+    <partnerLink name="WS_InsertarEntrevista" partnerLinkType="ns1:WS_InsertarEntrevista_plt"
+                 partnerRole="WS_InsertarEntrevista_role"/>
+  </partnerLinks>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      VARIABLES                                                        
+      List of messages and XML documents used within this BPEL process 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <variables>
+    <!-- Reference to the message passed as input during initiation -->
+    <variable name="inputVariable" messageType="client:bpel_insertarentrevistaRequestMessage"/>
+
+    <!-- Reference to the message that will be returned to the requester-->
+    <variable name="outputVariable" messageType="client:bpel_insertarentrevistaResponseMessage"/>
+    <variable name="ink_insertarentrevista_input" messageType="ns1:args_in_msg"/>
+  </variables>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     ORCHESTRATION LOGIC                                               
+     Set of activities coordinating the flow of messages across the    
+     services integrated within this business process                  
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <sequence name="main">
+
+    <!-- Receive input from requestor. (Note: This maps to operation defined in bpel_insertarentrevista.wsdl) -->
+    <receive name="receiveInput" partnerLink="bpel_insertarentrevista_client" portType="client:bpel_insertarentrevista" operation="process" variable="inputVariable" createInstance="yes"/>
+    <assign name="Asignar_request">
+      <copy>
+        <from>$inputVariable.payload/ns2:codigoCurriculum</from>
+        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$inputVariable.payload/ns2:codigoCurriculum</to>
+      </copy>
+      <copy>
+        <from>$inputVariable.payload/ns2:codigoColaborador</from>
+        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$inputVariable.payload/ns2:codigoColaborador</to>
+      </copy>
+      <copy>
+        <from>$inputVariable.payload/ns2:codigoVacante</from>
+        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$inputVariable.payload/ns2:codigoVacante</to>
+      </copy>
+      <copy>
+        <from>$inputVariable.payload/ns2:fechaRealizacion</from>
+        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$inputVariable.payload/ns2:fechaRealizacion</to>
+      </copy>
+      <copy>
+        <from>$inputVariable.payload/ns2:resultado</from>
+        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$inputVariable.payload/ns2:resultado</to>
+      </copy>
+      <copy>
+        <from>$inputVariable.payload/ns2:fechaEmisionResultado</from>
+        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$inputVariable.payload/ns2:fechaEmisionResultado</to>
+      </copy>
+      <copy>
+        <from>$inputVariable.payload/ns2:observaciones</from>
+        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$inputVariable.payload/ns2:observaciones</to>
+      </copy>
+      <copy>
+        <from>$inputVariable.payload/ns2:evaluarSeleccion</from>
+        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$inputVariable.payload/ns2:evaluarSeleccion</to>
+      </copy>
+    </assign>
+    <invoke name="ink_insertarentrevista" partnerLink="WS_InsertarEntrevista"
+            portType="ns1:WS_InsertarEntrevista_ptt" operation="WS_InsertarEntrevista"
+            inputVariable="ink_insertarentrevista_input" bpelx:invokeAsDetail="no"/>
+    <!-- Generate reply to synchronous request -->
+    <reply name="replyOutput" partnerLink="bpel_insertarentrevista_client" portType="client:bpel_insertarentrevista" operation="process" variable="outputVariable"/>
+  </sequence>
+</process>

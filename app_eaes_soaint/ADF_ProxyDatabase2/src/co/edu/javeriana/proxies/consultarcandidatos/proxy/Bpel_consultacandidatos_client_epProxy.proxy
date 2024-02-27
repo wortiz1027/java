@@ -1,0 +1,140 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<jdevws:WebServiceProxy xmlns:jdevws="http://xmlns.oracle.com/jdeveloper/10130/webserviceproxy">
+   <list n="CHILD_NODES">
+      <url path="BpelConsultacandidatosClientEp.xml"/>
+      <url path="bpel_consultacandidatos_client_ep.wsdl"/>
+      <url path="ConsultarCandidatos.xsd"/>
+      <url path="../types/ObjectFactory.java"/>
+      <url path="BpelConsultacandidatosClientEp.java"/>
+      <url path="../types/package-info.java"/>
+      <url path="../types/CandidatosType.java"/>
+      <url path="../types/GenericoType.java"/>
+      <url path="bpel_consultacandidatos_ptClient.java"/>
+      <url path="BpelConsultacandidatos.java"/>
+      <url path="../types/CandidatoType.java"/>
+   </list>
+   <hash n="DATA_MODEL">
+      <value n="ATTACHMENT_ENCODING" v="MIME"/>
+      <list n="LOCAL_FILES"/>
+      <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.WebServiceProxy"/>
+      <url n="ORACLE_WEBSERVICES_XML" path="BpelConsultacandidatosClientEp.xml"/>
+      <hash n="PROPERTY_GROUPS">
+         <hash n="HANDLER_CHAIN_GROUP">
+            <value n="HCG_FILE_PATH" v="Bpel_consultacandidatos_client_epProxy-HandlerChain.xml"/>
+            <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.java.HandlerChainGroup"/>
+         </hash>
+         <hash n="WSDL_TO_JAVA_PROPERTIES">
+            <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.java.WSDLToJavaProperties"/>
+            <value n="WSDL2JAVA_DEFAULT_PACKAGE" v="co.edu.javeriana.proxies.consultarcandidatos.proxy"/>
+            <value n="WSDL2JAVA_ROOT_VALUE_PACKAGE" v="co.edu.javeriana.proxies.consultarcandidatos.types"/>
+         </hash>
+      </hash>
+      <value n="PROXY_ASYNC_METHODS" v="FOR_ENABLED"/>
+      <list n="PROXY_CLIENTS">
+         <url path="bpel_consultacandidatos_ptClient.java"/>
+      </list>
+      <list n="PROXY_HANDLERS"/>
+      <value n="PROXY_MAPPING_URL"/>
+      <url n="PROXY_ORIGINAL_WSDL_URL" protocol="http" host="bpm-dv1" port="7003" path="/soa-infra/services/default/SOA_Database_2/bpel_consultacandidatos_client_ep" query="WSDL"/>
+      <hash n="PROXY_PORTS">
+         <hash n="bpel_consultacandidatos_pt">
+            <value n="ACCESSES_DOC_WRAPPPED" v="true"/>
+            <value n="ACCESSES_RPC_ENCODED" v="false"/>
+            <value n="CLASS_NAME" v="co.edu.javeriana.proxies.consultarcandidatos.proxy.BpelConsultacandidatos"/>
+            <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyPort"/>
+            <value n="NAME" v="bpel_consultacandidatos_pt"/>
+            <hash n="OPERATIONS">
+               <hash n="process">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+            </hash>
+            <hash n="PROPERTY_GROUPS">
+               <hash n="WS_POLICY">
+                  <value n="addressing"/>
+                  <hash n="GLOBAL_CONFIG_PROPERTIES"/>
+                  <list n="management"/>
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.policy.PolicyClientModel"/>
+                  <value n="mtom"/>
+                  <hash n="POLICY_OVERRIDE_PROPERTIES"/>
+                  <list n="security"/>
+                  <list n="wsconfig"/>
+                  <value n="wsrm"/>
+               </hash>
+            </hash>
+            <url n="PROXY_ORIGINAL_PORT_ENDPOINT" protocol="http" host="bpm-dv1" port="7003" path="/soa-infra/services/default/SOA_Database_2/bpel_consultacandidatos_client_ep"/>
+         </hash>
+      </hash>
+      <value n="PROXY_SERVICE_NAME" v="bpel_consultacandidatos_client_ep"/>
+      <value n="PROXY_SERVICE_NAMESPACE" v="http://xmlns.oracle.com/app_eaes_soaint/SOA_Database_2/bpel_consultacandidatos"/>
+      <url n="PROXY_TARGET_PROJECT" path="../../../../../../../ADF_ProxyDatabase2.jpr"/>
+      <list n="PROXY_WSDL_IMPORT_LIST">
+         <url path="ConsultarCandidatos.xsd"/>
+      </list>
+      <url n="PROXY_WSDL_URL" path="bpel_consultacandidatos_client_ep.wsdl"/>
+      <hash n="REFERENCED_WEBSERVICE">
+         <list n="BD_">
+            <hash>
+               <value n="BOUND_PORT_TYPE" v="{http://xmlns.oracle.com/app_eaes_soaint/SOA_Database_2/bpel_consultacandidatos}bpel_consultacandidatos"/>
+               <value n="DEFAULT_NAME" v="false"/>
+               <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPBinding"/>
+               <value n="NAME" v="{http://xmlns.oracle.com/app_eaes_soaint/SOA_Database_2/bpel_consultacandidatos}bpel_consultacandidatosBinding"/>
+               <list n="OP_BINDINGS">
+                  <hash>
+                     <value n="BOUND_OPERATION" v="co.edu.javeriana.proxies.consultarcandidatos.types.CandidatosType.process.co.edu.javeriana.proxies.consultarcandidatos.types.GenericoType"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+               </list>
+               <hash n="PROPERTY_GROUPS"/>
+            </hash>
+         </list>
+         <list n="BINDING_FILES"/>
+         <value n="GUID" v="46a674ec-0171-1000-8006-c0a80012d018"/>
+         <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.WebServiceProxy$ProxyJavaWebService"/>
+         <list n="PO_">
+            <hash>
+               <value n="DEFAULT_NAME" v="false"/>
+               <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPPort"/>
+               <value n="NAME" v="bpel_consultacandidatos_pt"/>
+               <value n="PORT_BINDING_NAME" v="{http://xmlns.oracle.com/app_eaes_soaint/SOA_Database_2/bpel_consultacandidatos}bpel_consultacandidatosBinding"/>
+               <list n="PORT_OPS">
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="co.edu.javeriana.proxies.consultarcandidatos.types.CandidatosType.process.co.edu.javeriana.proxies.consultarcandidatos.types.GenericoType"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+               </list>
+               <hash n="PROPERTY_GROUPS"/>
+               <url n="URL" protocol="http" host="bpm-dv1" port="7003" path="/soa-infra/services/default/SOA_Database_2/bpel_consultacandidatos_client_ep"/>
+            </hash>
+         </list>
+         <hash n="PROPERTY_GROUPS">
+            <hash n="WSDL_TO_JAVA_PROPERTIES">
+               <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.java.WSDLToJavaProperties"/>
+               <value n="WSDL2JAVA_DEFAULT_PACKAGE" v="co.edu.javeriana.proxies.consultarcandidatos.proxy"/>
+               <value n="WSDL2JAVA_ROOT_VALUE_PACKAGE" v="co.edu.javeriana.proxies.consultarcandidatos.types"/>
+            </hash>
+         </hash>
+         <list n="PT_">
+            <hash>
+               <value n="AUTO_SERVICE_INTERFACE"/>
+               <value n="DEFAULT_NAME" v="false"/>
+               <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.java.JavaPortType"/>
+               <value n="NAME" v="{http://xmlns.oracle.com/app_eaes_soaint/SOA_Database_2/bpel_consultacandidatos}bpel_consultacandidatos"/>
+               <hash n="PROPERTY_GROUPS"/>
+               <value n="PT_CLASS" v="co.edu.javeriana.proxies.consultarcandidatos.proxy.BpelConsultacandidatosImpl"/>
+               <value n="PT_SERVICE_INTERFACE" v="co.edu.javeriana.proxies.consultarcandidatos.proxy.BpelConsultacandidatos"/>
+               <value n="PT_TOP_DOWN_GENERATED_SEI_NAME" v="co.edu.javeriana.proxies.consultarcandidatos.proxy.BpelConsultacandidatos"/>
+            </hash>
+         </list>
+         <url n="TARGET_PROJECT" path="../../../../../../../ADF_ProxyDatabase2.jpr"/>
+         <value n="WS_ORIG_GEN_DIRECTION" v="TOP_DOWN"/>
+         <value n="WS_TARGET_NAMESPACE" v="http://xmlns.oracle.com/app_eaes_soaint/SOA_Database_2/bpel_consultacandidatos"/>
+         <value n="WS_URI" v="bpel_consultacandidatos_client_ep"/>
+         <url n="WS_WSDL_FILE" path="bpel_consultacandidatos_client_ep.wsdl"/>
+      </hash>
+      <value n="SERVICE_ASYNC" v="false"/>
+      <value n="USE_WSDL_LOCATION" v="true"/>
+   </hash>
+</jdevws:WebServiceProxy>

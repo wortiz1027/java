@@ -1,0 +1,29 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<hwTaskFlows xmlns="http://xmlns.oracle.com/bpel/workflow/hwTaskFlowProperties">
+  <ApplicationName>worklist</ApplicationName>
+  <LookupType>LOCAL</LookupType>
+  <TaskFlowDeploy>false</TaskFlowDeploy>
+  <TaskFlowServer>
+    <hostName>bpm-dv1</hostName>
+    <httpPort>7003</httpPort>
+    <httpsPort/>
+  </TaskFlowServer>
+  <hwTaskFlow>
+    <WorkflowName>HT_EvaluarCurriculum</WorkflowName>
+    <TaskDefinitionNamespace>http://xmlns.oracle.com/app_eaes_soaint/BPM_Soporte/HT_EvaluarCurriculum</TaskDefinitionNamespace>
+    <TaskFlowId>HT_EvaluarCurriculum</TaskFlowId>
+    <TaskFlowFileName>WEB-INF/edu/javeriana/filtradoseleccioncandidato/taskflows/HT_EvaluarCurriculum.xml</TaskFlowFileName>
+  </hwTaskFlow>
+  <hwTaskFlow>
+    <WorkflowName>HT_EntrevistarCandidatos</WorkflowName>
+    <TaskDefinitionNamespace>http://xmlns.oracle.com/app_eaes_soaint/BPM_Soporte/HT_EntrevistarCandidatos</TaskDefinitionNamespace>
+    <TaskFlowId>HT_EntrevistarCandidatos</TaskFlowId>
+    <TaskFlowFileName>WEB-INF/edu/javeriana/filtradoseleccioncandidato/taskflows/HT_EntrevistarCandidatos.xml</TaskFlowFileName>
+  </hwTaskFlow>
+  <hwTaskFlow>
+    <WorkflowName>HT_EvaluarSeleccionarCandidato</WorkflowName>
+    <TaskDefinitionNamespace>http://xmlns.oracle.com/app_eaes_soaint/BPM_Soporte/HT_EvaluarSeleccionarCandidato</TaskDefinitionNamespace>
+    <TaskFlowId>HT_EvaluarSeleccionarCandidato</TaskFlowId>
+    <TaskFlowFileName>WEB-INF/edu/javeriana/filtradoseleccioncandidato/taskflows/HT_EvaluarSeleccionarCandidato.xml</TaskFlowFileName>
+  </hwTaskFlow>
+</hwTaskFlows>

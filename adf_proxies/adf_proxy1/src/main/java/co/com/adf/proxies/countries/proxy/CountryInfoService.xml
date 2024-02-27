@@ -1,0 +1,61 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle-webservice-clients xmlns:ns1="http://java.sun.com/xml/ns/javaee">
+   <webservice-client>
+      <service-qname namespaceURI="http://www.oorsprong.org/websamples.countryinfo" localpart="CountryInfoService"/>
+      <port-info>
+         <wsdl-port namespaceURI="http://www.oorsprong.org/websamples.countryinfo" localpart="CountryInfoServiceSoap"/>
+         <runtime/>
+         <operations>
+            <operation name="listOfContinentsByName"/>
+            <operation name="listOfContinentsByCode"/>
+            <operation name="listOfCurrenciesByName"/>
+            <operation name="listOfCurrenciesByCode"/>
+            <operation name="currencyName"/>
+            <operation name="listOfCountryNamesByCode"/>
+            <operation name="listOfCountryNamesByName"/>
+            <operation name="listOfCountryNamesGroupedByContinent"/>
+            <operation name="countryName"/>
+            <operation name="countryISOCode"/>
+            <operation name="capitalCity"/>
+            <operation name="countryCurrency"/>
+            <operation name="countryFlag"/>
+            <operation name="countryIntPhoneCode"/>
+            <operation name="fullCountryInfo"/>
+            <operation name="fullCountryInfoAllCountries"/>
+            <operation name="countriesUsingCurrency"/>
+            <operation name="listOfLanguagesByName"/>
+            <operation name="listOfLanguagesByCode"/>
+            <operation name="languageName"/>
+            <operation name="languageISOCode"/>
+         </operations>
+      </port-info>
+      <port-info>
+         <wsdl-port namespaceURI="http://www.oorsprong.org/websamples.countryinfo"
+                    localpart="CountryInfoServiceSoap12"/>
+         <runtime/>
+         <operations>
+            <operation name="listOfContinentsByName"/>
+            <operation name="listOfContinentsByCode"/>
+            <operation name="listOfCurrenciesByName"/>
+            <operation name="listOfCurrenciesByCode"/>
+            <operation name="currencyName"/>
+            <operation name="listOfCountryNamesByCode"/>
+            <operation name="listOfCountryNamesByName"/>
+            <operation name="listOfCountryNamesGroupedByContinent"/>
+            <operation name="countryName"/>
+            <operation name="countryISOCode"/>
+            <operation name="capitalCity"/>
+            <operation name="countryCurrency"/>
+            <operation name="countryFlag"/>
+            <operation name="countryIntPhoneCode"/>
+            <operation name="fullCountryInfo"/>
+            <operation name="fullCountryInfoAllCountries"/>
+            <operation name="countriesUsingCurrency"/>
+            <operation name="listOfLanguagesByName"/>
+            <operation name="listOfLanguagesByCode"/>
+            <operation name="languageName"/>
+            <operation name="languageISOCode"/>
+         </operations>
+      </port-info>
+   </webservice-client>
+</oracle-webservice-clients>

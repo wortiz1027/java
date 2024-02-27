@@ -1,0 +1,145 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <f:view>
+        <af:document title="#{estrategicoBundle.TITULO_PANTALLA_DEFINICION_ESPECIFICACION_DISENIO}" id="d1">
+            <af:messages id="m1"/>
+            <af:form id="f1" usesUpload="true">
+                <af:pageTemplate viewId="/template/adf_template.jspx" id="pt1">
+                    <f:facet name="header"/>
+                    <f:facet name="content">
+                        <af:panelGroupLayout id="pgl1" halign="center" layout="vertical"
+                                             styleClass="padding-right: 25px;">
+                            <af:panelBox text="#{estrategicoBundle.PANEL_TITULO_INFORMACION_PROTOTIPO}" id="pb1">
+                                <af:panelGroupLayout id="pgl2"  halign="center" layout="vertical"
+                                                     styleClass="sinBorders" inlineStyle="padding: 20px;">
+                                    <af:panelGroupLayout id="pgl3" layout="vertical" halign="center" styleClass="row sinBorders">
+                                        <af:panelGroupLayout id="pgl4" styleClass="sinBorders col-xs-6" layout="vertical" halign="center">
+                                            <af:panelFormLayout id="pfl1" styleClass="sinBorders stretchedForm" labelAlignment="top">
+                                                <af:inputText label="#{estrategicoBundle.LABEL_TITULO}" id="it1"
+                                                              value="#{pageFlowScope.mbDefinicionEspecificacionDiseno.prototipo.titulo}"/>
+                                            </af:panelFormLayout>
+                                        </af:panelGroupLayout>
+                                        <af:panelGroupLayout id="pgl5" styleClass="sinBorders col-xs-6" layout="vertical" halign="center">
+                                            <af:panelFormLayout id="pfl2" styleClass="sinBorders stretchedForm" labelAlignment="top">
+                                                <af:inputText label="#{estrategicoBundle.LABEL_TIPO}" id="it2"
+                                                              value="#{pageFlowScope.mbDefinicionEspecificacionDiseno.prototipo.tipo.valor}"/>
+                                            </af:panelFormLayout>
+                                        </af:panelGroupLayout>
+                                    </af:panelGroupLayout>
+                                    <af:spacer width="10" height="10" id="s1"/>
+                                    <af:panelGroupLayout id="pgl6" styleClass="row sinBorders"  halign="center" layout="vertical">
+                                        <af:panelGroupLayout id="pgl7" styleClass="sinBorders col-xs-12"  halign="center" layout="vertical">
+                                            <af:panelFormLayout id="pfl3" styleClass="sinBorders stretchedForm" labelAlignment="top">
+                                                <af:inputText label="#{estrategicoBundle.LABEL_DETALLE}" id="it3" rows="7"
+                                                              value="#{pageFlowScope.mbDefinicionEspecificacionDiseno.prototipo.detalle}"/>
+                                            </af:panelFormLayout>
+                                        </af:panelGroupLayout>
+                                    </af:panelGroupLayout>
+                                    <af:spacer width="10" height="10" id="s2"/>
+                                    <af:panelGroupLayout id="pgl8" styleClass="row sinBorders"  halign="center" layout="vertical">
+                                        <af:panelGroupLayout id="pgl9" styleClass="sinBorders col-xs-4"  halign="center" layout="vertical">
+                                            <af:panelFormLayout id="pfl4" styleClass="sinBorders stretchedForm" labelAlignment="top">
+                                                <af:inputText label="#{estrategicoBundle.LABEL_PRESUPUESTO}" id="it4"
+                                                              value="#{pageFlowScope.mbDefinicionEspecificacionDiseno.prototipo.presupuesto}"/>
+                                            </af:panelFormLayout>
+                                        </af:panelGroupLayout>
+                                        <af:panelGroupLayout id="pgl10" styleClass="sinBorders col-xs-4"  halign="center" layout="vertical">
+                                            <af:panelFormLayout id="pfl6" styleClass="sinBorders stretchedForm" labelAlignment="top">
+                                                <af:inputDate label="#{estrategicoBundle.LABEL_FECHA_INICIO}" id="id1"
+                                                              value="#{pageFlowScope.mbDefinicionEspecificacionDiseno.prototipo.fechaInicio}"/>
+                                            </af:panelFormLayout>
+                                        </af:panelGroupLayout>
+                                        <af:panelGroupLayout id="pgl11" styleClass="sinBorders col-xs-4"  halign="center" layout="vertical">
+                                            <af:panelFormLayout id="pfl5" styleClass="sinBorders stretchedForm" labelAlignment="top">
+                                                <af:inputDate label="#{estrategicoBundle.LABEL_FECHA_FIN}" id="id2"
+                                                              value="#{pageFlowScope.mbDefinicionEspecificacionDiseno.prototipo.fechaFin}"/>
+                                            </af:panelFormLayout>
+                                        </af:panelGroupLayout>
+                                    </af:panelGroupLayout>
+                                    <af:spacer width="10" height="10" id="s3"/>
+                                    <af:panelGroupLayout id="pgl12" styleClass="row sinBorders" halign="center" layout="vertical">
+                                        <af:panelGroupLayout id="pgl16" styleClass="sinBorders col-xs-12" halign="center" layout="vertical">
+                                            <af:panelFormLayout id="pfl7" styleClass="sinBorders stretchedForm" labelAlignment="top">
+                                                <af:selectOneRadio label="#{estrategicoBundle.LABEL_REVISIONES_EXTERNAS_OBLIGATORIAS_OPCIONALES}" id="sor1" layout="horizontal"
+                                                                   value="#{pageFlowScope.mbDefinicionEspecificacionDiseno.prototipo.requiereRevisionesExternasOpcionales}">
+                                                    <f:selectItem value="#{pageFlowScope.mbDefinicionEspecificacionDiseno.opcion1}" id="si1"/>
+                                                    <f:selectItem value="#{pageFlowScope.mbDefinicionEspecificacionDiseno.opcion2}" id="si2"/>
+                                                </af:selectOneRadio>
+                                            </af:panelFormLayout>
+                                        </af:panelGroupLayout>
+                                    </af:panelGroupLayout>
+                                </af:panelGroupLayout>
+                            </af:panelBox>
+                            <af:spacer width="10" height="10" id="s4"/>
+                            <af:panelBox text="#{estrategicoBundle.PANEL_TITULO_DOCUMENTOS}" id="pb3">
+                                <af:panelGroupLayout id="pgl13" inlineStyle="padding: 20px;" styleClass="sinBorders" halign="center" layout="vertical">
+                                    <af:table var="row" rowBandingInterval="0" id="t2"
+                                              styleClass="contentTable AFStretchWidth"
+                                              value="#{pageFlowScope.mbDefinicionEspecificacionDiseno.prototipo.documentos}"
+                                              binding="#{pageFlowScope.mbDefinicionEspecificacionDiseno.tblDocumentos}">
+                                        <af:column sortable="false" headerText="#{estrategicoBundle.COLUMNA_DOCUMENTOS}" id="c2" width="250%">
+                                            <af:outputText value="#{row.nombre}" id="ot2"/>
+                                        </af:column>
+                                        <af:column sortable="false" headerText="#{estrategicoBundle.COLUMNA_ACCIONES}" id="c3">
+                                            <af:panelGroupLayout id="pgl14" halign="center" layout="horizontal">
+                                                <af:button text="#{estrategicoBundle.BOTON_ADJUNTAR}" id="b1" icon="/images/ico-editar.png"
+                                                           styleClass="tamanioauto2"
+                                                           actionListener="#{pageFlowScope.mbDefinicionEspecificacionDiseno.onClickAdjuntar}"/>
+                                                <af:spacer width="10" height="10" id="s5"/>
+                                                <af:button text="#{estrategicoBundle.BOTON_VER}" id="b2" icon="/images/ico-documento.png"
+                                                           styleClass="tamanioauto2"
+                                                           actionListener="#{pageFlowScope.mbDefinicionEspecificacionDiseno.onClickVer}"/>
+                                            </af:panelGroupLayout>
+                                        </af:column>
+                                    </af:table>
+                                </af:panelGroupLayout>
+                            </af:panelBox>
+                            <af:popup childCreation="deferred" autoCancel="disabled" id="p1"
+                                      binding="#{pageFlowScope.mbDefinicionEspecificacionDiseno.ppCargarArchvo}">
+                                <af:dialog id="d2" title="#{estrategicoBundle.PANEL_TITULO_DOCUMENTOS}" affirmativeTextAndAccessKey="#{estrategicoBundle.BOTON_ACEPTAR}"
+                                            cancelTextAndAccessKey="#{estrategicoBundle.BOTON_CANCELAR}"
+                                           dialogListener="#{pageFlowScope.mbDefinicionEspecificacionDiseno.aceptarPopUpAdjuntarDocumento}">
+                                    <af:panelGroupLayout id="pgl123"  styleClass="sinBorders" halign="center" layout="vertical">
+                                        <af:inputFile label="#{estrategicoBundle.PANEL_TITULO_DOCUMENTOS}" id="if1"
+                                                      valueChangeListener="#{pageFlowScope.mbDefinicionEspecificacionDiseno.subirArchivo}"/>
+                                    </af:panelGroupLayout>
+                                </af:dialog>
+                            </af:popup>
+                            <af:popup childCreation="deferred" autoCancel="disabled" id="p2"
+                                      binding="#{pageFlowScope.mbDefinicionEspecificacionDiseno.ppVisorDocumento}">
+                                <af:dialog id="d3" title="#{estrategicoBundle.TITULO_VISOR_DOCUMENTO}">
+                                    <af:panelGroupLayout id="pgl144" halign="center" layout="vertical" styleClass="sinBorders" inlineStyle="padding: 15px;">
+                                        <af:panelGroupLayout id="pgl24" layout="vertical" halign="center" styleClass="sinBorders">
+                                          <af:inlineFrame id="if14" source="#{pageFlowScope.mbVisorDocumentos.visor.urlDocumento}"
+                                                          inlineStyle="height:#{pageFlowScope.mbVisorDocumentos.visor.alto}px; width:#{pageFlowScope.mbVisorDocumentos.visor.ancho}px;"
+                                                          shortDesc="#{estrategicoBundle.LABEL_SHORT_DESC}"/>
+                                        </af:panelGroupLayout>
+                                      </af:panelGroupLayout>
+                                </af:dialog>
+                            </af:popup>
+                        </af:panelGroupLayout>
+                    </f:facet>
+                    <f:facet name="footer">
+                        <af:panelGroupLayout id="pgl15" halign="right" layout="vertical">                            
+                            <af:button text="#{estrategicoBundle.BOTON_ENVIAR}" id="bProcesar" partialSubmit="true"
+                                       styleClass="buttonBlue"
+                                       action="#{pageFlowScope.mbDefinicionEspecificacionDiseno.finalizarPantalla}"
+                                       actionListener="#{pageFlowScope.mbDefinicionEspecificacionDiseno.mySetOperation}">
+                                <f:attribute name="DC_OPERATION_BINDING" value="bindings.APPROVE"/>
+                                <f:attribute name="TIPO_ACCION" value="ACEPTAR"/>
+                            </af:button>
+                        </af:panelGroupLayout>
+                    </f:facet>
+                    
+                    <f:attribute name="titulo"  value="#{estrategicoBundle.TITULO_PANTALLA_DEFINICION_ESPECIFICACION_DISENIO}"/>
+                    <f:attribute name="fecha"   value=""/>
+                    <f:attribute name="login"   value=""/>
+                    <f:attribute name="nombre"  value=""/>
+                    <f:attribute name="version" value="#{estrategicoBundle.VERSION}"/>
+                </af:pageTemplate>
+            </af:form>
+        </af:document>
+    </f:view>
+</jsp:root>

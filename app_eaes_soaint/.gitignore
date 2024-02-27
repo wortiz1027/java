@@ -1,0 +1,43 @@
+# default application storage directory used by the IDE Performance Cache feature
+.data/
+
+# used for ADF styles caching
+tmp/
+temp/
+
+# lock file, a part of Oracle Credential Store Framework
+cwallet.sso.lck
+
+# JDev
+*.cdi_javac
+*.class
+*.jar
+*.war
+*.ear
+.data/
+temp/
+tmp/
+tmp/*
+classes/
+deploy/
+javadoc/
+SCA-INF/
+
+ # Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+
+# Others
+.git/
+*.bak
+*.git
+*~
+*test*
+*zip

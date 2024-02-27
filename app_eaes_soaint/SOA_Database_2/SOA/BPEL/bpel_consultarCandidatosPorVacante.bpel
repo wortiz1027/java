@@ -1,0 +1,92 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Oracle JDeveloper BPEL Designer 
+  
+  Created: Sun Apr 05 22:01:19 COT 2020
+  Author:  ADMIN
+  Type: BPEL 2.0 Process
+  Purpose: Synchronous BPEL Process
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<process name="bpel_consultarCandidatosPorVacante"
+               targetNamespace="http://xmlns.oracle.com/app_eaes_soaint/SOA_Database_2/bpel_consultarCandidatosPorVacante"
+               xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+               xmlns:client="http://xmlns.oracle.com/app_eaes_soaint/SOA_Database_2/bpel_consultarCandidatosPorVacante"
+               xmlns:ora="http://schemas.oracle.com/xpath/extension"
+               xmlns:ui="http://xmlns.oracle.com/soa/designer"
+               xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+         xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:ns1="http://xmlns.oracle.com/pcbpel/adapter/db/app_eaes_soaint/SOA_Database_2/WS_ConsultarCandidatosVacante"
+         xmlns:ns2="http://xmlns.oracle.com/pcbpel/adapter/db/sp/WS_ConsultarCandidatosVacante"
+         xmlns:ns3="http://xmlns.javeriana.edu.co/co/schemas/process/bpm/consultarCandidatosVacante/v1.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <import ui:processWSDL="true" namespace="http://xmlns.oracle.com/app_eaes_soaint/SOA_Database_2/bpel_consultarCandidatosPorVacante" location="../WSDLs/bpel_consultarCandidatosPorVacante.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <!-- 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        PARTNERLINKS                                                      
+        List of services participating in this BPEL process               
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    --> 
+  <partnerLinks>
+    <!-- 
+      The 'client' role represents the requester of this service. It is 
+      used for callback. The location and correlation information associated
+      with the client role are automatically set using WS-Addressing.
+    -->
+    <partnerLink name="bpel_consultarcandidatosporvacante_client" partnerLinkType="client:bpel_consultarCandidatosPorVacante" myRole="bpel_consultarCandidatosPorVacanteProvider"/>
+    <partnerLink name="WS_ConsultarCandidatosVacante" partnerLinkType="ns1:WS_ConsultarCandidatosVacante_plt"
+                 partnerRole="WS_ConsultarCandidatosVacante_role"/>
+  </partnerLinks>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      VARIABLES                                                        
+      List of messages and XML documents used within this BPEL process 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <variables>
+    <!-- Reference to the message passed as input during initiation -->
+    <variable name="inputVariable" messageType="client:bpel_consultarCandidatosPorVacanteRequestMessage"/>
+
+    <!-- Reference to the message that will be returned to the requester-->
+    <variable name="outputVariable" messageType="client:bpel_consultarCandidatosPorVacanteResponseMessage"/>
+    <variable name="Inv_ConsultarCandidatosVacante_Input" messageType="ns1:args_in_msg"/>
+    <variable name="Inv_ConsultarCandidatosVacante_Output" messageType="ns1:args_out_msg"/>
+  </variables>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     ORCHESTRATION LOGIC                                               
+     Set of activities coordinating the flow of messages across the    
+     services integrated within this business process                  
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <sequence name="main">
+
+    <!-- Receive input from requestor. (Note: This maps to operation defined in bpel_consultarCandidatosPorVacante.wsdl) -->
+    <receive name="receiveInput" partnerLink="bpel_consultarcandidatosporvacante_client" portType="client:bpel_consultarCandidatosPorVacante" operation="process" variable="inputVariable" createInstance="yes"/>
+    <assign name="Set_Request">
+      <copy>
+        <from>$inputVariable.payload/ns3:numeroVacante</from>
+        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$Inv_ConsultarCandidatosVacante_Input.InputParameters/ns2:V_ID_VACANTE</to>
+      </copy>
+    </assign>
+    <invoke name="Inv_ConsultarCandidatosPorVacante"
+            partnerLink="WS_ConsultarCandidatosVacante" portType="ns1:WS_ConsultarCandidatosVacante_ptt"
+            operation="WS_ConsultarCandidatosVacante" inputVariable="Inv_ConsultarCandidatosVacante_Input"
+            outputVariable="Inv_ConsultarCandidatosVacante_Output" bpelx:invokeAsDetail="no"/>
+    <assign name="T3_Response_Candidatos">
+      <bpelx:annotation>
+        <bpelx:pattern patternName="bpelx:transformation"></bpelx:pattern>
+      </bpelx:annotation>
+      <copy>
+        <from>ora:doXSLTransformForDoc("../Transformations/T3_Response_Candidatos.xsl", $Inv_ConsultarCandidatosVacante_Output.OutputParameters)</from>
+        <to variable="outputVariable" part="payload"/>
+      </copy>
+    </assign>
+    <!-- Generate reply to synchronous request -->
+    <reply name="replyOutput" partnerLink="bpel_consultarcandidatosporvacante_client" portType="client:bpel_consultarCandidatosPorVacante" operation="process" variable="outputVariable"/>
+  </sequence>
+</process>

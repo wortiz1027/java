@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="12.2.1.9.14" id="PrototipoType"
+          Package="ADF_Estrategico_HT_ValidarProblemasCalidad"
+          BeanClass="ADF_Estrategico_HT_ValidarProblemasCalidad.PrototipoType" isJavaBased="false">
+  <Attribute Name="codigo" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Codigo"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="codigo"/>
+        <Property Name="targetNamespace" Value="http://xmlns.javeriana.edu/edu/schemas/process/reclutamiento/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <AccessorAttribute id="tipo" IsCollection="true" BeanClass="ADF_Estrategico_HT_ValidarProblemasCalidad.TipoComunType"
+                     CollectionBeanClass="ADF_Estrategico_HT_ValidarProblemasCalidad.TipoComunType_tipo_Operations">
+    <Properties>
+      <Property Name="minOccurs" Value="0"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Tipo"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="tipo"/>
+      <Property Name="targetNamespace" Value="http://xmlns.javeriana.edu/edu/schemas/process/reclutamiento/v1.0"/>
+    </Properties>
+  </AccessorAttribute>
+</JavaBean>

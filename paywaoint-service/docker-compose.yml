@@ -1,0 +1,54 @@
+# -------------------------------------------------------------------
+# - DOCKER COMPOSE FILE
+# - AUTOR: Equipo 5
+# - FECHA: 23-Octubre-2020
+# - DESCRIPCION: Docker compose file que permite la
+# -              creacion del contenedor para consultar la pasarela
+# -------------------------------------------------------------------
+
+version: '3.7'
+
+services:
+  db_payments:
+    image: mysql:5.7.31
+    container_name: db_payments
+    hostname: db_payments
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 'mysql'
+      MYSQL_DATABASE: 'paywaointdb'
+      MYSQL_USER: 'payment'
+      MYSQL_PASSWORD: 'payment2020++'
+      MYSQL_ROOT_HOST: '%'
+    ports:
+      - '33061:3306'
+    volumes:
+      - ./src/main/resources/database/mysql-credit-card-information-v1.sql:/docker-entrypoint-initdb.d/mysql-credit-card-information-v1.sql
+      - data_payments:/var/lib/mysql
+    networks:
+      - ntw_backend
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 180M
+  paywoaint-service:
+    image: wortiz1027/paywoaint-service:latest
+    container_name: paywoaint-service
+    hostname: paywoaint-service
+    restart: always
+    environment:
+      - DATABASE_HOST=db_payments
+      - DATABASE_PORT=3306
+    ports:
+      - 7075:7075
+    networks:
+      - ntw_backend
+    depends_on:
+      - db_payments
+
+volumes:
+  data_payments:
+networks:
+  ntw_backend:
+    external: true

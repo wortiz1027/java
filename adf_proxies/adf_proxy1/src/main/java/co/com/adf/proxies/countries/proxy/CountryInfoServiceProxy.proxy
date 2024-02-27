@@ -1,0 +1,794 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<jdevws:WebServiceProxy xmlns:jdevws="http://xmlns.oracle.com/jdeveloper/10130/webserviceproxy">
+   <list n="CHILD_NODES">
+      <url path="CountryInfoService.xml"/>
+      <url path="CountryInfoService.wsdl"/>
+      <url path="CountryInfoService.java"/>
+      <url path="../types/ListOfLanguagesByName.java"/>
+      <url path="../types/CapitalCity.java"/>
+      <url path="../types/TLanguage.java"/>
+      <url path="../types/ListOfCountryNamesByNameResponse.java"/>
+      <url path="../types/TCountryCodeAndNameGroupedByContinent.java"/>
+      <url path="CountryInfoServiceSoapClient.java"/>
+      <url path="CountryInfoServiceSoapType.java"/>
+      <url path="../types/TCountryCodeAndName.java"/>
+      <url path="../types/ArrayOftCountryCodeAndNameGroupedByContinent.java"/>
+      <url path="../types/CountryISOCodeResponse.java"/>
+      <url path="../types/FullCountryInfo.java"/>
+      <url path="../types/ListOfCountryNamesByCodeResponse.java"/>
+      <url path="../types/ListOfCountryNamesByName.java"/>
+      <url path="../types/FullCountryInfoAllCountriesResponse.java"/>
+      <url path="../types/ListOfContinentsByCode.java"/>
+      <url path="../types/ArrayOftContinent.java"/>
+      <url path="CountryInfoServiceSoap12Client.java"/>
+      <url path="../types/ListOfContinentsByNameResponse.java"/>
+      <url path="../types/ListOfLanguagesByCode.java"/>
+      <url path="../types/ListOfCurrenciesByName.java"/>
+      <url path="../types/TCurrency.java"/>
+      <url path="../types/ListOfLanguagesByCodeResponse.java"/>
+      <url path="../types/TContinent.java"/>
+      <url path="../types/ListOfCountryNamesGroupedByContinent.java"/>
+      <url path="../types/ListOfCurrenciesByNameResponse.java"/>
+      <url path="../types/CountriesUsingCurrency.java"/>
+      <url path="../types/TCountryInfo.java"/>
+      <url path="../types/ListOfCurrenciesByCode.java"/>
+      <url path="../types/CurrencyNameResponse.java"/>
+      <url path="../types/ArrayOftCountryCodeAndName.java"/>
+      <url path="../types/CountryFlag.java"/>
+      <url path="../types/CountriesUsingCurrencyResponse.java"/>
+      <url path="../types/CountryISOCode.java"/>
+      <url path="../types/ArrayOftCountryInfo.java"/>
+      <url path="../types/LanguageISOCodeResponse.java"/>
+      <url path="../types/ObjectFactory.java"/>
+      <url path="../types/CountryName.java"/>
+      <url path="../types/CountryNameResponse.java"/>
+      <url path="../types/ListOfCountryNamesByCode.java"/>
+      <url path="../types/CurrencyName.java"/>
+      <url path="../types/ListOfLanguagesByNameResponse.java"/>
+      <url path="../types/CountryIntPhoneCode.java"/>
+      <url path="../types/CountryIntPhoneCodeResponse.java"/>
+      <url path="../types/CountryCurrency.java"/>
+      <url path="../types/CountryCurrencyResponse.java"/>
+      <url path="../types/CountryFlagResponse.java"/>
+      <url path="../types/ListOfCountryNamesGroupedByContinentResponse.java"/>
+      <url path="../types/ArrayOftLanguage.java"/>
+      <url path="../types/LanguageNameResponse.java"/>
+      <url path="../types/ListOfCurrenciesByCodeResponse.java"/>
+      <url path="../types/FullCountryInfoAllCountries.java"/>
+      <url path="../types/LanguageName.java"/>
+      <url path="../types/ArrayOftCurrency.java"/>
+      <url path="../types/CapitalCityResponse.java"/>
+      <url path="../types/FullCountryInfoResponse.java"/>
+      <url path="../types/ListOfContinentsByName.java"/>
+      <url path="../types/LanguageISOCode.java"/>
+      <url path="../types/package-info.java"/>
+      <url path="../types/ListOfContinentsByCodeResponse.java"/>
+   </list>
+   <hash n="DATA_MODEL">
+      <value n="ATTACHMENT_ENCODING" v="MIME"/>
+      <list n="LOCAL_FILES"/>
+      <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.WebServiceProxy"/>
+      <hash n="PROPERTY_GROUPS">
+         <hash n="HANDLER_CHAIN_GROUP">
+            <value n="HCG_FILE_PATH" v="CountryInfoServiceProxy-HandlerChain.xml"/>
+            <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.java.HandlerChainGroup"/>
+         </hash>
+         <hash n="WSDL_TO_JAVA_PROPERTIES">
+            <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.java.WSDLToJavaProperties"/>
+            <value n="WSDL2JAVA_DEFAULT_PACKAGE" v="co.com.adf.proxies.countries.proxy"/>
+            <value n="WSDL2JAVA_ROOT_VALUE_PACKAGE" v="co.com.adf.proxies.countries.types"/>
+         </hash>
+      </hash>
+      <value n="PROXY_ASYNC_METHODS" v="FOR_NONE"/>
+      <list n="PROXY_CLIENTS">
+         <url path="CountryInfoServiceSoapClient.java"/>
+         <url path="CountryInfoServiceSoap12Client.java"/>
+      </list>
+      <list n="PROXY_HANDLERS"/>
+      <value n="PROXY_MAPPING_URL"/>
+      <url n="PROXY_ORIGINAL_WSDL_URL" protocol="http" host="webservices.oorsprong.org" path="/websamples.countryinfo/CountryInfoService.wso" query="WSDL"/>
+      <hash n="PROXY_PORTS">
+         <hash n="CountryInfoServiceSoap">
+            <value n="ACCESSES_DOC_WRAPPPED" v="true"/>
+            <value n="ACCESSES_RPC_ENCODED" v="false"/>
+            <value n="CLASS_NAME" v="co.com.adf.proxies.countries.proxy.CountryInfoServiceSoapType"/>
+            <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyPort"/>
+            <value n="NAME" v="CountryInfoServiceSoap"/>
+            <hash n="OPERATIONS">
+               <hash n="CapitalCity">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="CountriesUsingCurrency">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="CountryCurrency">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="CountryFlag">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="CountryIntPhoneCode">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="CountryISOCode">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="CountryName">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="CurrencyName">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="FullCountryInfo">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="FullCountryInfoAllCountries">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="LanguageISOCode">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="LanguageName">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="ListOfContinentsByCode">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="ListOfContinentsByName">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="ListOfCountryNamesByCode">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="ListOfCountryNamesByName">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="ListOfCountryNamesGroupedByContinent">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="ListOfCurrenciesByCode">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="ListOfCurrenciesByName">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="ListOfLanguagesByCode">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="ListOfLanguagesByName">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+            </hash>
+            <hash n="PROPERTY_GROUPS">
+               <hash n="WS_POLICY">
+                  <value n="addressing"/>
+                  <hash n="GLOBAL_CONFIG_PROPERTIES"/>
+                  <list n="management"/>
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.policy.PolicyClientModel"/>
+                  <value n="mtom"/>
+                  <hash n="POLICY_OVERRIDE_PROPERTIES"/>
+                  <list n="security"/>
+                  <list n="wsconfig"/>
+                  <value n="wsrm"/>
+               </hash>
+            </hash>
+            <url n="PROXY_ORIGINAL_PORT_ENDPOINT" protocol="http" host="webservices.oorsprong.org" path="/websamples.countryinfo/CountryInfoService.wso"/>
+         </hash>
+         <hash n="CountryInfoServiceSoap12">
+            <value n="ACCESSES_DOC_WRAPPPED" v="true"/>
+            <value n="ACCESSES_RPC_ENCODED" v="false"/>
+            <value n="CLASS_NAME" v="co.com.adf.proxies.countries.proxy.CountryInfoServiceSoapType"/>
+            <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyPort"/>
+            <value n="NAME" v="CountryInfoServiceSoap12"/>
+            <hash n="OPERATIONS">
+               <hash n="CapitalCity">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="CountriesUsingCurrency">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="CountryCurrency">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="CountryFlag">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="CountryIntPhoneCode">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="CountryISOCode">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="CountryName">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="CurrencyName">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="FullCountryInfo">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="FullCountryInfoAllCountries">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="LanguageISOCode">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="LanguageName">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="ListOfContinentsByCode">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="ListOfContinentsByName">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="ListOfCountryNamesByCode">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="ListOfCountryNamesByName">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="ListOfCountryNamesGroupedByContinent">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="ListOfCurrenciesByCode">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="ListOfCurrenciesByName">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="ListOfLanguagesByCode">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+               <hash n="ListOfLanguagesByName">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+            </hash>
+            <hash n="PROPERTY_GROUPS"/>
+            <url n="PROXY_ORIGINAL_PORT_ENDPOINT" protocol="http" host="webservices.oorsprong.org" path="/websamples.countryinfo/CountryInfoService.wso"/>
+         </hash>
+      </hash>
+      <value n="PROXY_SERVICE_NAME" v="CountryInfoService"/>
+      <value n="PROXY_SERVICE_NAMESPACE" v="http://www.oorsprong.org/websamples.countryinfo"/>
+      <url n="PROXY_TARGET_PROJECT" path="../../../../../../../../../adf_proxy1.jpr"/>
+      <list n="PROXY_WSDL_IMPORT_LIST"/>
+      <url n="PROXY_WSDL_URL" path="CountryInfoService.wsdl"/>
+      <hash n="REFERENCED_WEBSERVICE">
+         <list n="BD_">
+            <hash>
+               <value n="BOUND_PORT_TYPE" v="{http://www.oorsprong.org/websamples.countryinfo}CountryInfoServiceSoapType"/>
+               <value n="DEFAULT_NAME" v="false"/>
+               <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPBinding"/>
+               <value n="NAME" v="{http://www.oorsprong.org/websamples.countryinfo}CountryInfoServiceSoapBinding"/>
+               <list n="OP_BINDINGS">
+                  <hash>
+                     <value n="BOUND_OPERATION" v="co.com.adf.proxies.countries.types.ArrayOftContinent.ListOfContinentsByName"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="co.com.adf.proxies.countries.types.ArrayOftContinent.ListOfContinentsByCode"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="co.com.adf.proxies.countries.types.ArrayOftCurrency.ListOfCurrenciesByName"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="co.com.adf.proxies.countries.types.ArrayOftCurrency.ListOfCurrenciesByCode"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="java.lang.String.CurrencyName.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="co.com.adf.proxies.countries.types.ArrayOftCountryCodeAndName.ListOfCountryNamesByCode"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="co.com.adf.proxies.countries.types.ArrayOftCountryCodeAndName.ListOfCountryNamesByName"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="co.com.adf.proxies.countries.types.ArrayOftCountryCodeAndNameGroupedByContinent.ListOfCountryNamesGroupedByContinent"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="java.lang.String.CountryName.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="java.lang.String.CountryISOCode.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="java.lang.String.CapitalCity.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="co.com.adf.proxies.countries.types.TCurrency.CountryCurrency.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="java.lang.String.CountryFlag.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="java.lang.String.CountryIntPhoneCode.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="co.com.adf.proxies.countries.types.TCountryInfo.FullCountryInfo.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="co.com.adf.proxies.countries.types.ArrayOftCountryInfo.FullCountryInfoAllCountries"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="co.com.adf.proxies.countries.types.ArrayOftCountryCodeAndName.CountriesUsingCurrency.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="co.com.adf.proxies.countries.types.ArrayOftLanguage.ListOfLanguagesByName"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="co.com.adf.proxies.countries.types.ArrayOftLanguage.ListOfLanguagesByCode"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="java.lang.String.LanguageName.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="java.lang.String.LanguageISOCode.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+               </list>
+               <hash n="PROPERTY_GROUPS"/>
+            </hash>
+            <hash>
+               <value n="BD_SOAP_VERSION" v="1.2"/>
+               <value n="BOUND_PORT_TYPE" v="{http://www.oorsprong.org/websamples.countryinfo}CountryInfoServiceSoapType"/>
+               <value n="DEFAULT_NAME" v="false"/>
+               <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPBinding"/>
+               <value n="NAME" v="{http://www.oorsprong.org/websamples.countryinfo}CountryInfoServiceSoapBinding12"/>
+               <list n="OP_BINDINGS">
+                  <hash>
+                     <value n="BOUND_OPERATION" v="co.com.adf.proxies.countries.types.ArrayOftContinent.ListOfContinentsByName"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="co.com.adf.proxies.countries.types.ArrayOftContinent.ListOfContinentsByCode"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="co.com.adf.proxies.countries.types.ArrayOftCurrency.ListOfCurrenciesByName"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="co.com.adf.proxies.countries.types.ArrayOftCurrency.ListOfCurrenciesByCode"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="java.lang.String.CurrencyName.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="co.com.adf.proxies.countries.types.ArrayOftCountryCodeAndName.ListOfCountryNamesByCode"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="co.com.adf.proxies.countries.types.ArrayOftCountryCodeAndName.ListOfCountryNamesByName"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="co.com.adf.proxies.countries.types.ArrayOftCountryCodeAndNameGroupedByContinent.ListOfCountryNamesGroupedByContinent"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="java.lang.String.CountryName.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="java.lang.String.CountryISOCode.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="java.lang.String.CapitalCity.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="co.com.adf.proxies.countries.types.TCurrency.CountryCurrency.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="java.lang.String.CountryFlag.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="java.lang.String.CountryIntPhoneCode.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="co.com.adf.proxies.countries.types.TCountryInfo.FullCountryInfo.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="co.com.adf.proxies.countries.types.ArrayOftCountryInfo.FullCountryInfoAllCountries"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="co.com.adf.proxies.countries.types.ArrayOftCountryCodeAndName.CountriesUsingCurrency.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="co.com.adf.proxies.countries.types.ArrayOftLanguage.ListOfLanguagesByName"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="co.com.adf.proxies.countries.types.ArrayOftLanguage.ListOfLanguagesByCode"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="java.lang.String.LanguageName.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="BOUND_OPERATION" v="java.lang.String.LanguageISOCode.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+               </list>
+               <hash n="PROPERTY_GROUPS"/>
+            </hash>
+         </list>
+         <list n="BINDING_FILES"/>
+         <value n="GUID" v="3ebb3bd3-016e-1000-8002-c0a80016c41e"/>
+         <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.WebServiceProxy$ProxyJavaWebService"/>
+         <list n="PO_">
+            <hash>
+               <value n="DEFAULT_NAME" v="false"/>
+               <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPPort"/>
+               <value n="NAME" v="CountryInfoServiceSoap"/>
+               <value n="PORT_BINDING_NAME" v="{http://www.oorsprong.org/websamples.countryinfo}CountryInfoServiceSoapBinding"/>
+               <list n="PORT_OPS">
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="co.com.adf.proxies.countries.types.ArrayOftContinent.listOfContinentsByName"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="co.com.adf.proxies.countries.types.ArrayOftContinent.listOfContinentsByCode"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="co.com.adf.proxies.countries.types.ArrayOftCurrency.listOfCurrenciesByName"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="co.com.adf.proxies.countries.types.ArrayOftCurrency.listOfCurrenciesByCode"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="java.lang.String.currencyName.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="co.com.adf.proxies.countries.types.ArrayOftCountryCodeAndName.listOfCountryNamesByCode"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="co.com.adf.proxies.countries.types.ArrayOftCountryCodeAndName.listOfCountryNamesByName"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="co.com.adf.proxies.countries.types.ArrayOftCountryCodeAndNameGroupedByContinent.listOfCountryNamesGroupedByContinent"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="java.lang.String.countryName.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="java.lang.String.countryISOCode.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="java.lang.String.capitalCity.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="co.com.adf.proxies.countries.types.TCurrency.countryCurrency.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="java.lang.String.countryFlag.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="java.lang.String.countryIntPhoneCode.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="co.com.adf.proxies.countries.types.TCountryInfo.fullCountryInfo.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="co.com.adf.proxies.countries.types.ArrayOftCountryInfo.fullCountryInfoAllCountries"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="co.com.adf.proxies.countries.types.ArrayOftCountryCodeAndName.countriesUsingCurrency.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="co.com.adf.proxies.countries.types.ArrayOftLanguage.listOfLanguagesByName"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="co.com.adf.proxies.countries.types.ArrayOftLanguage.listOfLanguagesByCode"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="java.lang.String.languageName.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="java.lang.String.languageISOCode.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+               </list>
+               <hash n="PROPERTY_GROUPS"/>
+               <url n="URL" protocol="http" host="webservices.oorsprong.org" path="/websamples.countryinfo/CountryInfoService.wso"/>
+            </hash>
+            <hash>
+               <value n="DEFAULT_NAME" v="false"/>
+               <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPPort"/>
+               <value n="NAME" v="CountryInfoServiceSoap12"/>
+               <value n="PORT_BINDING_NAME" v="{http://www.oorsprong.org/websamples.countryinfo}CountryInfoServiceSoapBinding12"/>
+               <list n="PORT_OPS">
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="co.com.adf.proxies.countries.types.ArrayOftContinent.listOfContinentsByName"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="co.com.adf.proxies.countries.types.ArrayOftContinent.listOfContinentsByCode"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="co.com.adf.proxies.countries.types.ArrayOftCurrency.listOfCurrenciesByName"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="co.com.adf.proxies.countries.types.ArrayOftCurrency.listOfCurrenciesByCode"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="java.lang.String.currencyName.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="co.com.adf.proxies.countries.types.ArrayOftCountryCodeAndName.listOfCountryNamesByCode"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="co.com.adf.proxies.countries.types.ArrayOftCountryCodeAndName.listOfCountryNamesByName"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="co.com.adf.proxies.countries.types.ArrayOftCountryCodeAndNameGroupedByContinent.listOfCountryNamesGroupedByContinent"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="java.lang.String.countryName.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="java.lang.String.countryISOCode.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="java.lang.String.capitalCity.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="co.com.adf.proxies.countries.types.TCurrency.countryCurrency.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="java.lang.String.countryFlag.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="java.lang.String.countryIntPhoneCode.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="co.com.adf.proxies.countries.types.TCountryInfo.fullCountryInfo.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="co.com.adf.proxies.countries.types.ArrayOftCountryInfo.fullCountryInfoAllCountries"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="co.com.adf.proxies.countries.types.ArrayOftCountryCodeAndName.countriesUsingCurrency.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="co.com.adf.proxies.countries.types.ArrayOftLanguage.listOfLanguagesByName"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="co.com.adf.proxies.countries.types.ArrayOftLanguage.listOfLanguagesByCode"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="java.lang.String.languageName.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+                  <hash>
+                     <value n="EXPOSED_BD_OPERATION" v="java.lang.String.languageISOCode.java.lang.String"/>
+                     <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                     <hash n="PROPERTY_GROUPS"/>
+                  </hash>
+               </list>
+               <hash n="PROPERTY_GROUPS"/>
+               <url n="URL" protocol="http" host="webservices.oorsprong.org" path="/websamples.countryinfo/CountryInfoService.wso"/>
+            </hash>
+         </list>
+         <hash n="PROPERTY_GROUPS">
+            <hash n="WSDL_TO_JAVA_PROPERTIES">
+               <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.java.WSDLToJavaProperties"/>
+               <value n="WSDL2JAVA_DEFAULT_PACKAGE" v="co.com.adf.proxies.countries.proxy"/>
+               <value n="WSDL2JAVA_ROOT_VALUE_PACKAGE" v="co.com.adf.proxies.countries.types"/>
+            </hash>
+         </hash>
+         <list n="PT_">
+            <hash>
+               <value n="AUTO_SERVICE_INTERFACE"/>
+               <value n="DEFAULT_NAME" v="false"/>
+               <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.java.JavaPortType"/>
+               <value n="NAME" v="{http://www.oorsprong.org/websamples.countryinfo}CountryInfoServiceSoapType"/>
+               <hash n="PROPERTY_GROUPS"/>
+               <value n="PT_CLASS" v="co.com.adf.proxies.countries.proxy.CountryInfoServiceSoapTypeImpl"/>
+               <value n="PT_SERVICE_INTERFACE" v="co.com.adf.proxies.countries.proxy.CountryInfoServiceSoapType"/>
+               <value n="PT_TOP_DOWN_GENERATED_SEI_NAME" v="co.com.adf.proxies.countries.proxy.CountryInfoServiceSoapType"/>
+            </hash>
+         </list>
+         <url n="TARGET_PROJECT" path="../../../../../../../../../adf_proxy1.jpr"/>
+         <value n="WS_ORIG_GEN_DIRECTION" v="TOP_DOWN"/>
+         <value n="WS_TARGET_NAMESPACE" v="http://www.oorsprong.org/websamples.countryinfo"/>
+         <value n="WS_URI" v="CountryInfoService"/>
+         <url n="WS_WSDL_FILE" path="CountryInfoService.wsdl"/>
+      </hash>
+      <value n="SERVICE_ASYNC" v="false"/>
+      <value n="USE_WSDL_LOCATION" v="true"/>
+   </hash>
+</jdevws:WebServiceProxy>

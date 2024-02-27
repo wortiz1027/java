@@ -1,0 +1,22 @@
+# +-----------------------------------------------------
+# |         SERVER CONFIG
+# +-----------------------------------------------------
+server:
+  port: 8080
+  servlet:
+    context-path: /paywaoint
+    session:
+      cookie:
+        name: UISESSION
+
+soap:
+  service:
+    paywaoint:
+      host: ${PAYWOAINT_HOST:localhost}
+      port: ${PAYWOAINT_PORT:7071}
+      url: http://${soap.service.paywaoint.host}:${soap.service.paywaoint.port}/payments/ws/CreditCardService
+
+logging:
+  level:
+    org.springframework.web: DEBUG
+    co.edu.javeriana: DEBUG

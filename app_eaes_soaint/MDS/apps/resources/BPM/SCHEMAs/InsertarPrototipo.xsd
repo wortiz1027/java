@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:javeriana="http://xmlns.javeriana.edu.co/co/schemas/process/bpm/InsertarPrototipo/v1.0"
+            targetNamespace="http://xmlns.javeriana.edu.co/co/schemas/process/bpm/InsertarPrototipo/v1.0"
+            elementFormDefault="qualified">
+  
+  <xsd:complexType name="InsertarPrototipoType">
+    <xsd:sequence>
+      <xsd:element name="titulo"          type="xsd:string"   minOccurs="1" />
+	  <xsd:element name="fechaInicio"     type="xsd:dateTime" minOccurs="1" />
+	  <xsd:element name="fechaFin"        type="xsd:dateTime" minOccurs="1" />
+	  <xsd:element name="detalle"         type="xsd:string"   minOccurs="1" />
+	  <xsd:element name="estado"          type="xsd:string"   minOccurs="1" />
+	  <xsd:element name="presupuesto"     type="xsd:decimal"  minOccurs="1" />
+	  <xsd:element name="tipo"            type="xsd:string"   minOccurs="1" />
+	  <xsd:element name="conocimientos"   type="xsd:string"   minOccurs="0" />
+	  <xsd:element name="recomendaciones" type="javeriana:ListaRecomendacionesType" minOccurs="0" />
+	</xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="ListaRecomendacionesType">
+      <xsd:sequence>
+         <xsd:element name="listaRecomendaciones" type="javeriana:RecomendacionesType" minOccurs="0" maxOccurs="unbounded" />
+      </xsd:sequence>
+   </xsd:complexType>
+  
+  <xsd:complexType name="RecomendacionesType">
+      <xsd:sequence>
+         <xsd:element name="codigoPrototipo" type="xsd:decimal" minOccurs="0" />
+         <xsd:element name="observacion"     type="xsd:string"  minOccurs="0" />
+      </xsd:sequence>
+   </xsd:complexType>
+  
+  <xsd:complexType name="ResponseType">
+    <xsd:sequence>
+      <xsd:element name="ejecucion" type="xsd:string" maxOccurs="1" minOccurs="0"/>
+	</xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:element name="request"  type="javeriana:InsertarPrototipoType"/>
+  <xsd:element name="response" type="javeriana:ResponseType"/>
+</xsd:schema>

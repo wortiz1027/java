@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<bindings xmlns="http://java.sun.com/xml/ns/jaxb" if-exists="true" version="2.1">
+      
+    <!--
+
+Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.0 
+Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
+Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
+Generado el: 2020.11.07 a las 10:16:13 PM COT 
+
+  -->
+      
+    <bindings xmlns:tns="http://co.bolivariano.com/journeys" if-exists="true" scd="x-schema::tns">
+            
+        <schemaBindings map="false">
+                  
+            <package name="co.edu.javeriana.external.services.bl.infraestructure.wsdl.model"/>
+                
+        </schemaBindings>
+            
+        <bindings if-exists="true" scd="tns:GetJourneyRequest">
+                  
+            <class ref="co.edu.javeriana.external.services.bl.infraestructure.wsdl.model.GetJourneyRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:GetJourneyResponse">
+                  
+            <class ref="co.edu.javeriana.external.services.bl.infraestructure.wsdl.model.GetJourneyResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="~tns:Header">
+                  
+            <class ref="co.edu.javeriana.external.services.bl.infraestructure.wsdl.model.Header"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="~tns:JourneyList">
+                  
+            <class ref="co.edu.javeriana.external.services.bl.infraestructure.wsdl.model.JourneyList"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="~tns:Passenger">
+                  
+            <class ref="co.edu.javeriana.external.services.bl.infraestructure.wsdl.model.Passenger"/>
+                
+        </bindings>
+          
+    </bindings>
+    
+</bindings>

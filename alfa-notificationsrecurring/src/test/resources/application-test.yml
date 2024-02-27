@@ -1,0 +1,73 @@
+# +-----------------------------------------------------
+# |         SERVER CONFIG
+# +-----------------------------------------------------
+server:
+  port: 8089
+  servlet:
+    context-path: /
+    session:
+      cookie:
+        name: UISESSION
+         
+# +-----------------------------------------------------
+# |         SPRING CONFIG
+# +-----------------------------------------------------
+spring:
+  application:
+    name: alfa-notificationsrecurring
+  profiles:
+    active: "@activatedProperties@"
+  jackson:
+    serialization:
+      INDENT_OUTPUT: false 
+
+# +-----------------------------------------------------
+# |         ALFA CONFIG
+# +-----------------------------------------------------
+alfa:
+  notifications: 
+    url: http://${DNS_LB:localhost}:8085/notifications/api/v1/emails
+  notifiactionschedule:
+    url:      
+      editschedule: http://${DNS_LB:localhost}:8084/notificationschedule/api/v1/editNotificationSchedule
+      getschedule: http://${DNS_LB:localhost}:8084/notificationschedule/api/v1/getFilterNotificationSchedule
+      getnotificationtypeid: http://${DNS_LB:localhost}:8084/notificationtype/api/v1/findNotificationTypeById
+    parameters:
+      notificationId: notificationId
+  attachs:
+    suffix: .pdf  
+  security:
+   secretName: ${CREDENTIAL_STORE:CredentialStore} 
+  recurring:
+    notificationrecurring:
+      cron:
+        expression: ${TIMER_EXPRESSION:0 */1 * ? * *}       
+      max-recurring: ${MAX_RECURRING:5}
+  props:
+    zone-time: America/Bogota
+
+# +-----------------------------------------------------
+# |         ADL CONFIG
+# +-----------------------------------------------------
+adl:
+  security:
+    client:      
+      credentials: client_credentials
+    grant:
+      type: grant_type
+    authorization: Authorization    
+    basic : "Basic " 
+  token:
+    #host: ${TOKEN_HOST:alfa-digital-dev.auth.us-east-2.amazoncognito.com}
+    host: ${TOKEN_HOST:alfa-digital-stg.auth.us-east-2.amazoncognito.com}
+    url: https://${adl.token.host}/oauth2/token
+  attachs:
+    #host: ${ATTACHS_HOST:ua1dgf8kv8.execute-api.us-east-2.amazonaws.com/dev}
+    host: ${ATTACHS_HOST:72qeiycgy6.execute-api.us-east-2.amazonaws.com/stg}
+    url: https://${adl.attachs.host}/api/integration/v2/files/{${adl.attachs.parameters.policyId}}    
+    parameters: 
+      policyId: policyId 
+    keyPoliza: REFERENCIA_POLIZA
+    files:
+      signedPolicy: SIGNED_POLICY
+      clauses: CLAUSES

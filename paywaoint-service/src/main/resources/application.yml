@@ -1,0 +1,37 @@
+# +-----------------------------------------------------
+# |         SERVER CONFIG
+# +-----------------------------------------------------
+server:
+  port: 7075
+  servlet:
+    context-path: /
+    session:
+      cookie:
+        name: UISESSION
+
+# +-----------------------------------------------------
+# |         SPRING DATASOURCE CONFIGURATION
+# +-----------------------------------------------------
+
+spring:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://${DATABASE_HOST:localhost}:${DATABASE_PORT:33061}/paywaointdb
+    username: payment
+    password: payment2020++
+    platform: mysql
+
+# +-----------------------------------------------------
+# |         SPRING LOGGIN CONFIG
+# +-----------------------------------------------------
+logging:
+  level:
+    org.springframework.web: DEBUG
+    org.springframework.ws.client.MessageTracing.sent: DEBUG
+    org.springframework.ws.client.MessageTracing.received: DEBUG
+    org.springframework.ws.server.MessageTracing.sent: DEBUG
+    org.springframework.ws.server.MessageTracing.received: DEBUG
+    us.com.service.aa: DEBUG
+  pattern:
+    console: "%d{yyyy-MMM-dd HH:mm:ss a} [%t] %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"

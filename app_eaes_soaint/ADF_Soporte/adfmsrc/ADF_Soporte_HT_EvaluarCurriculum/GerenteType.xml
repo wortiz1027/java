@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="12.2.1.9.14" id="GerenteType"
+          Package="ADF_Soporte_HT_EvaluarCurriculum" BeanClass="ADF_Soporte_HT_EvaluarCurriculum.GerenteType"
+          isJavaBased="false">
+  <Attribute Name="usuario" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://xmlns.javeriana.edu/edu/schemas/process/reclutamiento/v1.0"/>
+        <Property Name="nextSibling" Value="correoElectronico"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Usuario"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="usuario"/>
+        <Property Name="targetNamespace" Value="http://xmlns.javeriana.edu/edu/schemas/process/reclutamiento/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="correoElectronico" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Correo Electronico"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="correoElectronico"/>
+        <Property Name="targetNamespace" Value="http://xmlns.javeriana.edu/edu/schemas/process/reclutamiento/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+</JavaBean>

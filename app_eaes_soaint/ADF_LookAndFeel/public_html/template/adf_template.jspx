@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <af:pageTemplateDef var="attrs" definition="private">
+        <af:xmlContent>
+            <component xmlns="http://xmlns.oracle.com/adf/faces/rich/component">
+                <description>Plantilla base para las pantallas ADFde los procesos BPM de Hipotecario...</description>
+                <display-name>BCS_Template</display-name>
+                <facet>
+                    <facet-name>header</facet-name>
+                </facet>
+                <facet>
+                    <facet-name>content</facet-name>
+                </facet>
+                <facet>
+                    <facet-name>footer</facet-name>
+                </facet>
+                <attribute>
+                    <attribute-name>titulo</attribute-name>
+                    <attribute-class>java.lang.String</attribute-class>
+                </attribute>
+                <attribute>
+                    <attribute-name>nombre</attribute-name>
+                    <attribute-class>java.lang.String</attribute-class>
+                </attribute>
+                <attribute>
+                    <attribute-name>fecha</attribute-name>
+                    <attribute-class>java.lang.String</attribute-class>
+                </attribute>
+                <attribute>
+                    <attribute-name>login</attribute-name>
+                    <attribute-class>java.lang.String</attribute-class>
+                </attribute>
+                <attribute>
+                    <attribute-name>
+                        version
+                    </attribute-name>
+                    <attribute-class>
+                        java.lang.String
+                    </attribute-class>
+                </attribute>
+            </component>
+        </af:xmlContent>
+        <af:panelGroupLayout id="pglRoot" layout="vertical">
+            <af:panelGroupLayout id="pglBackground" layout="vertical" styleClass="bg">
+                <af:panelGroupLayout id="pglBg1" layout="vertical" styleClass="background1" halign="center">
+                    <af:panelGroupLayout id="pglUserInfo" layout="vertical" styleClass="user-info sinBorders" halign="right">
+                        <af:outputText value="Nombre: #{attrs.nombre} | Login: #{attrs.login} | Fecha: #{attrs.fecha}"
+                                       id="otxLogin"/>
+                    </af:panelGroupLayout>
+                </af:panelGroupLayout>
+                <af:panelGroupLayout id="pglBg2" layout="vertical" styleClass="background2"/>
+            </af:panelGroupLayout>
+            <af:panelGroupLayout id="pglContainer" layout="vertical" styleClass="container"
+                                 inlineStyle="background: #dbe3f1;">
+                <af:panelGroupLayout id="pglHeader" layout="vertical" styleClass="header-content">
+                    <af:panelGroupLayout id="pt_pgl1" layout="horizontal" styleClass="page-info sinBorders"
+                                         inlineStyle="background: #82b1ce;">
+                        <af:panelGroupLayout id="pglTituloPantalla" layout="horizontal"
+                                             styleClass="tituloPantalla sinBorders">
+                            <af:outputText value="#{attrs.titulo}" id="otxTitulo" styleClass="labelTituloPantalla"/>
+                        </af:panelGroupLayout>
+                        <af:panelGroupLayout id="pglLogo" layout="horizontal" styleClass="logoPantalla sinBorders">
+                            <af:image source="/images/soaint_logo.png" shortDesc="Logo Banco Caja Social"
+                                      id="pt_i1" inlineStyle="width:252px; height:90px;"/>
+                        </af:panelGroupLayout>
+                    </af:panelGroupLayout>
+                </af:panelGroupLayout>
+                <af:panelGroupLayout id="pglContent" layout="vertical" styleClass="content"
+                                     inlineStyle="background: #dbe3f1;">
+                    <af:panelGroupLayout id="pt_pgl2" layout="vertical" styleClass="secciones sinBorders"
+                                         halign="center">
+                        <af:facetRef facetName="header"/>
+                    </af:panelGroupLayout>
+                    <af:panelGroupLayout id="pt_pgl3" layout="vertical" styleClass="secciones sinBorders"
+                                         halign="center">
+                        <af:facetRef facetName="content"/>
+                    </af:panelGroupLayout>
+                    <af:panelGroupLayout id="pt_pgl4" layout="vertical" styleClass="secciones sinBorders"
+                                         halign="center">
+                        <af:facetRef facetName="footer"/>
+                    </af:panelGroupLayout>
+                </af:panelGroupLayout>
+                <af:panelGroupLayout id="pglFooter" layout="vertical" styleClass="footer" halign="center">
+                    <af:outputText value="Version: #{attrs.version}" id="otxVersion"/>
+                </af:panelGroupLayout>
+            </af:panelGroupLayout>
+        </af:panelGroupLayout>
+    </af:pageTemplateDef>
+</jsp:root>

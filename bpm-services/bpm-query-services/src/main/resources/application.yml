@@ -1,0 +1,22 @@
+# +-----------------------------------------------------
+# |         SERVER CONFIG
+# +-----------------------------------------------------
+server:
+  port: 8089
+  servlet:
+    context-path: /bpm
+    session:
+      cookie:
+        name: UISESSION
+
+soap:
+  service:
+    bpm:
+      host: ${AA_HOST:192.168.1.7}
+      port: ${AA_PORT:9080}
+      url: http://${soap.service.bpm.host}:${soap.service.bpm.port}/teamworks/webservices/TOB/wsIniciarPaqueteTuristico.tws
+      #url: http://192.168.1.7:9080/teamworks/webservices/TOB/wsIniciarPaqueteTuristico.tws
+logging:
+  level:
+    org.springframework.web: DEBUG
+    co.edu.javeriana: DEBUG

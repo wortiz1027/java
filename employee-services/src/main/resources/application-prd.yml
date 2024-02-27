@@ -1,0 +1,34 @@
+# +-----------------------------------------------------
+# |         SPRING DATASOURCE CONFIG
+# +-----------------------------------------------------
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${DB_EMPLOYEES_HOST:localhost}:${DB_EMPLOYEES_PORT:33060}/${DB_EMPLOYEES_NAME:employees}
+    username: ${DB_EMPLOYEES_USERNAME:employees}
+    password: ${DB_EMPLOYEES_PASSWORD:a56e7535-fde4-419b-8556-fd6736e22254}
+
+# +-----------------------------------------------------
+# |         SPRING LOGGIN CONFIG
+# +-----------------------------------------------------
+logging:
+  level:
+    org.springframework.web: INFO
+    org.springframework.web.client.RestTamplate: INFO
+    org.springframework.data.r2dbc: INFO
+    co.com.merdadolibre.challenge: INFO
+  pattern:
+    console: "%d{yyyy-MMM-dd HH:mm:ss a} [%t] %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+# +-----------------------------------------------------
+# |         CUSTOM CONFIGURATION
+# +-----------------------------------------------------
+files:
+  resources:
+    protocole: http
+    host: ${FILE_HOST:localhost}
+    port: 8083
+    url: ${files.resources.protocole}://%s:${files.resources.port}/files/resources/load/%s
+  upload:
+    directory: ${APP_FILESYSTEM:/tmp}

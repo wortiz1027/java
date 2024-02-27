@@ -1,0 +1,15 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+    
+     targetNamespace="http://www.stellent.com/GetFile/"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+     xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+     xmlns:s0="http://www.stellent.com/GetFile/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+    <plnk:partnerLinkType name="WS_GetFile">
+        <plnk:role name="GetFileSoap" portType="s0:GetFileSoap"/>
+    </plnk:partnerLinkType>
+    <wsdl:import namespace="http://www.stellent.com/GetFile/" location="oramds:/apps/resources/SOA/WSDLs/GetFile.wsdl"/>
+</wsdl:definitions>

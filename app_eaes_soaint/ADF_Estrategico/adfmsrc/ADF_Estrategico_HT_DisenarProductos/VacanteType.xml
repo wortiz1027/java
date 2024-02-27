@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="12.2.1.9.14" id="VacanteType"
+          Package="ADF_Estrategico_HT_DisenarProductos" BeanClass="ADF_Estrategico_HT_DisenarProductos.VacanteType"
+          isJavaBased="false">
+  <Attribute Name="idVacante" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://xmlns.javeriana.edu/edu/schemas/process/reclutamiento/v1.0"/>
+        <Property Name="nextSibling" Value="candidatos"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Id Vacante"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="idVacante"/>
+        <Property Name="targetNamespace" Value="http://xmlns.javeriana.edu/edu/schemas/process/reclutamiento/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <AccessorAttribute id="candidatos" IsCollection="true" BeanClass="ADF_Estrategico_HT_DisenarProductos.CandidatosType"
+                     CollectionBeanClass="ADF_Estrategico_HT_DisenarProductos.CandidatosType_candidatos_Operations">
+    <Properties>
+      <Property Name="minOccurs" Value="0"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Candidatos"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="candidatos"/>
+      <Property Name="targetNamespace" Value="http://xmlns.javeriana.edu/edu/schemas/process/reclutamiento/v1.0"/>
+    </Properties>
+  </AccessorAttribute>
+</JavaBean>

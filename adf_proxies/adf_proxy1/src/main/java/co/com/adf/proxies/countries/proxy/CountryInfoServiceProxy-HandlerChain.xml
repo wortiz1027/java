@@ -1,0 +1,9 @@
+<ns0:handler-chains xmlns:ns0="http://java.sun.com/xml/ns/javaee">
+   <ns0:handler-chain>
+      <ns0:service-name-pattern xmlns:ns1="http://www.oorsprong.org/websamples.countryinfo">ns1:CountryInfoService</ns0:service-name-pattern>
+      <ns0:handler>
+         <ns0:handler-name>HandlerCountries</ns0:handler-name>
+         <ns0:handler-class>co.com.adf.proxies.countries.handler.HandlerCountries</ns0:handler-class>
+      </ns0:handler>
+   </ns0:handler-chain>
+</ns0:handler-chains>

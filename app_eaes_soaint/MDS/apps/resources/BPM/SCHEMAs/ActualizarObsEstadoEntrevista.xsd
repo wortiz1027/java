@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:javeriana="http://xmlns.javeriana.edu.co/co/schemas/process/bpm/ActualizarObsEstadoEntrevista/v1.0"
+            targetNamespace="http://xmlns.javeriana.edu.co/co/schemas/process/bpm/ActualizarObsEstadoEntrevista/v1.0"
+            elementFormDefault="qualified">
+  
+  <xsd:complexType name="InputType">
+    <xsd:sequence>
+      <xsd:element name="codigoEntrevista" type="xsd:decimal" minOccurs="0" />
+	  <xsd:element name="observaciones"    type="xsd:string"  minOccurs="0" />
+	  <xsd:element name="evaluarSeleccion" type="xsd:string"  minOccurs="0" />
+	</xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="OutputType">
+    <xsd:sequence>
+		 <xsd:element name="ejecucion" type="xsd:string" minOccurs="0" />
+	</xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:element name="request"  type="javeriana:InputType"/>
+  <xsd:element name="response" type="javeriana:OutputType"/>
+</xsd:schema>

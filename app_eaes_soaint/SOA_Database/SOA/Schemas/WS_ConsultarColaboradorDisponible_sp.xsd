@@ -1,0 +1,43 @@
+<schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/sp/WS_ConsultarColaboradorDisponible" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:db="http://xmlns.oracle.com/pcbpel/adapter/db/sp/WS_ConsultarColaboradorDisponible" elementFormDefault="qualified">
+   <element name="InputParameters">
+      <!--Empty Parameter List-->
+      <complexType/>
+   </element>
+   <element name="OutputParameters">
+      <complexType>
+         <sequence>
+            <element name="V_ARRAY_COLABORADOR_TYPE" type="db:JAVERIANA.ARRAY_COLABORADOR_TYPE" db:index="1" db:type="Array" minOccurs="0" nillable="true"/>
+         </sequence>
+      </complexType>
+   </element>
+   <complexType name="JAVERIANA.ARRAY_COLABORADOR_TYPE">
+      <sequence>
+         <element name="V_ARRAY_COLABORADOR_TYPE_ITEM" type="db:JAVERIANA.COLABORADOR_TYPE" db:type="Struct" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+      </sequence>
+   </complexType>
+   <complexType name="JAVERIANA.COLABORADOR_TYPE">
+      <sequence>
+         <element name="ID_CANDIDATO" type="decimal" db:type="NUMBER" minOccurs="0" nillable="true"/>
+         <element name="ID_ROL" type="decimal" db:type="NUMBER" minOccurs="0" nillable="true"/>
+         <element name="PRIMER_NOMBRE" type="db:string20" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="SEGUNDO_NOMBRE" type="db:string20" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="PRIMER_APELLIDO" type="db:string20" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="SEGUNDO_APELLIDO" type="db:string20" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="EMAIL" type="db:string20" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="TELEFONO" type="db:string20" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="DISPONIBLE" type="db:string1" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="USUARIO" type="db:string20" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="ID_DOCUMENTO" type="db:string20" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+      </sequence>
+   </complexType>
+   <simpleType name="string20">
+      <restriction base="string">
+         <maxLength value="20"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string1">
+      <restriction base="string">
+         <maxLength value="1"/>
+      </restriction>
+   </simpleType>
+</schema>

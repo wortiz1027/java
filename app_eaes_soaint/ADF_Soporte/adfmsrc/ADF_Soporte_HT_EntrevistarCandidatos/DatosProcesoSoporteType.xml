@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="12.2.1.9.14" id="DatosProcesoSoporteType"
+          Package="ADF_Soporte_HT_EntrevistarCandidatos"
+          BeanClass="ADF_Soporte_HT_EntrevistarCandidatos.DatosProcesoSoporteType" isJavaBased="false">
+  <Attribute Name="titulo" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace" Value="http://xmlns.javeriana.edu/edu/schemas/util/comunes/v1.0"/>
+        <Property Name="nextSibling" Value="tipoRespuesta"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Titulo"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="titulo"/>
+        <Property Name="targetNamespace" Value="http://xmlns.javeriana.edu/edu/schemas/util/comunes/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="existenCandidatosParaEvaluar" Type="java.lang.Boolean">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace" Value="http://xmlns.javeriana.edu/edu/schemas/util/comunes/v1.0"/>
+        <Property Name="nextSibling" Value="existePersonalParaSeleccionFiltrado"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Existen Candidatos Para Evaluar"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="existenCandidatosParaEvaluar"/>
+        <Property Name="targetNamespace" Value="http://xmlns.javeriana.edu/edu/schemas/util/comunes/v1.0"/>
+        <Property Name="type" Value="java.lang.Boolean"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="existePersonalParaSeleccionFiltrado" Type="java.lang.Boolean">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace" Value="http://xmlns.javeriana.edu/edu/schemas/util/comunes/v1.0"/>
+        <Property Name="nextSibling" Value="existePersonalParaContratar"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Existe Personal Para Seleccion Filtrado"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="existePersonalParaSeleccionFiltrado"/>
+        <Property Name="targetNamespace" Value="http://xmlns.javeriana.edu/edu/schemas/util/comunes/v1.0"/>
+        <Property Name="type" Value="java.lang.Boolean"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="existePersonalParaContratar" Type="java.lang.Boolean">
+    <Properties>
+      <CustomProperties>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Existe Personal Para Contratar"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="existePersonalParaContratar"/>
+        <Property Name="targetNamespace" Value="http://xmlns.javeriana.edu/edu/schemas/util/comunes/v1.0"/>
+        <Property Name="type" Value="java.lang.Boolean"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <AccessorAttribute id="tipoRespuesta" IsCollection="true"
+                     BeanClass="ADF_Soporte_HT_EntrevistarCandidatos.TipoRespuestaType"
+                     CollectionBeanClass="ADF_Soporte_HT_EntrevistarCandidatos.TipoRespuestaType_tipoRespuesta_Operations">
+    <Properties>
+      <Property Name="nextSiblingNamespace" Value="http://xmlns.javeriana.edu/edu/schemas/util/comunes/v1.0"/>
+      <Property Name="nextSibling" Value="existenCandidatosParaEvaluar"/>
+      <Property Name="minOccurs" Value="0"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Tipo Respuesta"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="tipoRespuesta"/>
+      <Property Name="targetNamespace" Value="http://xmlns.javeriana.edu/edu/schemas/util/comunes/v1.0"/>
+    </Properties>
+  </AccessorAttribute>
+</JavaBean>

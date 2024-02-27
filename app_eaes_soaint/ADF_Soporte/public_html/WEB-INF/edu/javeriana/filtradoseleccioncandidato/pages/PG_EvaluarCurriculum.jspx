@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <f:view>
+        <af:document title="#{soporteBundle.TITULO_EVALUAR_CURRICULUM}" id="d1">
+            <af:form id="f1">
+                <af:pageTemplate viewId="/template/adf_template.jspx" id="pt1">
+                    <f:facet name="header"/>
+                    <f:facet name="content">
+                        <af:panelGroupLayout id="pgl1" layout="vertical" inlineStyle="padding-right:20px">
+                            <af:panelGroupLayout id="pgl2" styleClass="sinBorders">
+                                <af:panelBox text="#{soporteBundle.TITLE_CANDIDATO}" disclosed="true" id="sdh1">
+                                    <af:panelGroupLayout id="pgl4" styleClass="sinBorders">
+                                        <af:table var="entrevista" value="#{pageFlowScope.mbEvaluarCurriculum.entrevistas}" rowBandingInterval="0" id="t1"
+                                                  styleClass="contentTable" rowSelection="single"
+                                                  selectionListener="#{pageFlowScope.mbEvaluarCurriculum.candidatosSelectionListiner}">
+                                            <af:column sortable="false" headerText="#{soporteBundle.TITLE_CANDIDATO}"
+                                                       id="c1" width="90%">
+                                                <af:outputText value="#{entrevista.curriculums.candidato.nombreCompleto}" id="ot1"/>
+                                            </af:column>
+                                            <af:column sortable="false" headerText="" id="c2" width="10%">
+                                                <af:button text="#{soporteBundle.BUTTON_VER}" id="b1" icon="/images/ico-documento.png"
+                                                           styleClass="tamanioauto2" actionListener="#{pageFlowScope.mbEvaluarCurriculum.onClickVer}">
+                                                <f:attribute name="entrevista" value="#{entrevista}"/>           
+                                                </af:button>
+                                            </af:column>
+                                        </af:table>
+                                    </af:panelGroupLayout>
+                                </af:panelBox>
+                            </af:panelGroupLayout>
+                            <af:popup childCreation="deferred" autoCancel="enabled" id="p1" partialTriggers="t1:b1">
+                                <af:dialog id="d2" type="none">
+                                    <af:panelGroupLayout id="pgl3" styleClass="sinBorders">
+                                        <af:panelBox text="#{soporteBundle.TITLE_DETALLE_COLABORADOR}" disclosed="true"
+                                                     id="sdh2">
+                                            <af:panelFormLayout id="pfl2" rows="5" maxColumns="2"
+                                                                styleClass="sinBorders">
+                                                <af:inputText label="#{soporteBundle.LABEL_TIPO_IDENTIFICACION}"
+                                                              id="it1" disabled="true" value="#{pageFlowScope.mbEvaluarCurriculum.entrevista.curriculums.candidato.identificacion.tipo}"/>
+                                                <af:inputText label="#{soporteBundle.LABEL_PRIMER_NOMBRE}" id="it2"
+                                                              disabled="true" value="#{pageFlowScope.mbEvaluarCurriculum.entrevista.curriculums.candidato.primerNombre}"/>
+                                                <af:inputText label="#{soporteBundle.LABEL_PRIMER_APELLIDO}" id="it3"
+                                                              disabled="true" value="#{pageFlowScope.mbEvaluarCurriculum.entrevista.curriculums.candidato.primeroApellido}"/>
+                                                <af:inputDate label="#{soporteBundle.LABEL_FECHA_NACIMIENTO}" id="id2"
+                                                              disabled="true" value="#{pageFlowScope.mbEvaluarCurriculum.entrevista.curriculums.candidato.fechaNacimiento}"/>
+                                                <af:inputText label="#{soporteBundle.LABEL_CORREO_ELECTRONICO}" id="it4"
+                                                              disabled="true" value="#{pageFlowScope.mbEvaluarCurriculum.entrevista.curriculums.candidato.email}"/>
+                                                <af:inputText label="#{soporteBundle.LABEL_NUMERO_IDENTIFICACION}"
+                                                              id="it5" disabled="true" value="#{pageFlowScope.mbEvaluarCurriculum.entrevista.curriculums.candidato.identificacion.numero}"/>
+                                                <af:inputText label="#{soporteBundle.LABEL_SEGUNDO_NOMBRE}" id="it6"
+                                                              disabled="true" value="#{pageFlowScope.mbEvaluarCurriculum.entrevista.curriculums.candidato.segundoNombre}"/>
+                                                <af:inputText label="#{soporteBundle.LABEL_SEGUNDO_APELLIDO}" id="it7"
+                                                              disabled="true" value="#{pageFlowScope.mbEvaluarCurriculum.entrevista.curriculums.candidato.segundoApellido}"/>
+                                                <af:spacer width="10" height="10" id="s2"/>
+                                                <af:inputText label="#{soporteBundle.LABEL_TELEFONO}" id="it8"
+                                                              disabled="true" value="#{pageFlowScope.mbEvaluarCurriculum.entrevista.curriculums.candidato.telefono}"/>
+                                            </af:panelFormLayout>
+                                            <af:panelGroupLayout id="pgl7" layout="vertical" styleClass="sinBorders"
+                                                                 halign="center">
+                                                <af:panelFormLayout id="pfl3" styleClass="sinBorders"
+                                                                    labelAlignment="top">
+                                                    <af:outputText value="#{soporteBundle.LABEL_CURRICULUM}" id="ot2"
+                                                                   inlineStyle="font-weight: bold;color: #444444"/>
+                                                    <af:inlineFrame id="if1" source="http://wcc-dv1:16225/wcc/faces/wccdoc?dID=#{pageFlowScope.mbEvaluarCurriculum.entrevista.curriculums.documento.idDoc}" shortDesc="#{soporteBundle.LABEL_CURRICULUM}" inlineStyle="height: 500px; width: 700px"/>
+                                                </af:panelFormLayout>
+                                            </af:panelGroupLayout>
+                                        </af:panelBox>
+                                    </af:panelGroupLayout>
+                                    <f:facet name="buttonBar"/>
+                                </af:dialog>
+                            </af:popup>
+                            <af:spacer width="1" height="5" id="s1"/>
+                            <af:panelGroupLayout id="pgl6" styleClass="sinBorders" visible="#{pageFlowScope.mbEvaluarCurriculum.mostrarPanelEntrevista}">
+                                <af:panelBox text="#{soporteBundle.TITLE_ENTREVISTA}" disclosed="true" id="pb1" styleClass="sinBorders">
+                                    <af:panelGroupLayout id="pgl5" styleClass="sinBorders">
+                                        <af:panelFormLayout id="pfl1" maxColumns="1" rows="2" styleClass="sinBorders">
+                                            <af:selectOneRadio label="#{soporteBundle.LABEL_DEBE_ENTREVISTA}" id="sor1"
+                                                               layout="horizontal"
+                                                               value="#{pageFlowScope.mbEvaluarCurriculum.entrevista.seDebeEntrevistar}">
+                                                <af:selectItem label="#{soporteBundle.OPTION_SI}" id="si1" value="#{true}"/>
+                                                <af:selectItem label="#{soporteBundle.OPTION_NO}" id="si2" value="#{false}"/>
+                                            </af:selectOneRadio>
+                                        </af:panelFormLayout>
+                                    </af:panelGroupLayout>
+                                    <af:inputDate label="#{soporteBundle.LABEL_FECHA_REALIZACION}" id="id1"
+                                                  value="#{pageFlowScope.mbEvaluarCurriculum.entrevista.fechaRealizacion}"/>
+                                </af:panelBox>
+                            </af:panelGroupLayout>
+                        </af:panelGroupLayout>
+                    </f:facet>
+                    <f:facet name="footer">
+                        <af:panelGroupLayout id="pgl9" halign="right" layout="vertical"
+                                                         styleClass="sinBorders">
+                            <af:button text="#{soporteBundle.BOTON_ENVIAR}" id="bProcesar" partialSubmit="true"
+                                       styleClass="buttonBlue"
+                                       action="#{pageFlowScope.mbEvaluarCurriculum.finalizarPantalla}"
+                                       actionListener="#{pageFlowScope.mbEvaluarCurriculum.mySetOperation}">
+                                <f:attribute name="DC_OPERATION_BINDING" value="bindings.APPROVE"/>
+                                <f:attribute name="TIPO_ACCION" value="ACEPTAR"/>
+                            </af:button>
+                        </af:panelGroupLayout>
+                    </f:facet>
+                    
+                     <f:attribute name="titulo"  value="#{soporteBundle.TITULO_EVALUAR_CURRICULUM}"/>
+                    <f:attribute name="fecha"   value=""/>
+                    <f:attribute name="login"   value=""/>
+                    <f:attribute name="nombre"  value=""/>
+                    <f:attribute name="version" value="#{soporteBundle.VERSION}"/>
+                </af:pageTemplate>
+            </af:form>
+        </af:document>
+    </f:view>
+</jsp:root>

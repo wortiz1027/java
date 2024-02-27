@@ -1,0 +1,4 @@
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+  <system systemId="http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL#%7Bhttp%3A%2F%2Fwww.oorsprong.org%2Fwebsamples.countryinfo%7DCountryInfoService"
+          uri="../org/oorsprong/websamples/CountryInfoService.wsdl"/>
+</catalog>

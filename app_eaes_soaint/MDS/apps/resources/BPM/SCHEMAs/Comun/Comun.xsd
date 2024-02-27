@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:utilbpmcom="http://xmlns.javeriana.edu/edu/schemas/util/comunes/v1.0"
+            targetNamespace="http://xmlns.javeriana.edu/edu/schemas/util/comunes/v1.0" elementFormDefault="qualified">
+    <xsd:complexType name="DatosProcesoMisionalType">
+        <xsd:sequence>
+            <xsd:element name="titulo" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+            <xsd:element name="tipoRespuesta" minOccurs="0" maxOccurs="1" type="utilbpmcom:TipoRespuestaType"/>
+            <xsd:element name="existenRecursosDisponibles" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="realizarRevisionesExternasObligatoriasYOpcionales" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="DatosProcesoSoporteType">
+        <xsd:sequence>
+            <xsd:element name="titulo" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+            <xsd:element name="tipoRespuesta" minOccurs="0" maxOccurs="1" type="utilbpmcom:TipoRespuestaType"/>
+            <xsd:element name="existenCandidatosParaEvaluar" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="existePersonalParaSeleccionFiltrado" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="existePersonalParaContratar" minOccurs="0" maxOccurs="1" type="xsd:boolean"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="TipoRespuestaType">
+        <xsd:sequence>
+            <xsd:element name="codigo" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="descripcion" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="NotificacionType">
+        <xsd:sequence>
+            <xsd:element name="receptor" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="asunto" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="cuerpo" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="DatosProcesoSoporte" type="utilbpmcom:DatosProcesoSoporteType">
+        <xsd:annotation>
+            <xsd:documentation>A sample element</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="DatosProcesoMisional" type="utilbpmcom:DatosProcesoMisionalType"/>
+    <xsd:element name="TipoRespuesta" type="utilbpmcom:TipoRespuestaType"/>
+    <xsd:element name="Notificacion" type="utilbpmcom:NotificacionType"/>
+</xsd:schema>

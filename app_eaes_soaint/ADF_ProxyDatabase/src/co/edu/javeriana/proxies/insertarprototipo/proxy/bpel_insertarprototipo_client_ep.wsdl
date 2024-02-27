@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<wsdl:definitions name="bpel_insertarprototipo" targetNamespace="http://xmlns.oracle.com/app_eaes_soaint/SOA_Database/bpel_insertarprototipo" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:client="http://xmlns.oracle.com/app_eaes_soaint/SOA_Database/bpel_insertarprototipo" xmlns:ns1="http://xmlns.javeriana.edu.co/co/schemas/process/bpm/InsertarPrototipo/v1.0" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:documentation>
+    <abstractWSDL>http://bpm-dv1:7003/soa-infra/services/default/SOA_Database!1.0.0/WSDLs/bpel_insertarprototipo.wsdl</abstractWSDL>
+  </wsdl:documentation>
+  <plnk:partnerLinkType name="bpel_insertarprototipo">
+    <plnk:role name="bpel_insertarprototipoProvider" portType="client:bpel_insertarprototipo"/>
+  </plnk:partnerLinkType>
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="http://xmlns.javeriana.edu.co/co/schemas/process/bpm/InsertarPrototipo/v1.0" schemaLocation="InsertarPrototipo.xsd"/>
+    </schema>
+  </wsdl:types>
+  <wsdl:message name="bpel_insertarprototipoRequestMessage">
+    <wsdl:part name="payload" element="ns1:request"/>
+  </wsdl:message>
+  <wsdl:message name="bpel_insertarprototipoResponseMessage">
+    <wsdl:part name="payload" element="ns1:response"/>
+  </wsdl:message>
+  <wsdl:portType name="bpel_insertarprototipo">
+    <wsdl:operation name="process">
+      <wsdl:input message="client:bpel_insertarprototipoRequestMessage"/>
+      <wsdl:output message="client:bpel_insertarprototipoResponseMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="bpel_insertarprototipoBinding" type="client:bpel_insertarprototipo">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="process">
+      <soap:operation style="document" soapAction="process"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="bpel_insertarprototipo_client_ep">
+    <wsdl:port name="bpel_insertarprototipo_pt" binding="client:bpel_insertarprototipoBinding">
+      <soap:address location="http://bpm-dv1:7003/soa-infra/services/default/SOA_Database/bpel_insertarprototipo_client_ep"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

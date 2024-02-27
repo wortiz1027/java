@@ -1,0 +1,40 @@
+# +-----------------------------------------------------
+# |         SERVER CONFIG
+# +-----------------------------------------------------
+server:
+  port: 7071
+  servlet:
+    context-path: /bolivariano
+    session:
+      cookie:
+        name: UISESSION
+
+# +-----------------------------------------------------
+# |         BOLIVARIANO FTP CONFIG
+# +-----------------------------------------------------
+bolivariano:
+  local:
+    path: /tmp/download/data.csv
+    #path: c:\\tmp\\download\\datos.csv
+  ftp:
+    server:
+      host: ${FTP_HOST:localhost}
+      port: ${FTP_PORT:21}
+      username: ${FTP_USER:toures}
+      password: ${FTP_PASS:T0u3r3sBal0n}
+      remote: ${FTP_USER_HOME:/home/vsftpd/toures/bolivariano.csv}
+
+# +-----------------------------------------------------
+# |         SPRING LOGGIN CONFIG
+# +-----------------------------------------------------
+logging:
+  level:
+    org.springframework.web: DEBUG
+    org.springframework.ws.client.MessageTracing.sent: DEBUG
+    org.springframework.ws.client.MessageTracing.received: DEBUG
+    org.springframework.ws.server.MessageTracing.sent: DEBUG
+    org.springframework.ws.server.MessageTracing.received: DEBUG
+    us.com.service.aa: DEBUG
+  pattern:
+    console: "%d{yyyy-MMM-dd HH:mm:ss a} [%t] %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"

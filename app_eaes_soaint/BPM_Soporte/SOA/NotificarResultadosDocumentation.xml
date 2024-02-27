@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?oracleBPM version="12.1.3" fileRevision="20120601"?>
+<processDocumentation xmlns="http://xmlns.oracle.com/bpm/taskMetadataService/processDocumentation">
+   <component name="NotificarResultados">
+      <topicDocumentations>
+         <topicDocumentation name="NotificarResultados"/>
+         <topicDocumentation name="ACT28387160029957">
+            <labels>
+               <label locale="en">[SW] Obtener Resultados Candidatos</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT28387168041289">
+            <labels>
+               <label locale="en">Notificar Resultados Candidatos</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT28387192038333">
+            <labels>
+               <label locale="en">[NT] Notificar Rechazo del Candidato</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT28387197704111">
+            <labels>
+               <label locale="en">[NT] Notificar Aceptación del Candidato</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT28463837430620">
+            <labels>
+               <label locale="en">[SET] Notificar Aceptación del Candidato</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="ACT28463841273649">
+            <labels>
+               <label locale="en">[SET] Notificar Rechazo del Candidato</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="EVT28387168147767">
+            <labels>
+               <label locale="en">Inicio Notificar Resultado por Candidato</label>
+            </labels>
+         </topicDocumentation>
+         <topicDocumentation name="EVT28387168147780">
+            <labels>
+               <label locale="en">Fin Notificar Resultado por Candidato</label>
+            </labels>
+         </topicDocumentation>
+         <topicDocumentation name="GTW28387180749569">
+            <labels>
+               <label locale="en">¿Resultado de la selección?</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="GTW28387187152620">
+            <labels>
+               <label locale="en">Unión ¿Cual fue el resultado de la selección?</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf28387168147746"/>
+         <topicDocumentation name="sf28387183814575">
+            <labels>
+               <label locale="en">Rechazado</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf28387189876190"/>
+         <topicDocumentation name="sf28387197052441"/>
+         <topicDocumentation name="sf2838719898946">
+            <labels>
+               <label locale="en">Aceptado</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf28387199679987"/>
+         <topicDocumentation name="sf28463840187188"/>
+         <topicDocumentation name="sf28463842650214"/>
+         <topicDocumentation name="ACT28446203582771">
+            <labels>
+               <label locale="en">[SET] Titulo Instancia</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="EVT2838714200318">
+            <labels>
+               <label locale="en">Inicio</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="EVT28387142003192">
+            <labels>
+               <label locale="en">Fin</label>
+            </labels>
+            <descriptions>
+               <description locale="en"></description>
+            </descriptions>
+         </topicDocumentation>
+         <topicDocumentation name="sf28387142003251"/>
+         <topicDocumentation name="sf28387164677969"/>
+         <topicDocumentation name="sf28387168147744"/>
+         <topicDocumentation name="sf28446204112679"/>
+      </topicDocumentations>
+   </component>
+</processDocumentation>

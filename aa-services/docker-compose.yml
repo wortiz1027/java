@@ -1,0 +1,54 @@
+# -------------------------------------------------------------------
+# - DOCKER COMPOSE FILE
+# - AUTOR: Equipo 5
+# - FECHA: 17-Septiembre-2020
+# - DESCRIPCION: Docker compose file que permite la
+# -              creacion de 2 contendores uno para la aplicacion
+# -              de consulta de vuelos de American Airline y su
+# -               Respectiva Base de datos
+# -------------------------------------------------------------------
+
+version: '3.7'
+services:
+  db_bookings:
+    image: mysql:5.7.31
+    container_name: db_bookings
+    hostname: db_bookings
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 'mysql'
+      MYSQL_DATABASE: 'bookingdb'
+      MYSQL_USER: 'booking'
+      MYSQL_PASSWORD: 'booking2020++'
+    ports:
+      - 33060:3306
+    volumes:
+      - ./src/main/resources/databases:/docker-entrypoint-initdb.d
+    networks:
+      - ntw_backend
+    healthcheck:
+      test: [ "CMD", "mysqladmin" ,"ping https://linuxize.com/post/how-to-remove-docker-images-containers-volumes-and-networks/", "-h", "localhost" ]
+      timeout: 20s
+      retries: 10
+  bookings-service:
+    image: wortiz1027/aa-services:latest
+    container_name: bookings-service
+    hostname: bookings-service
+    restart: always
+    ports:
+      - 7070:7070
+    networks:
+      - ntw_backend
+    depends_on:
+      - db_bookings
+    environment:
+      - SERVICE_PORTS=7073
+      - DATABASE_HOST=db_bookings
+      - DATABASE_USER=booking
+      - DATABASE_PASSWORD=booking2020++
+      - DATABASE_NAME=bookingdb
+      - DATABASE_PORT=3306
+
+networks:
+  ntw_backend:
+    external: true

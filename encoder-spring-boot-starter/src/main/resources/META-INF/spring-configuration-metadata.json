@@ -1,0 +1,48 @@
+{
+  "groups":[
+    {
+      "name":"service.encoder",
+      "type":"org.workshop.starter.autoconfigure.EncoderProperties",
+      "sourceType":"org.workshop.starter.autoconfigure.EncoderProperties"
+    }
+  ],
+  "properties":[
+    {
+      "name":"service.encoder.host",
+      "type":"java.lang.String",
+      "description":"Ip Address or hostname where the encoder server is waiting for requests.",
+      "sourceType":"org.workshop.starter.autoconfigure.EncoderProperties"
+    },
+    {
+      "name":"service.encoder.port",
+      "type":"java.lang.Integer",
+      "description":"Number of system por where the encoder server is waiting for requests.",
+      "sourceType":"org.workshop.starter.autoconfigure.EncoderProperties"
+    },
+    {
+      "name":"service.encoder.algorithm",
+      "type":"java.lang.String",
+      "description":"Algorithm that you need to encrypt your password",
+      "sourceType":"org.workshop.starter.autoconfigure.EncoderProperties"
+    }
+  ],
+  "hints":[
+    {
+      "name":"service.encoder.algorithm",
+      "values":[
+        {
+          "value":"none",
+          "description":"No algorithm specified"
+        },
+        {
+          "value":"md5",
+          "description":"Encrypt or hash your password using 'md5' algotrithm"
+        },
+        {
+          "value":"bcrypt",
+          "description":"Encrypt or hash your password using 'bcrypt' algotrithm"
+        }
+      ]
+    }
+  ]
+}

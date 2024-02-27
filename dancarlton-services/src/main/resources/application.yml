@@ -1,0 +1,55 @@
+# +-----------------------------------------------------
+# |         SERVER CONFIG
+# +-----------------------------------------------------
+server:
+  port: 7072
+  servlet:
+    context-path: /dancarlton
+    session:
+      cookie:
+        name: UISESSION
+
+# +-----------------------------------------------------
+# |         SPRING DATASOURCE CONFIGURATION
+# +-----------------------------------------------------
+
+spring:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://${DATABASE_HOST:localhost}:${DATABASE_PORT:33070}/dancarltondb?allowPublicKeyRetrieval=true&useSSL=false&autoReconnect=true&failOverReadOnly=false&maxReconnects=10
+    username: dancarlton
+    password: dancarlton2020++
+    platform: mysql
+    initialization-mode: always
+    hikari:
+      initialization-fail-timeout: 0
+      data-source-properties:
+        cachePrepStmts: true
+        useServerPrepStmts: true
+        prepStmtCacheSize: 250
+        prepStmtCacheSqlLimit: 2048
+        useLocalSessionState: true
+        useLocalTransactionState: true
+        rewriteBatchedStatements: true
+        cacheResultSetMetadata: true
+        cacheServerConfiguration: true
+        elideSetAutoCommits: true
+        maintainTimeStats: false
+      pool-name: dancarltonPool
+      connection-timeout: 20000
+      maximum-pool-size: 5
+
+# +-----------------------------------------------------
+# |         SPRING LOGGIN CONFIG
+# +-----------------------------------------------------
+logging:
+  level:
+    org.springframework.web: DEBUG
+    org.springframework.ws.client.MessageTracing.sent: DEBUG
+    org.springframework.ws.client.MessageTracing.received: DEBUG
+    org.springframework.ws.server.MessageTracing.sent: DEBUG
+    org.springframework.ws.server.MessageTracing.received: DEBUG
+    co.com.service.dancarlton: DEBUG
+  pattern:
+    console: "%d{yyyy-MMM-dd HH:mm:ss a} [%t] %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"

@@ -1,0 +1,5 @@
+service:
+  encoder:
+    host: ${SERVICE_ENCODER_HOST:localhost}
+    port: ${SERVICE_ENCODER_PORT:1531}
+    algorithm: md5

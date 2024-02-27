@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:javeriana="http://xmlns.javeriana.edu.co/co/schemas/process/bpm/WCC_GetFile/v1.0"
+            targetNamespace="http://xmlns.javeriana.edu.co/co/schemas/process/bpm/WCC_GetFile/v1.0"
+            elementFormDefault="qualified">
+  
+	<xsd:complexType name="GetFileByID">
+		<xsd:sequence>
+			<xsd:element name="dID" type="xsd:int" minOccurs="0" nillable="true"/>
+			<xsd:element name="tipoArchivo" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="extraProperty" type="javeriana:Property" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="Property">
+		<xsd:sequence>
+			<xsd:element name="name" type="xsd:string" minOccurs="0" nillable="true"/>
+			<xsd:element name="value" type="xsd:string" minOccurs="0" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+  
+	<xsd:complexType name="FileInfo">
+		<xsd:sequence>
+			<xsd:element name="dID" type="xsd:int" minOccurs="0" nillable="true"/>
+			<xsd:element name="dDocName" type="xsd:string" minOccurs="0" nillable="true"/>
+			<xsd:element name="titulo" type="xsd:string" minOccurs="0" nillable="true"/>
+			<xsd:element name="tipo" type="xsd:string" minOccurs="0" nillable="true"/>
+			<xsd:element name="autor" type="xsd:string" minOccurs="0" nillable="true"/>
+			<xsd:element name="grupoSeguridad" type="xsd:string" minOccurs="0" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="PrimaryFile">
+		<xsd:sequence>
+			<xsd:element name="nombreArchivo" type="xsd:string" minOccurs="0" nillable="true"/>
+			<xsd:element name="contenidoArchivo" type="xsd:base64Binary" minOccurs="0" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="StatusInfo">
+		<xsd:sequence>
+			<xsd:element name="codigo" type="xsd:int" minOccurs="0" nillable="true"/>
+			<xsd:element name="mensaje" type="xsd:string" minOccurs="0" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="GetFileByIDResult">
+		<xsd:sequence>
+			<xsd:element name="InformacionArhivo" type="javeriana:FileInfo" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+			<xsd:element name="ArchivoDescargado" type="javeriana:PrimaryFile" minOccurs="0" nillable="true"/>
+			<xsd:element name="status" type="javeriana:StatusInfo" minOccurs="0" nillable="true"/>			
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="GetFileByIDResponse">
+		<xsd:sequence>
+			<xsd:element name="GetFileByIDResult" type="javeriana:GetFileByIDResult" minOccurs="0" maxOccurs="1" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+  
+  <xsd:element name="input" type="javeriana:GetFileByID"/>
+  <xsd:element name="output" type="javeriana:GetFileByIDResponse"/>
+</xsd:schema>

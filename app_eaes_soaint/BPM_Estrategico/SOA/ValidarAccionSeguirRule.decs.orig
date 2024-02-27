@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<decisionServices xmlns="http://xmlns.oracle.com/bpel/rules" name="ValidarAccionSeguirRule">
+   <ruleEngineProvider provider="Oracle_11.0.0.0.0" name="OracleRulesSDK">
+      <repository type="SCA-Archive">
+         <path>BPM_Estrategico/oracle/rules/co/edu/javeriana/businessrules/ValidarAccionSeguirRule.rules</path>
+      </repository>
+   </ruleEngineProvider>
+   <decisionService name="ValidarAccionSeguirRule_ValidarAccionASeguirDS" ruleEngineProviderReference="OracleRulesSDK" targetNamespace="http://xmlns.oracle.com/ValidarAccionSeguirRule/ValidarAccionSeguirRule_ValidarAccionASeguirDS">
+      <catalog>ValidarAccionSeguirRule</catalog>
+      <pattern name="CallFunctionStateless">
+         <arguments>
+            <call>co.edu.javeriana.businessrules.ValidarAccionSeguirRule.ValidarAccionASeguirDS</call>
+         </arguments>
+      </pattern>
+      <pattern name="CallFunctionStateful">
+         <arguments>
+            <call>co.edu.javeriana.businessrules.ValidarAccionSeguirRule.ValidarAccionASeguirDS</call>
+         </arguments>
+      </pattern>
+   </decisionService>
+</decisionServices>

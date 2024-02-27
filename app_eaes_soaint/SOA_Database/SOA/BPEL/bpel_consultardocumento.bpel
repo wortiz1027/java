@@ -1,0 +1,88 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Oracle JDeveloper BPEL Designer 
+  
+  Created: Sat Apr 04 01:32:25 COT 2020
+  Author:  javeriana
+  Type: BPEL 2.0 Process
+  Purpose: Synchronous BPEL Process
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<process name="bpel_consultardocumento"
+               targetNamespace="http://xmlns.oracle.com/app_eaes_soaint/SOA_Database/bpel_consultardocumento"
+               xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+               xmlns:client="http://xmlns.oracle.com/app_eaes_soaint/SOA_Database/bpel_consultardocumento"
+               xmlns:ora="http://schemas.oracle.com/xpath/extension"
+               xmlns:ui="http://xmlns.oracle.com/soa/designer"
+               xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+         xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:ns1="http://xmlns.oracle.com/pcbpel/adapter/db/app_eaes_soaint/SOA_Database/WS_ConsDocumento"
+         xmlns:ns2="http://xmlns.javeriana.edu.co/co/schemas/process/bpm/ConsultarDocumento/v1.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:ns3="http://xmlns.oracle.com/pcbpel/adapter/db/sp/WS_ConsDocumento">
+
+    <import ui:processWSDL="true" namespace="http://xmlns.oracle.com/app_eaes_soaint/SOA_Database/bpel_consultardocumento" location="../WSDLs/bpel_consultardocumento.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <!-- 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        PARTNERLINKS                                                      
+        List of services participating in this BPEL process               
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    --> 
+  <partnerLinks>
+    <!-- 
+      The 'client' role represents the requester of this service. It is 
+      used for callback. The location and correlation information associated
+      with the client role are automatically set using WS-Addressing.
+    -->
+    <partnerLink name="bpel_consultardocumento_client" partnerLinkType="client:bpel_consultardocumento" myRole="bpel_consultardocumentoProvider"/>
+    <partnerLink name="WS_ConsDocumento" partnerLinkType="ns1:WS_ConsDocumento_plt"
+                 partnerRole="WS_ConsDocumento_role"/>
+  </partnerLinks>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      VARIABLES                                                        
+      List of messages and XML documents used within this BPEL process 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <variables>
+    <!-- Reference to the message passed as input during initiation -->
+    <variable name="inputVariable" messageType="client:bpel_consultardocumentoRequestMessage"/>
+
+    <!-- Reference to the message that will be returned to the requester-->
+    <variable name="outputVariable" messageType="client:bpel_consultardocumentoResponseMessage"/>
+    <variable name="invk_input" messageType="ns1:args_in_msg"/>
+    <variable name="invk_output" messageType="ns1:args_out_msg"/>
+  </variables>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     ORCHESTRATION LOGIC                                               
+     Set of activities coordinating the flow of messages across the    
+     services integrated within this business process                  
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <sequence name="main">
+
+    <!-- Receive input from requestor. (Note: This maps to operation defined in bpel_consultardocumento.wsdl) -->
+    <receive name="receiveInput" partnerLink="bpel_consultardocumento_client" portType="client:bpel_consultardocumento" operation="process" variable="inputVariable" createInstance="yes"/>
+    <assign name="Asignar_request">
+      <copy>
+        <from>$inputVariable.payload/ns2:codigoCandidato</from>
+        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$invk_input.InputParameters/ns3:V_ID_CANDIDATO</to>
+      </copy>
+    </assign>
+    <invoke name="invk_consultardocumento" partnerLink="WS_ConsDocumento"
+            portType="ns1:WS_ConsDocumento_ptt" operation="WS_ConsDocumento" inputVariable="invk_input"
+            outputVariable="invk_output" bpelx:invokeAsDetail="no"/>
+    <assign name="Asignar_response">
+      <copy>
+        <from>$invk_output.OutputParameters/ns3:V_ID_DOCUMENTO</from>
+        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$invk_output.OutputParameters/ns3:V_ID_DOCUMENTO</to>
+      </copy>
+    </assign>
+    <!-- Generate reply to synchronous request -->
+    <reply name="replyOutput" partnerLink="bpel_consultardocumento_client" portType="client:bpel_consultardocumento" operation="process" variable="outputVariable"/>
+  </sequence>
+</process>

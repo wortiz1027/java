@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.9.14" id="DataBindings"
+             SeparateXMLFiles="false" Package="adf_estrategico" ClientType="Generic">
+  <pageMap>
+    <page path="/WEB-INF/edu/javeriana/verificarasignarrecursos/pages/PG_SolicitarRecursos.jspx"
+          usageId="adf_estrategico_PG_SolicitarRecursosPageDef"/>
+    <page path="/WEB-INF/edu/javeriana/verificarasignarrecursos/taskflows/HT_SolicitarRecursos.xml#HT_SolicitarRecursos@inicializarManageBean"
+          usageId="adf_estrategico_HT_SolicitarRecursos_HT_SolicitarRecursos_inicializarManageBeanPageDef"/>
+    <page path="/WEB-INF/edu/javeriana/verificarasignarrecursos/taskflows/HT_SolicitarRecursos.xml#HT_SolicitarRecursos@savePayload"
+          usageId="adf_estrategico_HT_SolicitarRecursos_HT_SolicitarRecursos_savePayloadPageDef"/>
+    <page path="/WEB-INF/edu/javeriana/construirprobarprototipo/taskflows/HT_ConstruirPrototiposPruebasConceptos.xml#HT_ConstruirPrototiposPruebasConceptos@inicializarManageBean"
+          usageId="adf_estrategico_HT_ConstruirPrototiposPruebasConceptos_HT_ConstruirPrototiposPruebasConceptos_inicializarManageBeanPageDef"/>
+    <page path="/WEB-INF/edu/javeriana/construirprobarprototipo/taskflows/HT_ConstruirPrototiposPruebasConceptos.xml#HT_ConstruirPrototiposPruebasConceptos@savePayload"
+          usageId="adf_estrategico_HT_ConstruirPrototiposPruebasConceptos_HT_ConstruirPrototiposPruebasConceptos_savePayloadPageDef"/>
+    <page path="/WEB-INF/edu/javeriana/construirprobarprototipo/taskflows/HT_RealizarPruebasInternasProducto.xml#HT_RealizarPruebasInternasProducto@inicializarManageBean"
+          usageId="adf_estrategico_HT_RealizarPruebasInternasProducto_HT_RealizarPruebasInternasProducto_inicializarManageBeanPageDef"/>
+    <page path="/WEB-INF/edu/javeriana/construirprobarprototipo/taskflows/HT_RealizarPruebasInternasProducto.xml#HT_RealizarPruebasInternasProducto@savePayload"
+          usageId="adf_estrategico_HT_RealizarPruebasInternasProducto_HT_RealizarPruebasInternasProducto_savePayloadPageDef"/>
+    <page path="/WEB-INF/edu/javeriana/construirprobarprototipo/taskflows/HT_ValidarProblemasCalidad.xml#HT_ValidarProblemasCalidad@inicializarManageBean"
+          usageId="adf_estrategico_HT_ValidarProblemasCalidad_HT_ValidarProblemasCalidad_inicializarManageBeanPageDef"/>
+    <page path="/WEB-INF/edu/javeriana/construirprobarprototipo/taskflows/HT_ValidarProblemasCalidad.xml#HT_ValidarProblemasCalidad@savePayload"
+          usageId="adf_estrategico_HT_ValidarProblemasCalidad_HT_ValidarProblemasCalidad_savePayloadPageDef"/>
+    <page path="/WEB-INF/edu/javeriana/desarrollarespecificaciondiseno/taskflows/HT_ConcluirRevisiones.xml#HT_ConcluirRevisiones@inicializarManageBean"
+          usageId="adf_estrategico_HT_ConcluirRevisiones_HT_ConcluirRevisiones_inicializarManageBeanPageDef"/>
+    <page path="/WEB-INF/edu/javeriana/desarrollarespecificaciondiseno/taskflows/HT_ConcluirRevisiones.xml#HT_ConcluirRevisiones@savePayload"
+          usageId="adf_estrategico_HT_ConcluirRevisiones_HT_ConcluirRevisiones_savePayloadPageDef"/>
+    <page path="/WEB-INF/edu/javeriana/desarrollarespecificaciondiseno/taskflows/HT_DefinicionEspecificacionDiseno.xml#HT_DefinicionEspecificacionDiseno@inicializarManageBean"
+          usageId="adf_estrategico_HT_DefinicionEspecificacionDiseno_HT_DefinicionEspecificacionDiseno_inicializarManageBeanPageDef"/>
+    <page path="/WEB-INF/edu/javeriana/desarrollarespecificaciondiseno/taskflows/HT_DefinicionEspecificacionDiseno.xml#HT_DefinicionEspecificacionDiseno@savePayload"
+          usageId="adf_estrategico_HT_DefinicionEspecificacionDiseno_HT_DefinicionEspecificacionDiseno_savePayloadPageDef"/>
+    <page path="/WEB-INF/edu/javeriana/desarrollarespecificaciondiseno/taskflows/HT_DisenarProductos.xml#HT_DisenarProductos@inicializarManageBean"
+          usageId="adf_estrategico_HT_DisenarProductos_HT_DisenarProductos_inicializarManageBeanPageDef"/>
+    <page path="/WEB-INF/edu/javeriana/desarrollarespecificaciondiseno/taskflows/HT_DisenarProductos.xml#HT_DisenarProductos@savePayload"
+          usageId="adf_estrategico_HT_DisenarProductos_HT_DisenarProductos_savePayloadPageDef"/>
+    <page path="/WEB-INF/edu/javeriana/verificarasignarrecursos/taskflows/HT_EvaluarAsignarRecursoPrototipado.xml#HT_EvaluarAsignarRecursoPrototipado@inicializarManageBean"
+          usageId="adf_estrategico_HT_EvaluarAsignarRecursoPrototipado_HT_EvaluarAsignarRecursoPrototipado_inicializarManageBeanPageDef"/>
+    <page path="/WEB-INF/edu/javeriana/verificarasignarrecursos/taskflows/HT_EvaluarAsignarRecursoPrototipado.xml#HT_EvaluarAsignarRecursoPrototipado@savePayload"
+          usageId="adf_estrategico_HT_EvaluarAsignarRecursoPrototipado_HT_EvaluarAsignarRecursoPrototipado_savePayloadPageDef"/>
+    <page path="/WEB-INF/edu/javeriana/desarrollarespecificaciondiseno/pages/PG_ConcluirRevisiones.jspx"
+          usageId="adf_estrategico_PG_ConcluirRevisionesPageDef"/>
+    <page path="/WEB-INF/edu/javeriana/desarrollarespecificaciondiseno/pages/PG_DefinicionEspecificacionDiseno.jspx"
+          usageId="adf_estrategico_PG_DefinicionEspecificacionDisenoPageDef"/>
+    <page path="/WEB-INF/edu/javeriana/desarrollarespecificaciondiseno/pages/PG_DisenarProductos.jspx"
+          usageId="adf_estrategico_PG_DisenarProductosPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="adf_estrategico_PG_SolicitarRecursosPageDef"
+          path="edu.javeriana.verificarasignarrecursos.pages.PG_SolicitarRecursosPageDef"/>
+    <page id="adf_estrategico_HT_SolicitarRecursos_HT_SolicitarRecursos_inicializarManageBeanPageDef"
+          path="edu.javeriana.verificarasignarrecursos.taskflows.HT_SolicitarRecursos_HT_SolicitarRecursos_inicializarManageBeanPageDef"/>
+    <page id="adf_estrategico_HT_SolicitarRecursos_HT_SolicitarRecursos_savePayloadPageDef"
+          path="edu.javeriana.verificarasignarrecursos.taskflows.HT_SolicitarRecursos_HT_SolicitarRecursos_savePayloadPageDef"/>
+    <page id="adf_estrategico_HT_ConstruirPrototiposPruebasConceptos_HT_ConstruirPrototiposPruebasConceptos_inicializarManageBeanPageDef"
+          path="edu.javeriana.construirprobarprototipo.taskflows.HT_ConstruirPrototiposPruebasConceptos_HT_ConstruirPrototiposPruebasConceptos_inicializarManageBeanPageDef"/>
+    <page id="adf_estrategico_HT_ConstruirPrototiposPruebasConceptos_HT_ConstruirPrototiposPruebasConceptos_savePayloadPageDef"
+          path="edu.javeriana.construirprobarprototipo.taskflows.HT_ConstruirPrototiposPruebasConceptos_HT_ConstruirPrototiposPruebasConceptos_savePayloadPageDef"/>
+    <page id="adf_estrategico_HT_RealizarPruebasInternasProducto_HT_RealizarPruebasInternasProducto_inicializarManageBeanPageDef"
+          path="edu.javeriana.construirprobarprototipo.taskflows.HT_RealizarPruebasInternasProducto_HT_RealizarPruebasInternasProducto_inicializarManageBeanPageDef"/>
+    <page id="adf_estrategico_HT_RealizarPruebasInternasProducto_HT_RealizarPruebasInternasProducto_savePayloadPageDef"
+          path="edu.javeriana.construirprobarprototipo.taskflows.HT_RealizarPruebasInternasProducto_HT_RealizarPruebasInternasProducto_savePayloadPageDef"/>
+    <page id="adf_estrategico_HT_ValidarProblemasCalidad_HT_ValidarProblemasCalidad_inicializarManageBeanPageDef"
+          path="edu.javeriana.construirprobarprototipo.taskflows.HT_ValidarProblemasCalidad_HT_ValidarProblemasCalidad_inicializarManageBeanPageDef"/>
+    <page id="adf_estrategico_HT_ValidarProblemasCalidad_HT_ValidarProblemasCalidad_savePayloadPageDef"
+          path="edu.javeriana.construirprobarprototipo.taskflows.HT_ValidarProblemasCalidad_HT_ValidarProblemasCalidad_savePayloadPageDef"/>
+    <page id="adf_estrategico_HT_ConcluirRevisiones_HT_ConcluirRevisiones_inicializarManageBeanPageDef"
+          path="edu.javeriana.desarrollarespecificaciondiseno.taskflows.HT_ConcluirRevisiones_HT_ConcluirRevisiones_inicializarManageBeanPageDef"/>
+    <page id="adf_estrategico_HT_ConcluirRevisiones_HT_ConcluirRevisiones_savePayloadPageDef"
+          path="edu.javeriana.desarrollarespecificaciondiseno.taskflows.HT_ConcluirRevisiones_HT_ConcluirRevisiones_savePayloadPageDef"/>
+    <page id="adf_estrategico_HT_DefinicionEspecificacionDiseno_HT_DefinicionEspecificacionDiseno_inicializarManageBeanPageDef"
+          path="edu.javeriana.desarrollarespecificaciondiseno.taskflows.HT_DefinicionEspecificacionDiseno_HT_DefinicionEspecificacionDiseno_inicializarManageBeanPageDef"/>
+    <page id="adf_estrategico_HT_DefinicionEspecificacionDiseno_HT_DefinicionEspecificacionDiseno_savePayloadPageDef"
+          path="edu.javeriana.desarrollarespecificaciondiseno.taskflows.HT_DefinicionEspecificacionDiseno_HT_DefinicionEspecificacionDiseno_savePayloadPageDef"/>
+    <page id="adf_estrategico_HT_DisenarProductos_HT_DisenarProductos_inicializarManageBeanPageDef"
+          path="edu.javeriana.desarrollarespecificaciondiseno.taskflows.HT_DisenarProductos_HT_DisenarProductos_inicializarManageBeanPageDef"/>
+    <page id="adf_estrategico_HT_DisenarProductos_HT_DisenarProductos_savePayloadPageDef"
+          path="edu.javeriana.desarrollarespecificaciondiseno.taskflows.HT_DisenarProductos_HT_DisenarProductos_savePayloadPageDef"/>
+    <page id="adf_estrategico_HT_EvaluarAsignarRecursoPrototipado_HT_EvaluarAsignarRecursoPrototipado_inicializarManageBeanPageDef"
+          path="edu.javeriana.verificarasignarrecursos.taskflows.HT_EvaluarAsignarRecursoPrototipado_HT_EvaluarAsignarRecursoPrototipado_inicializarManageBeanPageDef"/>
+    <page id="adf_estrategico_HT_EvaluarAsignarRecursoPrototipado_HT_EvaluarAsignarRecursoPrototipado_savePayloadPageDef"
+          path="edu.javeriana.verificarasignarrecursos.taskflows.HT_EvaluarAsignarRecursoPrototipado_HT_EvaluarAsignarRecursoPrototipado_savePayloadPageDef"/>
+    <page id="adf_estrategico_PG_ConcluirRevisionesPageDef"
+          path="edu.javeriana.desarrollarespecificaciondiseno.pages.PG_ConcluirRevisionesPageDef"/>
+    <page id="adf_estrategico_PG_DefinicionEspecificacionDisenoPageDef"
+          path="edu.javeriana.desarrollarespecificaciondiseno.pages.PG_DefinicionEspecificacionDisenoPageDef"/>
+    <page id="adf_estrategico_PG_DisenarProductosPageDef"
+          path="edu.javeriana.desarrollarespecificaciondiseno.pages.PG_DisenarProductosPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="ADF_Estrategico_HT_EvaluarAsignarRecursoPrototipado"
+        path="adf_estrategico.ADF_Estrategico_HT_EvaluarAsignarRecursoPrototipado"/>
+    <dc id="ADF_Estrategico_HT_DisenarProductos" path="adf_estrategico.ADF_Estrategico_HT_DisenarProductos"/>
+    <dc id="ADF_Estrategico_HT_DefinicionEspecificacionDiseno"
+        path="adf_estrategico.ADF_Estrategico_HT_DefinicionEspecificacionDiseno"/>
+    <dc id="ADF_Estrategico_HT_ConcluirRevisiones" path="adf_estrategico.ADF_Estrategico_HT_ConcluirRevisiones"/>
+    <dc id="ADF_Estrategico_HT_ValidarProblemasCalidad"
+        path="adf_estrategico.ADF_Estrategico_HT_ValidarProblemasCalidad"/>
+    <dc id="ADF_Estrategico_HT_RealizarPruebasInternasProducto"
+        path="adf_estrategico.ADF_Estrategico_HT_RealizarPruebasInternasProducto"/>
+    <dc id="ADF_Estrategico_HT_ConstruirPrototiposPruebasConceptos"
+        path="adf_estrategico.ADF_Estrategico_HT_ConstruirPrototiposPruebasConceptos"/>
+    <dc id="ADF_Estrategico_HT_SolicitarRecursos" path="adf_estrategico.ADF_Estrategico_HT_SolicitarRecursos"/>
+  </dataControlUsages>
+</Application>

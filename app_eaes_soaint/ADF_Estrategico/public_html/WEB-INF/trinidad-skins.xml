@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<skins xmlns="http://myfaces.apache.org/trinidad/skin">
+    <skin>
+        <id>BCS_Skin.desktop</id>
+        <family>BCS_Skin</family>
+        <extends>alta-v1.desktop</extends>
+        <render-kit-id>org.apache.myfaces.trinidad.desktop</render-kit-id>
+        <style-sheet-name>skins/BCS_Skin/BCS_Skin.css</style-sheet-name>
+        <bundle-name>view.skinBundle</bundle-name>
+    </skin>
+    <skin>
+        <id>BCS_Fonts.desktop</id>
+        <family>BCS_Fonts</family>
+        <extends>alta-v1.desktop</extends>
+        <render-kit-id>org.apache.myfaces.trinidad.desktop</render-kit-id>
+        <style-sheet-name>skins/BCS_Skin/BCS_Fonts.css</style-sheet-name>
+        <bundle-name>view.skinBundle</bundle-name>
+    </skin>
+</skins>

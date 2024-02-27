@@ -1,0 +1,115 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://co.dancarlton.com/reservas" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://co.dancarlton.com/reservas" targetNamespace="http://co.dancarlton.com/reservas">
+    <wsdl:types>
+        <xs:schema xmlns:dcn="http://co.dancarlton.com/reservas" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://co.dancarlton.com/reservas">
+            <xs:complexType name="tipoHabitacion">
+                <xs:sequence>
+                    <xs:element name="id_tipo" type="xs:string"/>
+                    <xs:element name="descripcion" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Reserva">
+                <xs:sequence>
+                    <xs:element name="idReserva" type="xs:string"/>
+                    <xs:element name="codigoReserva" type="xs:string"/>
+                    <xs:element name="fechaInicio" type="xs:string"/>
+                    <xs:element name="fechaFin" type="xs:string"/>
+                    <xs:element name="nombreHuesped" type="xs:string"/>
+                    <xs:element name="tienePasaporte" type="xs:string"/>
+                    <xs:element name="numeroPasaporte" type="xs:string"/>
+                    <xs:element name="numeroDocumento" type="xs:string"/>
+                    <xs:element name="observaciones" type="xs:string"/>
+                    <xs:element name="tipoHabitacion" type="dcn:tipoHabitacion"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ReservasList">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="reservas" type="dcn:Reserva"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Header">
+                <xs:sequence>
+                    <xs:element name="code" type="xs:string"/>
+                    <xs:element name="description" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="GetReservasRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="key" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetReservasResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="header" type="dcn:Header"/>
+                        <xs:element name="information" type="dcn:ReservasList"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetReservasByCodigoRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="key" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetReservasByCodigoResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="header" type="dcn:Header"/>
+                        <xs:element name="detail" type="dcn:Reserva"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="GetReservasResponse">
+        <wsdl:part element="tns:GetReservasResponse" name="GetReservasResponse"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="GetReservasByCodigoRequest">
+        <wsdl:part element="tns:GetReservasByCodigoRequest" name="GetReservasByCodigoRequest"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="GetReservasByCodigoResponse">
+        <wsdl:part element="tns:GetReservasByCodigoResponse" name="GetReservasByCodigoResponse"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="GetReservasRequest">
+        <wsdl:part element="tns:GetReservasRequest" name="GetReservasRequest"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="reservasPort">
+        <wsdl:operation name="GetReservas">
+            <wsdl:input message="tns:GetReservasRequest" name="GetReservasRequest"> </wsdl:input>
+            <wsdl:output message="tns:GetReservasResponse" name="GetReservasResponse"> </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetReservasByCodigo">
+            <wsdl:input message="tns:GetReservasByCodigoRequest" name="GetReservasByCodigoRequest"> </wsdl:input>
+            <wsdl:output message="tns:GetReservasByCodigoResponse" name="GetReservasByCodigoResponse"> </wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="reservasPortSoap11" type="tns:reservasPort">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="GetReservas">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="GetReservasRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="GetReservasResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetReservasByCodigo">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="GetReservasByCodigoRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="GetReservasByCodigoResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="reservasPortService">
+        <wsdl:port binding="tns:reservasPortSoap11" name="reservasPortSoap11">
+            <soap:address location="http://localhost:7072/dancarlton/ws"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

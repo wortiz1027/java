@@ -1,0 +1,15 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+    
+     targetNamespace="http://www.stellent.com/Search/"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+     xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype"
+     xmlns:s0="http://www.stellent.com/Search/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+    <plnk:partnerLinkType name="WS_AdvanceSearch">
+        <plnk:role name="SearchSoap" portType="s0:SearchSoap"/>
+    </plnk:partnerLinkType>
+    <wsdl:import namespace="http://www.stellent.com/Search/" location="oramds:/apps/resources/SOA/WSDLs/Search.wsdl"/>
+</wsdl:definitions>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.9.14"
+                id="HT_EntrevistarCandidatos_HT_EntrevistarCandidatos_savePayloadPageDef"
+                Package="edu.javeriana.filtradoseleccioncandidato.taskflows" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <methodIterator Binds="getTaskDetails.result" DataControl="ADF_Soporte_HT_EntrevistarCandidatos" RangeSize="25"
+                    BeanClass="ADF_Soporte_HT_EntrevistarCandidatos.getTaskDetails" id="getTaskDetailsIterator"/>
+    <accessorIterator MasterBinding="getTaskDetailsIterator" Binds="task" RangeSize="10"
+                      DataControl="ADF_Soporte_HT_EntrevistarCandidatos"
+                      BeanClass="ADF_Soporte_HT_EntrevistarCandidatos.task" id="taskIterator"/>
+    <accessorIterator MasterBinding="taskIterator" Binds="payload" RangeSize="25"
+                      DataControl="ADF_Soporte_HT_EntrevistarCandidatos"
+                      BeanClass="ADF_Soporte_HT_EntrevistarCandidatos.HT_EntrevistarCandidatosPayloadType"
+                      id="payloadIterator"/>
+    <accessorIterator MasterBinding="payloadIterator" Binds="DatosProcesoSoporte" RangeSize="10"
+                      DataControl="ADF_Soporte_HT_EntrevistarCandidatos"
+                      BeanClass="ADF_Soporte_HT_EntrevistarCandidatos.DatosProcesoSoporteType"
+                      id="DatosProcesoSoporteIterator"/>
+  </executables>
+  <bindings>
+    <methodAction id="getTaskDetails" RequiresUpdateModel="true" Action="invokeMethod" MethodName="getTaskDetails"
+                  IsViewObjectMethod="false" DataControl="ADF_Soporte_HT_EntrevistarCandidatos"
+                  InstanceName="bindings.getTaskDetails.dataControl"
+                  ReturnName="data.ADF_Soporte_HT_EntrevistarCandidatos.methodResults.getTaskDetails_getTaskDetails_dataControl_getTaskDetails_result">
+      <NamedData NDName="bpmWorklistContext" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskId" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskVersion" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction IterBinding="taskIterator" id="APPROVE" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="APPROVE" IsViewObjectMethod="false" DataControl="ADF_Soporte_HT_EntrevistarCandidatos"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider" IsLocalObjectReference="true"/>
+    <attributeValues IterBinding="DatosProcesoSoporteIterator" id="existenCandidatosParaEvaluar">
+      <AttrNames>
+        <Item Value="existenCandidatosParaEvaluar"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

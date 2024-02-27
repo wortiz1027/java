@@ -1,0 +1,10 @@
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+  <system systemId="http://bpm-dv1:7003/soa-infra/services/default/SOA_Database/bpel_insertarprototipo_client_ep?WSDL#%7Bhttp%3A%2F%2Fxmlns.oracle.com%2Fapp_eaes_soaint%2FSOA_Database%2Fbpel_insertarprototipo%7Dbpel_insertarprototipo_client_ep"
+          uri="../co/edu/javeriana/proxies/insertarprototipo/proxy/bpel_insertarprototipo_client_ep.wsdl"/>
+  <system systemId="http://bpm-dv1:7003/soa-infra/services/default/SOA_Database/bpel_inscolaborador_client_ep?WSDL#%7Bhttp%3A%2F%2Fxmlns.oracle.com%2Fapp_eaes_soaint%2FSOA_Database%2Fbpel_inscolaborador%7Dbpel_inscolaborador_client_ep"
+          uri="../co/edu/javeriana/proxies/insertarcolaborador/proxy/bpel_inscolaborador_client_ep.wsdl"/>
+  <system systemId="http://bpm-dv1:7003/soa-infra/services/default/SOA_Database/bpel_consultarprototipo_client_ep?WSDL#%7Bhttp%3A%2F%2Fxmlns.oracle.com%2Fapp_eaes_soaint%2FSOA_Database%2Fbpel_consultarprototipo%7Dbpel_consultarprototipo_client_ep"
+          uri="../co/edu/javeriana/proxies/consultarprototipo/proxy/bpel_consultarprototipo_client_ep.wsdl"/>
+  <system systemId="http://bpm-dv1:7003/soa-infra/services/default/SOA_Database/bpel_consultardocumento_client_ep?WSDL#%7Bhttp%3A%2F%2Fxmlns.oracle.com%2Fapp_eaes_soaint%2FSOA_Database%2Fbpel_consultardocumento%7Dbpel_consultardocumento_client_ep"
+          uri="../co/edu/javeriana/proxies/consultardocumento/proxy/bpel_consultardocumento_client_ep.wsdl"/>
+</catalog>

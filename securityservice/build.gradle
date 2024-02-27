@@ -1,0 +1,81 @@
+buildscript {
+
+    ext {
+
+    }
+
+    repositories {
+        mavenCentral()
+        mavenLocal()
+        jcenter()
+    }
+
+    dependencies {
+
+    }
+}
+
+ext {
+    javaourceCompatibility = 1.8
+    libVersion = [
+            SLF4J_VERSION: '1.7.22',
+            JUNIT_VERSION: '4.12',
+            SPRING_FRAMEWORK: '4.3.6.RELEASE',
+            SPRING_SECURITY: '4.2.1.RELEASE',
+            SPRING_SECURITY_OAUTH2: '2.0.12.RELEASE',
+            SPRING_HETOAS: '0.23.0.RELEASE',
+            ASPECT4J: '1.8.10',
+            SERVLET_API: '3.1.0',
+            SERVLERT_JSP_API: '2.3.1',
+            JSLT: '1.2',
+            JACKSON: '2.8.6',
+            HIBERNATE_CORE: '5.2.6.Final',
+            HIBERNATE_VALIDATOR: '5.3.4.Final',
+            HIBERNATE_C3P0: '5.2.6.Final',
+            HIBERNATE_JPA: '1.0.0.Final',
+            ORACLE_JDBC: '12.1.0.2',
+            JUNIT: '4.12',
+            JAVAMELODY: '1.63.0'
+    ]
+}
+
+allprojects {
+    group 'co.com.securityservice'
+    version '1.0-SNAPSHOT'
+}
+
+subprojects {
+
+    repositories {
+        mavenCentral()
+        mavenLocal()
+        jcenter()
+    }
+
+    apply plugin: 'java'
+    apply plugin: 'idea'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    dependencies {
+        compile group: 'org.slf4j', name: 'slf4j-api', version: libVersion.SLF4J_VERSION
+        compile group: 'org.slf4j', name: 'slf4j-log4j12', version: libVersion.SLF4J_VERSION
+        compile group: 'org.aspectj', name: 'aspectjrt', version: libVersion.ASPECT4J
+        compile group: 'org.aspectj', name: 'aspectjweaver', version: libVersion.ASPECT4J
+        compile group: 'org.springframework', name: 'spring-core', version: libVersion.SPRING_FRAMEWORK
+        compile group: 'org.springframework', name: 'spring-context', version: libVersion.SPRING_FRAMEWORK
+        compile group: 'org.springframework', name: 'spring-aop', version: libVersion.SPRING_FRAMEWORK
+        compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: libVersion.JACKSON
+        //compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: libVersion.JACKSON
+
+        compile('com.fasterxml.jackson.core:jackson-databind:2.8.6'){
+            exclude module: 'jackson-annotations'
+            exclude module: 'jackson-core'
+        }
+
+        compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: libVersion.JACKSON
+
+        testCompile group: 'junit', name: 'junit', version: libVersion.JUNIT
+    }
+}

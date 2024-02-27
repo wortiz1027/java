@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="12.2.1.9.14" id="CandidatosType"
+          Package="ADF_Estrategico_HT_EvaluarAsignarRecursoPrototipado"
+          BeanClass="ADF_Estrategico_HT_EvaluarAsignarRecursoPrototipado.CandidatosType" isJavaBased="false">
+  <AccessorAttribute id="Candidato" IsCollection="true"
+                     BeanClass="ADF_Estrategico_HT_EvaluarAsignarRecursoPrototipado.CandidatoType"
+                     CollectionBeanClass="ADF_Estrategico_HT_EvaluarAsignarRecursoPrototipado.CandidatoType_Candidato_Operations">
+    <Properties>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="2147483640"/>
+      <Property Name="LABEL" Value="Candidato"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="Candidato"/>
+      <Property Name="targetNamespace" Value="http://xmlns.javeriana.edu/edu/schemas/process/reclutamiento/v1.0"/>
+    </Properties>
+  </AccessorAttribute>
+</JavaBean>

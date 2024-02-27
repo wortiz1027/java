@@ -1,0 +1,90 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Oracle JDeveloper BPEL Designer 
+  
+  Created: Sat Apr 04 01:11:06 COT 2020
+  Author:  negro
+  Type: BPEL 2.0 Process
+  Purpose: Synchronous BPEL Process
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<process name="bpel_AdvanceSearch"
+               targetNamespace="http://xmlns.oracle.com/app_eaes_soaint/SOA_Content/bpel_AdvanceSearch"
+               xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+               xmlns:client="http://xmlns.oracle.com/app_eaes_soaint/SOA_Content/bpel_AdvanceSearch"
+               xmlns:ora="http://schemas.oracle.com/xpath/extension"
+               xmlns:ui="http://xmlns.oracle.com/soa/designer"
+               xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+         xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:ns1="http://www.stellent.com/Search/">
+
+    <import ui:processWSDL="true" namespace="http://xmlns.oracle.com/app_eaes_soaint/SOA_Content/bpel_AdvanceSearch" location="../WSDLs/bpel_AdvanceSearch.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <!-- 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        PARTNERLINKS                                                      
+        List of services participating in this BPEL process               
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    --> 
+  <partnerLinks>
+    <!-- 
+      The 'client' role represents the requester of this service. It is 
+      used for callback. The location and correlation information associated
+      with the client role are automatically set using WS-Addressing.
+    -->
+    <partnerLink name="bpel_advancesearch_client" partnerLinkType="client:bpel_AdvanceSearch" myRole="bpel_AdvanceSearchProvider"/>
+    <partnerLink name="WS_AdvanceSearch" partnerLinkType="ns1:WS_AdvanceSearch" partnerRole="SearchSoap"/>
+  </partnerLinks>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      VARIABLES                                                        
+      List of messages and XML documents used within this BPEL process 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <variables>
+    <!-- Reference to the message passed as input during initiation -->
+    <variable name="inputVariable" messageType="client:bpel_AdvanceSearchRequestMessage"/>
+
+    <!-- Reference to the message that will be returned to the requester-->
+    <variable name="outputVariable" messageType="client:bpel_AdvanceSearchResponseMessage"/>
+    <variable name="Ink_AdvanceSearch_inputVariable" messageType="ns1:AdvancedSearchSoapIn"/>
+    <variable name="Ink_AdvanceSearch_outputVariable" messageType="ns1:AdvancedSearchSoapOut"/>
+  </variables>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     ORCHESTRATION LOGIC                                               
+     Set of activities coordinating the flow of messages across the    
+     services integrated within this business process                  
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <sequence name="main">
+
+    <!-- Receive input from requestor. (Note: This maps to operation defined in bpel_AdvanceSearch.wsdl) -->
+    <receive name="receiveInput" partnerLink="bpel_advancesearch_client" portType="client:bpel_AdvanceSearch" operation="process" variable="inputVariable" createInstance="yes"/>
+    <assign name="T2_Request_AdvanceSearch">
+      <bpelx:annotation>
+        <bpelx:pattern patternName="bpelx:transformation"></bpelx:pattern>
+      </bpelx:annotation>
+      <copy>
+        <from>ora:doXSLTransformForDoc("../Transformations/T2_Request_AdvanceSearch.xsl", $inputVariable.payload)</from>
+        <to variable="Ink_AdvanceSearch_inputVariable" part="parameters"/>
+      </copy>
+    </assign>
+    <invoke name="Ink_AdvanceSearch" partnerLink="WS_AdvanceSearch"
+            portType="ns1:SearchSoap" operation="AdvancedSearch" inputVariable="Ink_AdvanceSearch_inputVariable"
+            outputVariable="Ink_AdvanceSearch_outputVariable" bpelx:invokeAsDetail="no"/>
+    <assign name="T3_Response_AdvanceSearch">
+      <bpelx:annotation>
+        <bpelx:pattern patternName="bpelx:transformation"></bpelx:pattern>
+      </bpelx:annotation>
+      <copy>
+        <from>ora:doXSLTransformForDoc("../Transformations/T3_Response_AdvanceSearch.xsl", $Ink_AdvanceSearch_outputVariable.parameters)</from>
+        <to variable="outputVariable" part="payload"/>
+      </copy>
+    </assign>
+    <!-- Generate reply to synchronous request -->
+    <reply name="replyOutput" partnerLink="bpel_advancesearch_client" portType="client:bpel_AdvanceSearch" operation="process" variable="outputVariable"/>
+  </sequence>
+</process>

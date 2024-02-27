@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.9.14"
+                id="HT_EvaluarSeleccionarCandidato_HT_EvaluarSeleccionarCandidato_savePayloadPageDef"
+                Package="edu.javeriana.filtradoseleccioncandidato.taskflows" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <methodIterator Binds="getTaskDetails.result" DataControl="ADF_Soporte_HT_EvaluarSeleccionarCandidato"
+                    RangeSize="25" BeanClass="ADF_Soporte_HT_EvaluarSeleccionarCandidato.getTaskDetails"
+                    id="getTaskDetailsIterator"/>
+    <accessorIterator MasterBinding="getTaskDetailsIterator" Binds="task" RangeSize="10"
+                      DataControl="ADF_Soporte_HT_EvaluarSeleccionarCandidato"
+                      BeanClass="ADF_Soporte_HT_EvaluarSeleccionarCandidato.task" id="taskIterator"/>
+  </executables>
+  <bindings>
+    <methodAction id="getTaskDetails" RequiresUpdateModel="true" Action="invokeMethod" MethodName="getTaskDetails"
+                  IsViewObjectMethod="false" DataControl="ADF_Soporte_HT_EvaluarSeleccionarCandidato"
+                  InstanceName="bindings.getTaskDetails.dataControl"
+                  ReturnName="data.ADF_Soporte_HT_EvaluarSeleccionarCandidato.methodResults.getTaskDetails_getTaskDetails_dataControl_getTaskDetails_result">
+      <NamedData NDName="bpmWorklistContext" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskId" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskVersion" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction IterBinding="taskIterator" id="APPROVE" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="APPROVE" IsViewObjectMethod="false"
+                  DataControl="ADF_Soporte_HT_EvaluarSeleccionarCandidato"
+                  InstanceName="bindings.taskIterator.currentRow.dataProvider" IsLocalObjectReference="true"/>
+  </bindings>
+</pageDefinition>

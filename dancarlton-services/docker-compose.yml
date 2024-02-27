@@ -1,0 +1,54 @@
+# -------------------------------------------------------------------
+# - DOCKER COMPOSE FILE
+# - AUTOR: Equipo 5
+# - FECHA: 17-Septiembre-2020
+# - DESCRIPCION: Docker compose file que permite la
+# -              creacion de 2 contendores uno para la aplicacion
+# -              de consulta de habitaciones de hotel disponibles
+# -               Respectiva Base de datos
+# -------------------------------------------------------------------
+
+version: '3.7'
+services:
+  db_dancarlton:
+    image: mysql:5.7.31
+    container_name: db_dancarlton
+    hostname: db_dancarlton
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 'mysql'
+      MYSQL_DATABASE: 'dancarltondb'
+      MYSQL_USER: 'dancarlton'
+      MYSQL_PASSWORD: 'dancarlton2020++'
+    ports:
+      - 33070:3306
+    volumes:
+      - ./src/main/resources/databases:/docker-entrypoint-initdb.d
+    networks:
+      - ntw_backend
+    healthcheck:
+      test: [ "CMD", "mysqladmin" ,"ping https://linuxize.com/post/how-to-remove-docker-images-containers-volumes-and-networks/", "-h", "localhost" ]
+      timeout: 20s
+      retries: 10
+  dancarlton-service:
+    image: wortiz1027/dancarlton-service:latest
+    container_name: dancarlton-service
+    hostname: dancarlton-service
+    restart: always
+    ports:
+      - 7072:7072
+    networks:
+      - ntw_backend
+    depends_on:
+      - db_dancarlton
+    environment:
+      - SERVICE_PORTS=7072
+      - DATABASE_HOST=db_dancarlton
+      - DATABASE_USER=dancarlton
+      - DATABASE_PASSWORD=dancarlton2020++
+      - DATABASE_NAME=dancarltondb
+      - DATABASE_PORT=3306
+
+networks:
+  ntw_backend:
+    external: true

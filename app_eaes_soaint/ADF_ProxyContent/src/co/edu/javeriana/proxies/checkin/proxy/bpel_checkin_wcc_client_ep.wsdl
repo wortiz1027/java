@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<wsdl:definitions name="bpel_checkin_wcc" targetNamespace="http://xmlns.oracle.com/app_eaes_soaint/SOA_Content/bpel_checkin_wcc" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:client="http://xmlns.oracle.com/app_eaes_soaint/SOA_Content/bpel_checkin_wcc" xmlns:ns1="http://xmlns.javeriana.edu.co/co/schemas/process/bpm/WCC_Checkin/v1.0" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:documentation>
+    <abstractWSDL>http://bpm-dv1:7003/soa-infra/services/default/SOA_Content!1.0.0/WSDLs/bpel_checkin_wcc.wsdl</abstractWSDL>
+  </wsdl:documentation>
+  <plnk:partnerLinkType name="bpel_checkin_wcc">
+    <plnk:role name="bpel_checkin_wccProvider" portType="client:bpel_checkin_wcc"/>
+  </plnk:partnerLinkType>
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="http://xmlns.javeriana.edu.co/co/schemas/process/bpm/WCC_Checkin/v1.0" schemaLocation="WCC_Checkin.xsd"/>
+    </schema>
+  </wsdl:types>
+  <wsdl:message name="bpel_checkin_wccRequestMessage">
+    <wsdl:part name="payload" element="ns1:input"/>
+  </wsdl:message>
+  <wsdl:message name="bpel_checkin_wccResponseMessage">
+    <wsdl:part name="payload" element="ns1:output"/>
+  </wsdl:message>
+  <wsdl:portType name="bpel_checkin_wcc">
+    <wsdl:operation name="process">
+      <wsdl:input message="client:bpel_checkin_wccRequestMessage"/>
+      <wsdl:output message="client:bpel_checkin_wccResponseMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="bpel_checkin_wccBinding" type="client:bpel_checkin_wcc">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="process">
+      <soap:operation style="document" soapAction="process"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="bpel_checkin_wcc_client_ep">
+    <wsdl:port name="bpel_checkin_wcc_pt" binding="client:bpel_checkin_wccBinding">
+      <soap:address location="http://bpm-dv1:7003/soa-infra/services/default/SOA_Content/bpel_checkin_wcc_client_ep"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

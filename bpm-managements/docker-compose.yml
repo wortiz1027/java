@@ -1,0 +1,29 @@
+# -----------------------------------------------------------------------------
+# - DOCKERFILE
+# - AUTOR: Brian Suarez | Eduardo Franco | Jhon Celemin | Wilman Ortiz
+# - FECHA: 06-Octubre-2020
+# - DESCRIPCION: Docker-compose que permite la creacion del
+# -              contenedor con el servicio de inicio de instancias en el bpm
+# ------------------------------------------------------------------------------
+
+version: '3.7'
+services:
+  bpm-command-services:
+    image: wortiz1027/bpm-command-services:latest
+    container_name: bpm-command-services
+    hostname: bpm-command-services
+    restart: always
+    ports:
+      - 8099:8099
+      - 6099:6099
+    environment:
+      - CONFIG_SERVER=http://server-configuration-services:9090
+      - EUREKA_SERVER=http://server-discovery-services:9091/eureka
+      - EUREKA_HOST=10.39.1.85
+      - BPM_HOST=10.100.136.172
+      - BPM_PORT=9080
+    networks:
+      - ntw_backend
+networks:
+  ntw_backend:
+    external: true

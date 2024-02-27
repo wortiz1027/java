@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<wsdl:definitions name="bpel_insertarentrevista" targetNamespace="http://xmlns.oracle.com/app_eaes_soaint/SOA_Database_2/bpel_insertarentrevista" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:client="http://xmlns.oracle.com/app_eaes_soaint/SOA_Database_2/bpel_insertarentrevista" xmlns:ns1="http://xmlns.javeriana.edu.co/co/schemas/process/bpm/InsertarEntrevista/v1.0" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:documentation>
+    <abstractWSDL>http://bpm-dv1:7003/soa-infra/services/default/SOA_Database_2!1.0.0/WSDLs/bpel_insertarentrevista.wsdl</abstractWSDL>
+  </wsdl:documentation>
+  <plnk:partnerLinkType name="bpel_insertarentrevista">
+    <plnk:role name="bpel_insertarentrevistaProvider" portType="client:bpel_insertarentrevista"/>
+  </plnk:partnerLinkType>
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="http://xmlns.javeriana.edu.co/co/schemas/process/bpm/InsertarEntrevista/v1.0" schemaLocation="InsertarEntrevista.xsd"/>
+    </schema>
+  </wsdl:types>
+  <wsdl:message name="bpel_insertarentrevistaRequestMessage">
+    <wsdl:part name="payload" element="ns1:request"/>
+  </wsdl:message>
+  <wsdl:message name="bpel_insertarentrevistaResponseMessage">
+    <wsdl:part name="payload" element="ns1:response"/>
+  </wsdl:message>
+  <wsdl:portType name="bpel_insertarentrevista">
+    <wsdl:operation name="process">
+      <wsdl:input message="client:bpel_insertarentrevistaRequestMessage"/>
+      <wsdl:output message="client:bpel_insertarentrevistaResponseMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="bpel_insertarentrevistaBinding" type="client:bpel_insertarentrevista">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="process">
+      <soap:operation style="document" soapAction="process"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="bpel_insertarentrevista_client_ep">
+    <wsdl:port name="bpel_insertarentrevista_pt" binding="client:bpel_insertarentrevistaBinding">
+      <soap:address location="http://bpm-dv1:7003/soa-infra/services/default/SOA_Database_2/bpel_insertarentrevista_client_ep"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

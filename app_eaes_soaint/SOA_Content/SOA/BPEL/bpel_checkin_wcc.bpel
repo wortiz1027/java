@@ -1,0 +1,109 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Oracle JDeveloper BPEL Designer 
+  
+  Created: Fri Apr 03 17:22:44 COT 2020
+  Author:  negro
+  Type: BPEL 2.0 Process
+  Purpose: Synchronous BPEL Process
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<process name="bpel_checkin_wcc"
+               targetNamespace="http://xmlns.oracle.com/app_eaes_soaint/SOA_Content/bpel_checkin_wcc"
+               xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+               xmlns:client="http://xmlns.oracle.com/app_eaes_soaint/SOA_Content/bpel_checkin_wcc"
+               xmlns:ora="http://schemas.oracle.com/xpath/extension"
+               xmlns:ui="http://xmlns.oracle.com/soa/designer"
+               xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+         xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:ns1="http://www.stellent.com/CheckIn/"
+         xmlns:ns2="http://xmlns.javeriana.edu.co/co/schemas/process/bpm/WCC_Checkin/v1.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <import ui:processWSDL="true" namespace="http://xmlns.oracle.com/app_eaes_soaint/SOA_Content/bpel_checkin_wcc" location="../WSDLs/bpel_checkin_wcc.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <!-- 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        PARTNERLINKS                                                      
+        List of services participating in this BPEL process               
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    --> 
+  <partnerLinks>
+    <!-- 
+      The 'client' role represents the requester of this service. It is 
+      used for callback. The location and correlation information associated
+      with the client role are automatically set using WS-Addressing.
+    -->
+    <partnerLink name="bpel_checkin_wcc_client" partnerLinkType="client:bpel_checkin_wcc" myRole="bpel_checkin_wccProvider"/>
+    <partnerLink name="WS_Checkin" partnerLinkType="ns1:WS_Checkin" partnerRole="CheckInSoap"/>
+  </partnerLinks>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      VARIABLES                                                        
+      List of messages and XML documents used within this BPEL process 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <variables>
+    <!-- Reference to the message passed as input during initiation -->
+    <variable name="inputVariable" messageType="client:bpel_checkin_wccRequestMessage"/>
+
+    <!-- Reference to the message that will be returned to the requester-->
+    <variable name="outputVariable" messageType="client:bpel_checkin_wccResponseMessage"/>
+    <variable name="Ink_checkin_wcc_input" messageType="ns1:CheckInUniversalSoapIn"/>
+    <variable name="Ink_checkin_wcc_output" messageType="ns1:CheckInUniversalSoapOut"/>
+  </variables>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     ORCHESTRATION LOGIC                                               
+     Set of activities coordinating the flow of messages across the    
+     services integrated within this business process                  
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <sequence name="main">
+
+    <!-- Receive input from requestor. (Note: This maps to operation defined in bpel_checkin_wcc.wsdl) -->
+    <receive name="receiveInput" partnerLink="bpel_checkin_wcc_client" portType="client:bpel_checkin_wcc" operation="process" variable="inputVariable" createInstance="yes"/>
+    <assign name="T1_Request_Checkin">
+      <bpelx:annotation>
+        <bpelx:pattern patternName="bpelx:transformation"></bpelx:pattern>
+      </bpelx:annotation>
+      <copy>
+        <from>ora:doXSLTransformForDoc("../Transformations/T1_Request_Checkin.xsl", $inputVariable.payload)</from>
+        <to variable="Ink_checkin_wcc_input" part="parameters"/>
+      </copy>
+    </assign>
+    <invoke name="Ink_checkin_wcc" partnerLink="WS_Checkin" portType="ns1:CheckInSoap"
+            operation="CheckInUniversal" inputVariable="Ink_checkin_wcc_input" outputVariable="Ink_checkin_wcc_output"
+            bpelx:invokeAsDetail="no"/>
+    <assign name="Set_Response">
+      <copy>
+        <from>$Ink_checkin_wcc_output.parameters/ns1:CheckInUniversalResult/ns1:dID</from>
+        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$outputVariable.payload/ns2:dID</to>
+      </copy>
+      <copy>
+        <from>$Ink_checkin_wcc_output.parameters/ns1:CheckInUniversalResult/ns1:dRevisionID</from>
+        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$outputVariable.payload/ns2:revision</to>
+      </copy>
+      <copy>
+        <from>$Ink_checkin_wcc_output.parameters/ns1:CheckInUniversalResult/ns1:dRevClassID</from>
+        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$outputVariable.payload/ns2:idRevision</to>
+      </copy>
+      <copy>
+        <from>$Ink_checkin_wcc_output.parameters/ns1:CheckInUniversalResult/ns1:dRevLabel</from>
+        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$outputVariable.payload/ns2:labelrevision</to>
+      </copy>
+      <copy>
+        <from>$Ink_checkin_wcc_output.parameters/ns1:CheckInUniversalResult/ns1:StatusInfo/ns1:statusCode</from>
+        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$outputVariable.payload/ns2:status/ns2:codigo</to>
+      </copy>
+      <copy>
+        <from>$Ink_checkin_wcc_output.parameters/ns1:CheckInUniversalResult/ns1:StatusInfo/ns1:statusMessage</from>
+        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$outputVariable.payload/ns2:status/ns2:mensaje</to>
+      </copy>
+    </assign>
+    <!-- Generate reply to synchronous request -->
+    <reply name="replyOutput" partnerLink="bpel_checkin_wcc_client" portType="client:bpel_checkin_wcc" operation="process" variable="outputVariable"/>
+  </sequence>
+</process>

@@ -1,0 +1,32 @@
+# Compiled class file
+*.class
+
+# Log files
+*.log
+
+# Archives
+*.jar
+*.war
+*.ear
+
+# Misc
+*.sso
+
+# Unwanted directories
+classes/
+deploy/
+
+# default application storage directory used by the IDE Performance Cache feature
+.data/
+
+# used for ADF styles caching
+temp/
+
+# default output directories
+classes/
+deploy/
+javadoc/
+target/
+
+# lock file, a part of Oracle Credential Store Framework
+cwallet.sso.lck

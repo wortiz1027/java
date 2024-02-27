@@ -1,0 +1,7 @@
+EL archivos configuracion.xml debe ser colocado en el directorio raiz de la unidad 
+en la siguiente estructura de directorios /u01/bpm/
+
+windows 
+D:\u01\bpm\
+unix
+/u01/bpm/

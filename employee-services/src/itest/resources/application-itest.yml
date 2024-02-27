@@ -1,0 +1,28 @@
+# +-----------------------------------------------------
+# |         SPRING DATASOURCE CONFIG
+# +-----------------------------------------------------
+spring:
+  #datasource:
+  #  url: jdbc:tc:mysql:8.0.27:///employees?TC_INITSCRIPT=database/employees.sql
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 2KB
+      max-file-size: 15MB
+      max-request-size: 20MB
+
+logging:
+  level:
+    org.testcontainers: INFO
+  pattern:
+    console: "%d{yyyy-MMM-dd HH:mm:ss a} [%t] %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+files:
+  resources:
+    protocole: http
+    host: ${FILE_HOST:localhost}
+    port: 8083
+    url: ${files.resources.protocole}://%s:${files.resources.port}/files/resources/load/%s
+  upload:
+    directory: /tmp

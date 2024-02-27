@@ -1,0 +1,106 @@
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://services.creditverifier.com/" xmlns:tns0="http://services.creditverifier.com/types/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CreditCardService" targetNamespace="http://services.creditverifier.com/">
+    <types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://services.creditverifier.com/types/" xmlns:soap11-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" elementFormDefault="qualified" targetNamespace="http://services.creditverifier.com/">
+            <import namespace="http://services.creditverifier.com/types/"/>
+            <complexType name="CreditCardValidationFaultMessage">
+                <sequence>
+                    <element name="error" nillable="true" type="string"/>
+                </sequence>
+            </complexType>
+            <element name="chargeCreditCardElement">
+                <complexType>
+                    <sequence>
+                        <element name="cc" nillable="true" type="ns1:CreditCard"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="chargeCreditCardResponseElement">
+                <complexType>
+                    <sequence>
+                        <element name="result" type="boolean"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="CreditCardValidationFaultMessageElement" type="tns:CreditCardValidationFaultMessage"/>
+            <element name="verifyCreditCardElement">
+                <complexType>
+                    <sequence>
+                        <element name="cc" nillable="true" type="ns1:CreditCard"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="verifyCreditCardResponseElement">
+                <complexType>
+                    <sequence>
+                        <element name="result" type="boolean"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </schema>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:soap11-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://services.creditverifier.com/types/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" elementFormDefault="qualified" targetNamespace="http://services.creditverifier.com/types/">
+            <import namespace="http://services.creditverifier.com/"/>
+            <complexType name="CreditCard">
+                <sequence>
+                    <element name="type" nillable="true" type="string"/>
+                    <element name="mount" nillable="true" type="double"/>
+                    <element name="number" nillable="true" type="string"/>
+                </sequence>
+            </complexType>
+        </schema>
+    </types>
+    <message name="CreditCardService_chargeCreditCard">
+        <part element="tns:chargeCreditCardElement" name="parameters"/>
+    </message>
+    <message name="CreditCardService_chargeCreditCardResponse">
+        <part element="tns:chargeCreditCardResponseElement" name="parameters"/>
+    </message>
+    <message name="CreditCardValidationFaultMessage">
+        <part element="tns:CreditCardValidationFaultMessageElement" name="CreditCardValidationFaultMessageElement"/>
+    </message>
+    <message name="CreditCardService_verifyCreditCard">
+        <part element="tns:verifyCreditCardElement" name="parameters"/>
+    </message>
+    <message name="CreditCardService_verifyCreditCardResponse">
+        <part element="tns:verifyCreditCardResponseElement" name="parameters"/>
+    </message>
+    <portType name="CreditCardService">
+        <operation name="chargeCreditCard">
+            <input message="tns:CreditCardService_chargeCreditCard"/>
+            <output message="tns:CreditCardService_chargeCreditCardResponse"/>
+            <fault message="tns:CreditCardValidationFaultMessage" name="CreditCardValidationFaultMessage"/>
+        </operation>
+        <operation name="verifyCreditCard">
+            <input message="tns:CreditCardService_verifyCreditCard"/>
+            <output message="tns:CreditCardService_verifyCreditCardResponse"/>
+        </operation>
+    </portType>
+    <binding name="CreditCardServiceSoapHttp" type="tns:CreditCardService">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="chargeCreditCard">
+            <soap:operation soapAction="http://services.creditverifier.com//chargeCreditCard"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+            <fault name="CreditCardValidationFaultMessage">
+                <soap:fault encodingStyle="" name="CreditCardValidationFaultMessage" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="verifyCreditCard">
+            <soap:operation soapAction="http://services.creditverifier.com//verifyCreditCard"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="CreditCardService">
+        <port binding="tns:CreditCardServiceSoapHttp" name="CreditCardServiceSoapHttpPort">
+            <soap:address location="http://paywoaint-service:7071/payments/ws/CreditCardService"/>
+        </port>
+    </service>
+</definitions>

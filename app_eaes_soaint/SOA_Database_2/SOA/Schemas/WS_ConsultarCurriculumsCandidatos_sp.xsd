@@ -1,0 +1,59 @@
+<schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/sp/WS_ConsultarCurriculumsCandidatos" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:db="http://xmlns.oracle.com/pcbpel/adapter/db/sp/WS_ConsultarCurriculumsCandidatos" elementFormDefault="qualified">
+   <element name="InputParameters">
+      <!--Empty Parameter List-->
+      <complexType/>
+   </element>
+   <element name="OutputParameters">
+      <complexType>
+         <sequence>
+            <element name="V_ARRAY_COLABORADOR_TYPE" type="db:JAVERIANA.ARRAY_CURRICULUM_CANDIDATO_TYPE" db:index="1" db:type="Array" minOccurs="0" nillable="true"/>
+         </sequence>
+      </complexType>
+   </element>
+   <complexType name="JAVERIANA.CURRICULUM_CANDIDATO_TYPE">
+      <sequence>
+         <element name="ID_CURRICULUM" type="decimal" db:type="NUMBER" minOccurs="0" nillable="true"/>
+         <element name="ID_DOCUMENTO" type="db:string20" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="CANDIDATO" type="db:JAVERIANA.CANDIDATO_TYPE" db:type="Struct" minOccurs="0" nillable="true"/>
+      </sequence>
+   </complexType>
+   <complexType name="JAVERIANA.ARRAY_CURRICULUM_CANDIDATO_TYPE">
+      <sequence>
+         <element name="V_ARRAY_COLABORADOR_TYPE_ITEM" type="db:JAVERIANA.CURRICULUM_CANDIDATO_TYPE" db:type="Struct" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+      </sequence>
+   </complexType>
+   <complexType name="JAVERIANA.CANDIDATO_TYPE">
+      <sequence>
+         <element name="ID_CANDIDATO" type="decimal" db:type="NUMBER" minOccurs="0" nillable="true"/>
+         <element name="PRIMER_NOMBRE" type="db:string20" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="SEGUNDO_NOMBRE" type="db:string20" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="PRIMER_APELLIDO" type="db:string20" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="SEGUNDO_APELLIDO" type="db:string2000" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="TIPO_IDENTIFICACION" type="db:string2" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="NUMERO_IDENTIFICACION" type="db:string20" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="EMAIL" type="db:string50" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="TELEFONO" type="db:string20" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="FECHA_NACIMIENTO" type="dateTime" db:type="DATE" minOccurs="0" nillable="true"/>
+      </sequence>
+   </complexType>
+   <simpleType name="string20">
+      <restriction base="string">
+         <maxLength value="20"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string2000">
+      <restriction base="string">
+         <maxLength value="2000"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string2">
+      <restriction base="string">
+         <maxLength value="2"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string50">
+      <restriction base="string">
+         <maxLength value="50"/>
+      </restriction>
+   </simpleType>
+</schema>

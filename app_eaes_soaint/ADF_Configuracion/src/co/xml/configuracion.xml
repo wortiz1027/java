@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuracion>
+    <desarrollo>true</desarrollo>
+    <osb>
+        <protocol>http://</protocol>
+        <host>192.168.169.74</host>
+        <port>8081</port>
+    </osb>
+    <bpm>
+        <protocol>http://</protocol>
+        <host>192.168.169.126</host>
+        <port>8080</port>
+    </bpm>
+    <wcc>
+        <protocol>http://</protocol>
+        <host>192.168.169.133</host>
+        <port>16200</port>
+    </wcc>
+    <visor-wcc>
+        <protocol>http://</protocol>
+        <host>192.168.169.133</host>
+        <port>16225</port>
+    </visor-wcc>
+</configuracion>

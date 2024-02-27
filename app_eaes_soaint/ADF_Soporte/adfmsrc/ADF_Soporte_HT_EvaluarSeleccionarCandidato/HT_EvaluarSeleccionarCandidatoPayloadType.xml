@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="12.2.1.9.14"
+          id="HT_EvaluarSeleccionarCandidatoPayloadType" Package="ADF_Soporte_HT_EvaluarSeleccionarCandidato"
+          BeanClass="ADF_Soporte_HT_EvaluarSeleccionarCandidato.HT_EvaluarSeleccionarCandidatoPayloadType"
+          isJavaBased="false">
+  <AccessorAttribute id="DatosProcesoSoporte" IsCollection="true"
+                     BeanClass="ADF_Soporte_HT_EvaluarSeleccionarCandidato.DatosProcesoSoporteType"
+                     CollectionBeanClass="ADF_Soporte_HT_EvaluarSeleccionarCandidato.DatosProcesoSoporteType_DatosProcesoSoporte_Operations">
+    <Properties>
+      <Property Name="nextSiblingNamespace" Value="http://xmlns.javeriana.edu/edu/schemas/process/reclutamiento/v1.0"/>
+      <Property Name="nextSibling" Value="Solicitud"/>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Datos Proceso Soporte"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="DatosProcesoSoporte"/>
+      <Property Name="targetNamespace" Value="http://xmlns.javeriana.edu/edu/schemas/util/comunes/v1.0"/>
+    </Properties>
+  </AccessorAttribute>
+  <AccessorAttribute id="Solicitud" IsCollection="true"
+                     BeanClass="ADF_Soporte_HT_EvaluarSeleccionarCandidato.SolicitudType"
+                     CollectionBeanClass="ADF_Soporte_HT_EvaluarSeleccionarCandidato.SolicitudType_Solicitud_Operations">
+    <Properties>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Solicitud"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="Solicitud"/>
+      <Property Name="targetNamespace" Value="http://xmlns.javeriana.edu/edu/schemas/process/reclutamiento/v1.0"/>
+    </Properties>
+  </AccessorAttribute>
+</JavaBean>

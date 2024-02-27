@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<bindings xmlns="http://java.sun.com/xml/ns/jaxb" if-exists="true" version="2.1">
+      
+    <!--
+
+Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.3.0 
+Visite <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
+Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
+Generado el: 2020.11.08 a las 07:35:46 PM COT 
+
+  -->
+      
+    <bindings xmlns:tns="http://co.dancarlton.com/reservas" if-exists="true" scd="x-schema::tns">
+            
+        <schemaBindings map="false">
+                  
+            <package name="co.edu.javeriana.external.services.dc.infraestructure.ws.xsd"/>
+                
+        </schemaBindings>
+            
+        <bindings if-exists="true" scd="tns:GetReservasRequest">
+                  
+            <class ref="co.edu.javeriana.external.services.dc.infraestructure.ws.xsd.GetReservasRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:GetReservasResponse">
+                  
+            <class ref="co.edu.javeriana.external.services.dc.infraestructure.ws.xsd.GetReservasResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="~tns:Header">
+                  
+            <class ref="co.edu.javeriana.external.services.dc.infraestructure.ws.xsd.Header"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="~tns:ReservasList">
+                  
+            <class ref="co.edu.javeriana.external.services.dc.infraestructure.ws.xsd.ReservasList"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:GetReservasByCodigoRequest">
+                  
+            <class ref="co.edu.javeriana.external.services.dc.infraestructure.ws.xsd.GetReservasByCodigoRequest"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="tns:GetReservasByCodigoResponse">
+                  
+            <class ref="co.edu.javeriana.external.services.dc.infraestructure.ws.xsd.GetReservasByCodigoResponse"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="~tns:Reserva">
+                  
+            <class ref="co.edu.javeriana.external.services.dc.infraestructure.ws.xsd.Reserva"/>
+                
+        </bindings>
+            
+        <bindings if-exists="true" scd="~tns:tipoHabitacion">
+                  
+            <class ref="co.edu.javeriana.external.services.dc.infraestructure.ws.xsd.TipoHabitacion"/>
+                
+        </bindings>
+          
+    </bindings>
+    
+</bindings>

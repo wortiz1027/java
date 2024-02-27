@@ -1,0 +1,73 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://co.bolivariano.com/journeys" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://co.bolivariano.com/journeys" targetNamespace="http://co.bolivariano.com/journeys">
+    <wsdl:types>
+        <xs:schema xmlns:jrn="http://co.bolivariano.com/journeys" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://co.bolivariano.com/journeys">
+            <xs:complexType name="Passenger">
+                <xs:sequence>
+                    <xs:element name="nombres" type="xs:string"/>
+                    <xs:element name="apellidos" type="xs:string"/>
+                    <xs:element name="tipoDocumento" type="xs:string"/>
+                    <xs:element name="numeroDocumento" type="xs:string"/>
+                    <xs:element name="fecha" type="xs:string"/>
+                    <xs:element name="hora" type="xs:string"/>
+                    <xs:element name="origen" type="xs:string"/>
+                    <xs:element name="destino" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="JourneyList">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="journeys" type="jrn:Passenger"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="Header">
+                <xs:sequence>
+                    <xs:element name="code" type="xs:string"/>
+                    <xs:element name="description" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="GetJourneyRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="key" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetJourneyResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="header" type="jrn:Header"/>
+                        <xs:element name="information" type="jrn:JourneyList"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="GetJourneyResponse">
+        <wsdl:part element="tns:GetJourneyResponse" name="GetJourneyResponse"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="GetJourneyRequest">
+        <wsdl:part element="tns:GetJourneyRequest" name="GetJourneyRequest"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="journeysPort">
+        <wsdl:operation name="GetJourney">
+            <wsdl:input message="tns:GetJourneyRequest" name="GetJourneyRequest"> </wsdl:input>
+            <wsdl:output message="tns:GetJourneyResponse" name="GetJourneyResponse"> </wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="journeysPortSoap11" type="tns:journeysPort">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="GetJourney">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="GetJourneyRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="GetJourneyResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="journeysPortService">
+        <wsdl:port binding="tns:journeysPortSoap11" name="journeysPortSoap11">
+            <soap:address location="http://localhost:7071/bolivariano/ws"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

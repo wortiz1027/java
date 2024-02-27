@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<DataControlConfigs xmlns="http://xmlns.oracle.com/adfm/configuration" version="12.2.1.9.14" id="DataControls"
+                    Package="adf_soporte">
+  <AdapterDataControl id="ADF_Soporte_HT_EvaluarCurriculum"
+                      FactoryClass="oracle.adf.model.adapter.DataControlFactoryImpl"
+                      ImplDef="oracle.bpel.services.datacontrol.XSDDataControlDefinition" SupportsTransactions="true"
+                      SupportsSortCollection="false" SupportsResetState="false" SupportsRangesize="false"
+                      SupportsFindMode="false" SupportsUpdates="false" Definition="ADF_Soporte_HT_EvaluarCurriculum"
+                      BeanClass="ADF_Soporte_HT_EvaluarCurriculum" xmlns="http://xmlns.oracle.com/adfm/datacontrol">
+    <Source>
+      <XSDDataControl xmlns="http://xmlns.oracle.com/bpel/workflow/task"
+                      SchemaLocation="file:/C:/Proyectos/app_eaes_soaint/BPM_Soporte/SOA/Schemas/HT_EvaluarCurriculumWorkflowTask.xsd"
+                      RootElement="task" rootelementnamespace="http://xmlns.oracle.com/bpel/workflow/task"
+                      taskLoc="../BPM_Soporte/SOA/HumanTasks/HT_EvaluarCurriculum.task" InitiationTask="false"
+                      DocumentStoreConfiguration="false"/>
+    </Source>
+  </AdapterDataControl>
+  <AdapterDataControl id="ADF_Soporte_HT_EntrevistarCandidatos"
+                      FactoryClass="oracle.adf.model.adapter.DataControlFactoryImpl"
+                      ImplDef="oracle.bpel.services.datacontrol.XSDDataControlDefinition" SupportsTransactions="true"
+                      SupportsSortCollection="false" SupportsResetState="false" SupportsRangesize="false"
+                      SupportsFindMode="false" SupportsUpdates="false" Definition="ADF_Soporte_HT_EntrevistarCandidatos"
+                      BeanClass="ADF_Soporte_HT_EntrevistarCandidatos" xmlns="http://xmlns.oracle.com/adfm/datacontrol">
+    <Source>
+      <XSDDataControl xmlns="http://xmlns.oracle.com/bpel/workflow/task"
+                      SchemaLocation="file:/C:/Proyectos/app_eaes_soaint/BPM_Soporte/SOA/Schemas/HT_EntrevistarCandidatosWorkflowTask.xsd"
+                      RootElement="task" rootelementnamespace="http://xmlns.oracle.com/bpel/workflow/task"
+                      taskLoc="../BPM_Soporte/SOA/HumanTasks/HT_EntrevistarCandidatos.task" InitiationTask="false"
+                      DocumentStoreConfiguration="false"/>
+    </Source>
+  </AdapterDataControl>
+  <AdapterDataControl id="ADF_Soporte_HT_EvaluarSeleccionarCandidato"
+                      FactoryClass="oracle.adf.model.adapter.DataControlFactoryImpl"
+                      ImplDef="oracle.bpel.services.datacontrol.XSDDataControlDefinition" SupportsTransactions="true"
+                      SupportsSortCollection="false" SupportsResetState="false" SupportsRangesize="false"
+                      SupportsFindMode="false" SupportsUpdates="false"
+                      Definition="ADF_Soporte_HT_EvaluarSeleccionarCandidato"
+                      BeanClass="ADF_Soporte_HT_EvaluarSeleccionarCandidato"
+                      xmlns="http://xmlns.oracle.com/adfm/datacontrol">
+    <Source>
+      <XSDDataControl xmlns="http://xmlns.oracle.com/bpel/workflow/task"
+                      SchemaLocation="file:/C:/Proyectos/app_eaes_soaint/BPM_Soporte/SOA/Schemas/HT_EvaluarSeleccionarCandidatoWorkflowTask.xsd"
+                      RootElement="task" rootelementnamespace="http://xmlns.oracle.com/bpel/workflow/task"
+                      taskLoc="../BPM_Soporte/SOA/HumanTasks/HT_EvaluarSeleccionarCandidato.task" InitiationTask="false"
+                      DocumentStoreConfiguration="false"/>
+    </Source>
+  </AdapterDataControl>
+</DataControlConfigs>

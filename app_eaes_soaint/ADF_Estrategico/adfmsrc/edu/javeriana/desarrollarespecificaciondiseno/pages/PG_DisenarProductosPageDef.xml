@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.9.14" id="PG_DisenarProductosPageDef"
+                Package="edu.javeriana.desarrollarespecificaciondiseno.pages">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <methodIterator Binds="getTaskDetails.result" DataControl="ADF_Estrategico_HT_DisenarProductos" RangeSize="25"
+                    BeanClass="ADF_Estrategico_HT_DisenarProductos.getTaskDetails" id="getTaskDetailsIterator"/>
+    <accessorIterator MasterBinding="getTaskDetailsIterator" Binds="task" RangeSize="25"
+                      DataControl="ADF_Estrategico_HT_DisenarProductos"
+                      BeanClass="ADF_Estrategico_HT_DisenarProductos.task" id="taskIterator"/>
+    <accessorIterator MasterBinding="taskIterator" Binds="payload" RangeSize="25"
+                      DataControl="ADF_Estrategico_HT_DisenarProductos"
+                      BeanClass="ADF_Estrategico_HT_DisenarProductos.HT_DisenarProductosPayloadType"
+                      id="payloadIterator"/>
+    <accessorIterator MasterBinding="payloadIterator" Binds="Solicitud" RangeSize="25"
+                      DataControl="ADF_Estrategico_HT_DisenarProductos"
+                      BeanClass="ADF_Estrategico_HT_DisenarProductos.SolicitudType" id="SolicitudIterator"/>
+    <accessorIterator MasterBinding="SolicitudIterator" Binds="prototipo" RangeSize="25"
+                      DataControl="ADF_Estrategico_HT_DisenarProductos"
+                      BeanClass="ADF_Estrategico_HT_DisenarProductos.PrototipoType" id="prototipoIterator"/>
+  </executables>
+  <bindings>
+    <methodAction id="getTaskDetails" RequiresUpdateModel="true" Action="invokeMethod" MethodName="getTaskDetails"
+                  IsViewObjectMethod="false" DataControl="ADF_Estrategico_HT_DisenarProductos"
+                  InstanceName="bindings.getTaskDetails.dataControl"
+                  ReturnName="data.ADF_Estrategico_HT_DisenarProductos.methodResults.getTaskDetails_getTaskDetails_dataControl_getTaskDetails_result">
+      <NamedData NDName="bpmWorklistContext" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskId" NDType="java.lang.String"/>
+      <NamedData NDName="bpmWorklistTaskVersion" NDType="java.lang.String"/>
+    </methodAction>
+    <attributeValues IterBinding="prototipoIterator" id="codigo">
+      <AttrNames>
+        <Item Value="codigo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="SolicitudIterator" id="idSolicitud">
+      <AttrNames>
+        <Item Value="idSolicitud"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

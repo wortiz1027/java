@@ -1,0 +1,19 @@
+//Content Format Version: 1.0
+
+//########################################################################################
+//####                                                                                ####
+//####          THIS IS AN AUTO GENERATED FILE. PLEASE DO NOT MANUALLY MODIFY         ####
+//#### CHANGES TO THIS FILE MAY PRODUCE UNEXPECTED BEHAVIOR AND WOULD BE OVERWRITTEN  ####
+//####                                                                                ####
+//########################################################################################
+package oracle.scripting.catalog.comunes;
+
+
+@com.oracle.scripting.lang.annotations.CatalogType(element = "E", 
+			namespace = "http://xmlns.javeriana.edu/edu/schemas/util/comunes/v1.0", 
+			name = "DatosProcesoSoporte", 
+			location = "oramds:/apps/resources/BPM/SCHEMAs/Comun/Comun.xsd", 
+			module = "Comunes") 
+public class DatosProcesoSoporte{
+
+}

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="12.2.1.9.14" id="SolicitudType"
+          Package="ADF_Soporte_HT_EntrevistarCandidatos" BeanClass="ADF_Soporte_HT_EntrevistarCandidatos.SolicitudType"
+          isJavaBased="false">
+  <Attribute Name="idSolicitud" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://xmlns.javeriana.edu/edu/schemas/process/reclutamiento/v1.0"/>
+        <Property Name="nextSibling" Value="prototipo"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Id Solicitud"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="idSolicitud"/>
+        <Property Name="targetNamespace" Value="http://xmlns.javeriana.edu/edu/schemas/process/reclutamiento/v1.0"/>
+        <Property Name="type" Value="java.lang.String"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <AccessorAttribute id="vacante" IsCollection="true" BeanClass="ADF_Soporte_HT_EntrevistarCandidatos.VacanteType"
+                     CollectionBeanClass="ADF_Soporte_HT_EntrevistarCandidatos.VacanteType_vacante_Operations">
+    <Properties>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Vacante"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="vacante"/>
+      <Property Name="targetNamespace" Value="http://xmlns.javeriana.edu/edu/schemas/process/reclutamiento/v1.0"/>
+    </Properties>
+  </AccessorAttribute>
+  <AccessorAttribute id="prototipo" IsCollection="true" BeanClass="ADF_Soporte_HT_EntrevistarCandidatos.PrototipoType"
+                     CollectionBeanClass="ADF_Soporte_HT_EntrevistarCandidatos.PrototipoType_prototipo_Operations">
+    <Properties>
+      <Property Name="nextSiblingNamespace" Value="http://xmlns.javeriana.edu/edu/schemas/process/reclutamiento/v1.0"/>
+      <Property Name="nextSibling" Value="accionesASeguir"/>
+      <Property Name="minOccurs" Value="0"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Prototipo"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="prototipo"/>
+      <Property Name="targetNamespace" Value="http://xmlns.javeriana.edu/edu/schemas/process/reclutamiento/v1.0"/>
+    </Properties>
+  </AccessorAttribute>
+  <AccessorAttribute id="accionesASeguir" IsCollection="true"
+                     BeanClass="ADF_Soporte_HT_EntrevistarCandidatos.AccionesASeguirType"
+                     CollectionBeanClass="ADF_Soporte_HT_EntrevistarCandidatos.AccionesASeguirType_accionesASeguir_Operations">
+    <Properties>
+      <Property Name="nextSiblingNamespace" Value="http://xmlns.javeriana.edu/edu/schemas/process/reclutamiento/v1.0"/>
+      <Property Name="nextSibling" Value="vacante"/>
+      <Property Name="minOccurs" Value="0"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Acciones A Seguir"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="accionesASeguir"/>
+      <Property Name="targetNamespace" Value="http://xmlns.javeriana.edu/edu/schemas/process/reclutamiento/v1.0"/>
+    </Properties>
+  </AccessorAttribute>
+  <AccessorAttribute id="gerente" IsCollection="true" BeanClass="ADF_Soporte_HT_EntrevistarCandidatos.GerenteType"
+                     CollectionBeanClass="ADF_Soporte_HT_EntrevistarCandidatos.GerenteType_gerente_Operations">
+    <Properties>
+      <Property Name="minOccurs" Value="0"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Gerente"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="gerente"/>
+      <Property Name="targetNamespace" Value="http://xmlns.javeriana.edu/edu/schemas/process/reclutamiento/v1.0"/>
+    </Properties>
+  </AccessorAttribute>
+</JavaBean>

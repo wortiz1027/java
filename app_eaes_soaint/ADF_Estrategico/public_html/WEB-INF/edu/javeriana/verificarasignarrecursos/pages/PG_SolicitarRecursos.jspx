@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <f:view>
+        <af:document title="#{estrategicoBundle.TITULO_PANTALLA_SOLICITAR_RECURSO}" id="d1">
+            <af:messages id="m1"/>
+            <af:form id="f1">
+                <af:pageTemplate viewId="/template/adf_template.jspx" id="pt1">
+                    <f:facet name="header"/>
+                    <f:facet name="content">
+                        <af:panelGroupLayout id="pgl1" halign="center" layout="vertical"
+                                             styleClass="padding-right: 25px;">
+                            <af:panelBox text="#{estrategicoBundle.PANEL_TITULO_INFORMACION_PROTOTIPO}" id="pb1">
+                                <af:panelGroupLayout id="pgl2" halign="center" layout="vertical" styleClass="sinBorders"
+                                                     inlineStyle="padding: 20px;">
+                                    <af:panelGroupLayout id="pgl3" layout="vertical" halign="center"
+                                                         styleClass="row sinBorders">
+                                        <af:panelGroupLayout id="pgl4" styleClass="sinBorders col-xs-6"
+                                                             layout="vertical" halign="center">
+                                            <af:panelFormLayout id="pfl1" styleClass="sinBorders stretchedForm"
+                                                                labelAlignment="top">
+                                                <af:inputText label="#{estrategicoBundle.LABEL_TITULO}" id="it1"
+                                                              disabled="true"
+                                                              value="#{pageFlowScope.mbSolicitarRecursos.prototipo.titulo}"/>
+                                            </af:panelFormLayout>
+                                        </af:panelGroupLayout>
+                                        <af:panelGroupLayout id="pgl5" styleClass="sinBorders col-xs-6"
+                                                             layout="vertical" halign="center">
+                                            <af:panelFormLayout id="pfl2" styleClass="sinBorders stretchedForm"
+                                                                labelAlignment="top">
+                                                <af:inputText label="#{estrategicoBundle.LABEL_TIPO}" id="it2"
+                                                              disabled="true"
+                                                              value="#{pageFlowScope.mbSolicitarRecursos.prototipo.tipo.valor}"/>
+                                            </af:panelFormLayout>
+                                        </af:panelGroupLayout>
+                                    </af:panelGroupLayout>
+                                    <af:spacer width="10" height="10" id="s1"/>
+                                    <af:panelGroupLayout id="pgl6" styleClass="row sinBorders" halign="center"
+                                                         layout="vertical">
+                                        <af:panelGroupLayout id="pgl7" styleClass="sinBorders col-xs-12" halign="center"
+                                                             layout="vertical">
+                                            <af:panelFormLayout id="pfl3" styleClass="sinBorders stretchedForm"
+                                                                labelAlignment="top">
+                                                <af:inputText label="#{estrategicoBundle.LABEL_DETALLE}" id="it3"
+                                                              rows="7" disabled="true"
+                                                              value="#{pageFlowScope.mbSolicitarRecursos.prototipo.detalle}"/>
+                                            </af:panelFormLayout>
+                                        </af:panelGroupLayout>
+                                    </af:panelGroupLayout>
+                                </af:panelGroupLayout>
+                            </af:panelBox>
+                            <af:spacer width="10" height="10" id="s4"/>
+                            <af:panelBox text="#{estrategicoBundle.PANEL_TITULO_CONOCIMIENTO_REQUERIDO_RECURSO}"
+                                         id="pb3">
+                                <af:panelGroupLayout id="pgl8" styleClass="row sinBorders" halign="center"
+                                                     layout="vertical">
+                                    <af:panelGroupLayout id="pgl9" styleClass="sinBorders col-xs-12" halign="center"
+                                                         layout="vertical">
+                                        <af:panelFormLayout id="pfl4" styleClass="sinBorders stretchedForm"
+                                                            labelAlignment="top">
+                                            <af:inputText label="#{estrategicoBundle.LABEL_CONOCIMIENTOS}" id="it4"
+                                                          rows="7"
+                                                          value="#{pageFlowScope.mbSolicitarRecursos.prototipo.conocimiento}"/>
+                                        </af:panelFormLayout>
+                                    </af:panelGroupLayout>
+                                </af:panelGroupLayout>
+                            </af:panelBox>
+                        </af:panelGroupLayout>
+                    </f:facet>
+                    <f:facet name="footer">
+                        <af:panelGroupLayout id="pgl15" halign="right" layout="vertical">
+                            <af:button text="#{estrategicoBundle.BOTON_ENVIAR}" id="bProcesar" partialSubmit="true"
+                                       styleClass="buttonBlue"
+                                       action="#{pageFlowScope.mbSolicitarRecursos.finalizarPantalla}"
+                                       actionListener="#{pageFlowScope.mbSolicitarRecursos.mySetOperation}">
+                                <f:attribute name="DC_OPERATION_BINDING" value="bindings.APPROVE"/>
+                                <f:attribute name="TIPO_ACCION" value="ACEPTAR"/>
+                            </af:button>
+                        </af:panelGroupLayout>
+                    </f:facet>
+                    <f:attribute name="titulo" value="#{estrategicoBundle.TITULO_PANTALLA_SOLICITAR_RECURSO}"/>
+                    <f:attribute name="fecha" value=""/>
+                    <f:attribute name="login" value=""/>
+                    <f:attribute name="nombre" value=""/>
+                    <f:attribute name="version" value="#{estrategicoBundle.VERSION}"/>
+                </af:pageTemplate>
+            </af:form>
+        </af:document>
+    </f:view>
+</jsp:root>

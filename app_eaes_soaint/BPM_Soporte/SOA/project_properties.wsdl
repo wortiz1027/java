@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--########################################################################################-->
+<!--####                                                                                ####-->
+<!--####          THIS IS AN AUTO GENERATED FILE. PLEASE DO NOT MANUALLY MODIFY         ####-->
+<!--#### CHANGES TO THIS FILE MAY PRODUCE UNEXPECTED BEHAVIOR AND WOULD BE OVERWRITTEN  ####-->
+<!--####                                                                                ####-->
+<!--########################################################################################-->
+<wsdl:definitions targetNamespace="http://xmlns.oracle.com/bpmn/bpmnProcess/BPM_Soporte" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop"  xmlns:tns4="http://xmlns.javeriana.com/bpmn/bpmnProcess/reclutarFuenteSeleccionarEmpleados"  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"  xmlns:xsd="http://www.w3.org/2001/XMLSchema"  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"  xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/"  xmlns:tns3="http://xmlns.javeriana.com/bpmn/bpmnProcess/notificarResultados"  xmlns:tns="http://xmlns.oracle.com/bpmn/bpmnProcess/BPM_Soporte"  xmlns:tns2="http://xmlns.javeriana.com/bpmn/bpmnProcess/filtradoSeleccionCandidatos" >
+    <vprop:property name="corrSoporte" type="xsd:string"/>
+    <vprop:propertyAlias messageType="tns2:inicioFiltradoSeleccionCandidatos" propertyName="tns:corrSoporte" part="parameters">
+        <vprop:query xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns="http://xmlns.javeriana.com/bpmn/bpmnProcess/filtradoSeleccionCandidatos" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://xmlns.oracle.com/bpmn/bpmnProcess/BPM_Soporte" xmlns:ns1="http://xmlns.javeriana.edu/edu/schemas/process/reclutamiento/v1.0" xmlns:tns2="http://xmlns.javeriana.com/bpmn/bpmnProcess/filtradoSeleccionCandidatos" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns4="http://xmlns.javeriana.com/bpmn/bpmnProcess/reclutarFuenteSeleccionarEmpleados" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:tns3="http://xmlns.javeriana.com/bpmn/bpmnProcess/reclutarFuenteSeleccionarEmpleados" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/">
+            /ns:inicioFiltradoSeleccionCandidatos/ns1:Solicitud/ns1:idSolicitud
+        </vprop:query>
+    </vprop:propertyAlias>
+    <vprop:propertyAlias messageType="tns3:inicioNotificacionResultado" propertyName="tns:corrSoporte" part="parameters">
+        <vprop:query xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns="http://xmlns.javeriana.com/bpmn/bpmnProcess/notificarResultados" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://xmlns.oracle.com/bpmn/bpmnProcess/BPM_Soporte" xmlns:ns1="http://xmlns.javeriana.edu/edu/schemas/process/reclutamiento/v1.0" xmlns:tns2="http://xmlns.javeriana.com/bpmn/bpmnProcess/filtradoSeleccionCandidatos" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns4="http://xmlns.javeriana.com/bpmn/bpmnProcess/reclutarFuenteSeleccionarEmpleados" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:tns3="http://xmlns.javeriana.com/bpmn/bpmnProcess/notificarResultados" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/">
+            /ns:inicioNotificacionResultado/ns1:Solicitud/ns1:idSolicitud
+        </vprop:query>
+    </vprop:propertyAlias>
+    <vprop:propertyAlias messageType="tns4:inicioReclutarFuenteSeleccionarEmpleados" propertyName="tns:corrSoporte" part="parameters">
+        <vprop:query xmlns:ns1="http://xmlns.javeriana.edu/edu/schemas/process/reclutamiento/v1.0" xmlns:tns2="http://xmlns.javeriana.com/bpmn/bpmnProcess/reclutarFuenteSeleccionarEmpleados">
+            /tns2:inicioReclutarFuenteSeleccionarEmpleados/ns1:Solicitud/ns1:idSolicitud
+        </vprop:query>
+    </vprop:propertyAlias>
+</wsdl:definitions>

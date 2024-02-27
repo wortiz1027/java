@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuracion>
+    <worspace>
+        <pages>
+            <page>
+                <id>GESTION_PERSONA</id>
+                <name>Gestión de Persona</name>
+                <uri>/GM_BITACORA/faces/gestionPersona.jspx</uri>
+            </page>
+            <page>
+                <id>SCORING</id>
+                <name>Gestión de Scoring</name>
+                <uri>/ADFScoring-ViewController-context-root/index.jsp</uri>
+            </page>
+            <page>
+                <id>DATOS_FALTANTES</id>
+                <name>Registrar Datos Faltantes Matrícula</name>
+                <uri>/ADFDatosFaltantesMatricula-ViewController-context-root/index.jsp</uri>
+            </page>
+            <page>
+                <id>RECEPCION_DOCUMENTOS</id>
+                <name>Recepción y Digitalización de Documentos</name>
+                <uri>/ADFRecepcionDeDocumentos-ViewController-context-root/index.jsp</uri>
+            </page>
+            <page>
+                <id>MODIFICAR_DATOS_EXCEPCION</id>
+                <name>Actualizar Datos Excepción</name>
+                <uri>/ADFMostrarDatosExcepcion-ViewController-context-root/index.jsp</uri>
+            </page>
+            <page>
+                <id>PORTAL_SMS</id>
+                <name>Portal SMS</name>
+                <uri>/AdfPortalSMS/index.jsp</uri>
+            </page>
+            <page>
+                <id>ADMINISTRACION_SMS</id>
+                <name>Administración SMS</name>
+                <uri>/AdfPortalSMS/index_admin.jsp</uri>
+            </page>
+            <page>
+                <id>REPORTE_SMS</id>
+                <name>Reporte SMS</name>
+                <uri>/AdfPortalSMS/index_reporte.jsp</uri>
+            </page>
+        </pages>
+        <roles>
+            <role>
+                <name>GM_GPersonas_Analista_Scoring</name>
+                <page-access>
+                    <id>SCORING</id>
+                </page-access>
+            </role>
+            <role>
+                <name>GM_GPersonas_Gerente_Autorizador</name>
+                <page-access>
+                    <id></id>
+                </page-access>
+            </role>
+            <role>
+                <name>GM_GPersonas_Gestor_Persona</name>
+                <page-access>
+                    <id>GESTION_PERSONA</id>
+                    <id>DATOS_FALTANTES</id>
+                    <id>RECEPCION_DOCUMENTOS</id>
+                    <id>MODIFICAR_DATOS_EXCEPCION</id>
+                    <id>PORTAL_SMS</id>
+                    <id>ADMINISTRACION_SMS</id>
+                    <id>REPORTE_SMS</id>
+                </page-access>
+            </role>
+            <role>
+                <name>GM_GPersonas_Gestor_Prospectos</name>
+                <page-access>
+                    <id>GESTION_PERSONA</id>
+                </page-access>
+            </role>
+            <role>
+                <name>GM_GPersonas_Supervisor_Persona</name>
+                <page-access>
+                    <id></id>
+                </page-access>
+            </role>
+            <role>
+                <name>GM_GPersonas_Supervisor_Prospecto</name>
+                <page-access>
+                    <id></id>
+                </page-access>
+            </role>
+        </roles>
+    </worspace>
+</configuracion>

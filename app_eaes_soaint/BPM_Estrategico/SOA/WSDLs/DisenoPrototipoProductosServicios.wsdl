@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--########################################################################################-->
+<!--####                                                                                ####-->
+<!--####          THIS IS AN AUTO GENERATED FILE. PLEASE DO NOT MANUALLY MODIFY         ####-->
+<!--#### CHANGES TO THIS FILE MAY PRODUCE UNEXPECTED BEHAVIOR AND WOULD BE OVERWRITTEN  ####-->
+<!--####                                                                                ####-->
+<!--########################################################################################-->
+<wsdl:definitions targetNamespace="http://xmlns.javeriana.com/bpmn/bpmnProcess/disenoPrototipoProductosServicios" xmlns:tns6="http://xmlns.javeriana.edu/edu/schemas/process/reclutamiento/v1.0"  xmlns:tns="http://xmlns.javeriana.com/bpmn/bpmnProcess/disenoPrototipoProductosServicios"  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"  xmlns:xsd="http://www.w3.org/2001/XMLSchema"  xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"  xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" >
+    <wsdl:types>
+        <xsd:schema targetNamespace="http://xmlns.javeriana.com/bpmn/bpmnProcess/disenoPrototipoProductosServicios">
+            <xsd:import namespace="http://xmlns.javeriana.edu/edu/schemas/process/reclutamiento/v1.0" schemaLocation="oramds:/apps/resources/BPM/SCHEMAs/Misional/Misional.xsd"/>
+            <xsd:element name="inicioDisenoPrototipoProductosServicios">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element ref="tns6:Solicitud"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="finDisenoPrototipoProductosServiciosResponse">
+                <xsd:complexType>
+                    <xsd:sequence/>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="inicioDisenoPrototipoProductosServicios">
+        <wsdl:part name="parameters" element="tns:inicioDisenoPrototipoProductosServicios"/>
+    </wsdl:message>
+    <wsdl:message name="finDisenoPrototipoProductosServiciosResponse">
+        <wsdl:part name="parameters" element="tns:finDisenoPrototipoProductosServiciosResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="DisenoPrototipoProductosServiciosPortType">
+        <wsdl:operation name="inicioDisenoPrototipoProductosServicios">
+            <wsdl:input message="tns:inicioDisenoPrototipoProductosServicios"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:portType name="DisenoPrototipoProductosServiciosPortTypeCallBack">
+        <wsdl:operation name="finDisenoPrototipoProductosServicios">
+            <wsdl:input message="tns:finDisenoPrototipoProductosServiciosResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <plnk:partnerLinkType name="DisenoPrototipoProductosServiciosPortTypePartnerLinkType">
+        <plnk:role name="DisenoPrototipoProductosServiciosPortTypeProvider">
+            <plnk:portType name="tns:DisenoPrototipoProductosServiciosPortType"/>
+        </plnk:role>
+    </plnk:partnerLinkType>
+</wsdl:definitions>

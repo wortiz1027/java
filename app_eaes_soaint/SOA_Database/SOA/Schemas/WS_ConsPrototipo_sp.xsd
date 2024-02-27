@@ -1,0 +1,49 @@
+<schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/sp/WS_ConsPrototipo" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:db="http://xmlns.oracle.com/pcbpel/adapter/db/sp/WS_ConsPrototipo" elementFormDefault="qualified">
+   <element name="InputParameters">
+      <complexType>
+         <sequence>
+            <element name="V_ID_PROTOTIPO" type="decimal" db:index="1" db:type="NUMBER" minOccurs="0" nillable="true"/>
+         </sequence>
+      </complexType>
+   </element>
+   <element name="OutputParameters">
+      <complexType>
+         <sequence>
+            <element name="V_TYPE_PROTOTIPO" type="db:JAVERIANA.PROTOTIPO_TYPE" db:index="2" db:type="Struct" minOccurs="0" nillable="true"/>
+         </sequence>
+      </complexType>
+   </element>
+   <complexType name="JAVERIANA.PROTOTIPO_TYPE">
+      <sequence>
+         <element name="ID_PROTOTIPO" type="decimal" db:type="NUMBER" minOccurs="0" nillable="true"/>
+         <element name="TITULO" type="db:string50" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="FECHA_INICIO" type="dateTime" db:type="DATE" minOccurs="0" nillable="true"/>
+         <element name="FECHA_CIERRE" type="dateTime" db:type="DATE" minOccurs="0" nillable="true"/>
+         <element name="DETALLE" type="db:string2000" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="ESTADO" type="db:string20" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="PRESUPUEST" type="decimal" db:type="NUMBER" minOccurs="0" nillable="true"/>
+         <element name="TIPO" type="db:string20" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+         <element name="CONOCIMIENTOS" type="db:string1000" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+      </sequence>
+   </complexType>
+   <simpleType name="string50">
+      <restriction base="string">
+         <maxLength value="50"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string2000">
+      <restriction base="string">
+         <maxLength value="2000"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string20">
+      <restriction base="string">
+         <maxLength value="20"/>
+      </restriction>
+   </simpleType>
+   <simpleType name="string1000">
+      <restriction base="string">
+         <maxLength value="1000"/>
+      </restriction>
+   </simpleType>
+</schema>

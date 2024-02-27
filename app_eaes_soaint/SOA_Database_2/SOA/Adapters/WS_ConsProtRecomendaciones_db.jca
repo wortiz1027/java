@@ -1,0 +1,13 @@
+<adapter-config name="WS_ConsProtRecomendaciones" adapter="db" wsdlLocation="../WSDLs/WS_ConsProtRecomendaciones.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  
+  <connection-factory UIConnectionName="conn_javeriana" location="eis/DB/Javeriana"/>
+  <endpoint-interaction portType="WS_ConsProtRecomendaciones_ptt" operation="WS_ConsProtRecomendaciones">
+    <interaction-spec className="oracle.tip.adapter.db.DBStoredProcedureInteractionSpec">
+      <property name="SchemaName" value="JAVERIANA"/>
+      <property name="PackageName" value="PAQUETE_CONSULTAS"/>
+      <property name="ProcedureName" value="CON_PROT_RECOMENDACIONES"/>
+      <property name="GetActiveUnitOfWork" value="false"/>
+    </interaction-spec>
+  </endpoint-interaction>
+
+</adapter-config>

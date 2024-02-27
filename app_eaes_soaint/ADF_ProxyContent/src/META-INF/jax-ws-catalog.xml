@@ -1,0 +1,8 @@
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+  <system systemId="http://bpm-dv1:7003/soa-infra/services/default/SOA_Content/bpel_getfile_client_ep?WSDL#%7Bhttp%3A%2F%2Fxmlns.oracle.com%2Fapp_eaes_soaint%2FSOA_Content%2Fbpel_GetFile%7Dbpel_getfile_client_ep"
+          uri="../co/edu/javeriana/proxies/getfile/proxy/bpel_getfile_client_ep.wsdl"/>
+  <system systemId="http://bpm-dv1:7003/soa-infra/services/default/SOA_Content/bpel_advancesearch_client_ep?WSDL#%7Bhttp%3A%2F%2Fxmlns.oracle.com%2Fapp_eaes_soaint%2FSOA_Content%2Fbpel_AdvanceSearch%7Dbpel_advancesearch_client_ep"
+          uri="../co/edu/javeriana/proxies/advancesearch/proxy/bpel_advancesearch_client_ep.wsdl"/>
+  <system systemId="http://bpm-dv1:7003/soa-infra/services/default/SOA_Content/bpel_checkin_wcc_client_ep?WSDL#%7Bhttp%3A%2F%2Fxmlns.oracle.com%2Fapp_eaes_soaint%2FSOA_Content%2Fbpel_checkin_wcc%7Dbpel_checkin_wcc_client_ep"
+          uri="../co/edu/javeriana/proxies/checkin/proxy/bpel_checkin_wcc_client_ep.wsdl"/>
+</catalog>

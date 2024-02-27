@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="bpel_consultarCandidatosPorVacante"
+             targetNamespace="http://xmlns.oracle.com/app_eaes_soaint/SOA_Database_2/bpel_consultarCandidatosPorVacante"
+             xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:client="http://xmlns.oracle.com/app_eaes_soaint/SOA_Database_2/bpel_consultarCandidatosPorVacante"
+             xmlns:ns1="http://xmlns.javeriana.edu.co/co/schemas/process/bpm/consultarCandidatosVacante/v1.0"
+             xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype">
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	TYPE DEFINITION - List of services participating in this BPEL process
+	The default output of the BPEL designer uses strings as input and 
+	output to the BPEL Process. But you can define or import any XML 
+	Schema type and use them as part of the message types.
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->   
+	<wsdl:types>
+		<schema xmlns="http://www.w3.org/2001/XMLSchema">
+			<import namespace="http://xmlns.javeriana.edu.co/co/schemas/process/bpm/consultarCandidatosVacante/v1.0" schemaLocation="oramds:/apps/resources/BPM/SCHEMAs/ConsultarCandidatosVacante.xsd" />
+		</schema>
+	</wsdl:types>
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	MESSAGE TYPE DEFINITION - Definition of the message types used as 
+	part of the port type defintions
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->      
+	<wsdl:message name="bpel_consultarCandidatosPorVacanteRequestMessage">
+		<wsdl:part name="payload" element="ns1:Generico" />
+	</wsdl:message>
+	<wsdl:message name="bpel_consultarCandidatosPorVacanteResponseMessage">
+		<wsdl:part name="payload" element="ns1:Candidatos" />
+	</wsdl:message>
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	PORT TYPE DEFINITION - A port type groups a set of operations into
+	a logical service unit.
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<!-- portType implemented by the bpel_consultarCandidatosPorVacante BPEL process -->
+	<wsdl:portType name="bpel_consultarCandidatosPorVacante">
+		<wsdl:operation name="process">
+			<wsdl:input  message="client:bpel_consultarCandidatosPorVacanteRequestMessage" />
+			<wsdl:output message="client:bpel_consultarCandidatosPorVacanteResponseMessage"/>
+		</wsdl:operation>
+	</wsdl:portType>
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	PARTNER LINK TYPE DEFINITION
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ --> 
+	<plnk:partnerLinkType name="bpel_consultarCandidatosPorVacante">
+		<plnk:role name="bpel_consultarCandidatosPorVacanteProvider" portType="client:bpel_consultarCandidatosPorVacante"/>
+	</plnk:partnerLinkType>
+</wsdl:definitions>

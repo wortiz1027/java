@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+            xmlns:probpmrecl="http://xmlns.javeriana.edu/edu/schemas/process/reclutamiento/v1.0"
+            targetNamespace="http://xmlns.javeriana.edu/edu/schemas/process/reclutamiento/v1.0" 
+            elementFormDefault="qualified">
+    <xsd:complexType name="SolicitudType">
+        <xsd:sequence>
+            <xsd:element name="idSolicitud" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="prototipo" type="probpmrecl:PrototipoType" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="accionesASeguir" type="probpmrecl:AccionesASeguirType" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="vacante" type="probpmrecl:VacanteType" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="gerente" type="probpmrecl:GerenteType" minOccurs="0" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="AccionesASeguirType">
+        <xsd:sequence>
+            <xsd:element name="desarrollarExaminarProduccionPrototipos" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+            <xsd:element name="validarProblemasCalidadYConfiabilidad" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="PrototipoType">
+        <xsd:sequence>
+            <xsd:element name="tipo" type="probpmrecl:TipoComunType" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="codigo" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="TipoComunType">
+        <xsd:sequence>
+            <xsd:element name="llave" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="valor" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="CandidatoType">
+        <xsd:sequence>
+            <xsd:element name="correoElectronico" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+            <xsd:element name="resultado" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="CandidatosType">
+        <xsd:sequence>
+            <xsd:element name="Candidato" maxOccurs="unbounded" type="probpmrecl:CandidatoType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="VacanteType">
+        <xsd:sequence>
+            <xsd:element name="idVacante" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="candidatos" type="probpmrecl:CandidatosType" minOccurs="0" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="GerenteType">
+        <xsd:sequence>
+            <xsd:element name="usuario" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="correoElectronico" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="Solicitud" type="probpmrecl:SolicitudType"/>
+    <xsd:element name="AccionesASeguir" type="probpmrecl:AccionesASeguirType"/>
+    <xsd:element name="Prototipo" type="probpmrecl:PrototipoType"/>
+    <xsd:element name="Candidatos" type="probpmrecl:CandidatosType"/>
+</xsd:schema>

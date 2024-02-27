@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:impl="http://TOB/wsIniciarPaqueteTuristico.tws"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             targetNamespace="http://TOB/wsIniciarPaqueteTuristico.tws"
+             name="IniciarProcesoBPM">
+
+    <wsdl:types>
+        <xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://TOB/wsIniciarPaqueteTuristico.tws">
+            <xsd:element name="iniciarPaqueteTuristico">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="numeroSolicitud" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="iniciarPaqueteTuristicoResponse">
+            </xsd:element>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="iniciarPaqueteTuristicoResponse">
+    </wsdl:message>
+    <wsdl:message name="iniciarPaqueteTuristicoRequest">
+        <part name="parameters" element="impl:iniciarPaqueteTuristico"> </part>
+    </wsdl:message>
+    <wsdl:portType name="wsIniciarPaqueteTuristicoPortType">
+        <wsdl:operation name="iniciarPaqueteTuristico">
+            <input name="iniciarPaqueteTuristicoRequest" message="impl:iniciarPaqueteTuristicoRequest"> </input>
+            <output name="iniciarPaqueteTuristicoResponse" message="impl:iniciarPaqueteTuristicoResponse"> </output>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="wsIniciarPaqueteTuristicoSoapSoapBinding" type="impl:wsIniciarPaqueteTuristicoPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="iniciarPaqueteTuristico">
+            <soap:operation soapAction="http://TOB/wsIniciarPaqueteTuristico.tws/iniciarPaqueteTuristico"/>
+            <wsdl:input name="iniciarPaqueteTuristicoRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="iniciarPaqueteTuristicoResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="wsIniciarPaqueteTuristico">
+        <wsdl:port name="wsIniciarPaqueteTuristicoSoap" binding="impl:wsIniciarPaqueteTuristicoSoapSoapBinding">
+            <soap:address location="http://WIN-M9IHA8A1I0H:9080/teamworks/webservices/TOB/wsIniciarPaqueteTuristico.tws"/>
+        </wsdl:port>
+    </wsdl:service>
+</definitions>

@@ -1,0 +1,38 @@
+# -----------------------------------------------------------------------------
+# - DOCKERFILE
+# - AUTOR: Brian Suarez | Eduardo Franco | Jhon Celemin | Wilman Ortiz
+# - FECHA: 06-Octubre-2020
+# - DESCRIPCION: Docker-compose que permite la creacion del
+# -              contenedor con el servicio de comandos y queries de productos
+# ------------------------------------------------------------------------------
+
+version: '3.7'
+services:
+  server-gateway-services:
+    image: wortiz1027/server-gateway-services:latest
+    container_name: server-gateway-services
+    hostname: server-gateway-services
+    restart: always
+    ports:
+      - 9092:9092
+      - 6192:6192
+    environment:
+      - CONFIG_SERVER=http://server-configuration-services:9090
+      - EUREKA_SERVER=http://server-discovery-services:9091/eureka
+      - EUREKA_HOST=10.39.1.85
+      - SECURITY_HOST=server-security-services      
+      - PRODUCT_HOST=10.39.1.94
+      - IMAGES_HOST=10.39.1.94
+      - EXTERNAL_HOST=10.39.1.59
+      - CAMPAIGNS_HOST=10.39.1.94
+      - ORDERS_HOST=10.39.1.94
+      - PROVIDERS_HOST=10.39.1.94
+      - NOTIFICATIONS_HOST=notifications-service
+      - VENDORS_COMMAND_HOST= vendors-command-services
+      - VENDORS_QUERY_HOST=vendors-query-services
+      - BPM_COMMAND_HOST=bpm-command-services
+    networks:
+      - ntw_backend
+networks:
+  ntw_backend:
+    external: true

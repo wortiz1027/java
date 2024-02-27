@@ -1,0 +1,33 @@
+<schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/sp/WS_InsPrototipo" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:db="http://xmlns.oracle.com/pcbpel/adapter/db/sp/WS_InsPrototipo" elementFormDefault="qualified">
+   <element name="InputParameters">
+      <complexType>
+         <sequence>
+            <element name="V_TITULO" type="string" db:index="1" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="V_FECHA_INICIO" type="dateTime" db:index="2" db:type="DATE" minOccurs="0" nillable="true"/>
+            <element name="V_FECHA_CIERRE" type="dateTime" db:index="3" db:type="DATE" minOccurs="0" nillable="true"/>
+            <element name="V_DETALLE" type="string" db:index="4" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="V_ESTADO" type="string" db:index="5" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="V_PRESUPUESTO" type="decimal" db:index="6" db:type="NUMBER" minOccurs="0" nillable="true"/>
+            <element name="V_TIPO" type="string" db:index="7" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="V_CONOCIMIENTOS" type="string" db:index="8" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+            <element name="V_ARRAY_RECOMENDACIONES_TYPE" type="db:JAVERIANA.ARRAY_RECOMENDACION_TYPE" db:index="9" db:type="Array" minOccurs="0" nillable="true"/>
+         </sequence>
+      </complexType>
+   </element>
+   <complexType name="JAVERIANA.ARRAY_RECOMENDACION_TYPE">
+      <sequence>
+         <element name="V_ARRAY_RECOMENDACIONES_TYPE_ITEM" type="db:JAVERIANA.RECOMENDACION_TYPE" db:type="Struct" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+      </sequence>
+   </complexType>
+   <complexType name="JAVERIANA.RECOMENDACION_TYPE">
+      <sequence>
+         <element name="ID_PROTOTIPO" type="decimal" db:type="NUMBER" minOccurs="0" nillable="true"/>
+         <element name="OBSERVACION" type="db:string2000" db:type="VARCHAR2" minOccurs="0" nillable="true"/>
+      </sequence>
+   </complexType>
+   <simpleType name="string2000">
+      <restriction base="string">
+         <maxLength value="2000"/>
+      </restriction>
+   </simpleType>
+</schema>

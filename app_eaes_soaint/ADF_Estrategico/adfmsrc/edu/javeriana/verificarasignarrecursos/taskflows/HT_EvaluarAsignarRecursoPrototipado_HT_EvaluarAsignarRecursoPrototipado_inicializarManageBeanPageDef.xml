@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.9.14"
+                id="HT_EvaluarAsignarRecursoPrototipado_HT_EvaluarAsignarRecursoPrototipado_inicializarManageBeanPageDef"
+                Package="edu.javeriana.verificarasignarrecursos.taskflows" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+  </executables>
+  <bindings/>
+</pageDefinition>

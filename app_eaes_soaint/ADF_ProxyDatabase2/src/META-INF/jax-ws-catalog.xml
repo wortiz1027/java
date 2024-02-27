@@ -1,0 +1,12 @@
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+  <system systemId="http://bpm-dv1:7003/soa-infra/services/default/SOA_Database_2/bpel_insertarentrevista_client_ep?WSDL#%7Bhttp%3A%2F%2Fxmlns.oracle.com%2Fapp_eaes_soaint%2FSOA_Database_2%2Fbpel_insertarentrevista%7Dbpel_insertarentrevista_client_ep"
+          uri="../co/edu/javeriana/proxies/insertarentrevista/proxy/bpel_insertarentrevista_client_ep.wsdl"/>
+  <system systemId="http://bpm-dv1:7003/soa-infra/services/default/SOA_Database_2/bpel_consultacandidatos_client_ep?WSDL#%7Bhttp%3A%2F%2Fxmlns.oracle.com%2Fapp_eaes_soaint%2FSOA_Database_2%2Fbpel_consultacandidatos%7Dbpel_consultacandidatos_client_ep"
+          uri="../co/edu/javeriana/proxies/consultarcandidatos/proxy/bpel_consultacandidatos_client_ep.wsdl"/>
+  <system systemId="http://bpm-dv1:7003/soa-infra/services/default/SOA_Database_2/bpel_consprotrecomendaciones_client_ep?WSDL#%7Bhttp%3A%2F%2Fxmlns.oracle.com%2Fapp_eaes_soaint%2FSOA_Database_2%2Fbpel_consprotrecomendaciones%7Dbpel_consprotrecomendaciones_client_ep"
+          uri="../co/edu/javeriana/proxies/consultarrecomendaciones/proxy/bpel_consprotrecomendaciones_client_ep.wsdl"/>
+  <system systemId="http://bpm-dv1:7003/soa-infra/services/default/SOA_Database_2/bpel_updateobsestentrevista_client_ep?WSDL#%7Bhttp%3A%2F%2Fxmlns.oracle.com%2Fapp_eaes_soaint%2FSOA_Database_2%2Fbpel_updateobsestentrevista%7Dbpel_updateobsestentrevista_client_ep"
+          uri="../co/edu/javeriana/proxies/updateestadoentrevista/proxy/bpel_updateobsestentrevista_client_ep.wsdl"/>
+  <system systemId="http://bpm-dv1:7003/soa-infra/services/default/SOA_Database_2/bpel_updateobsentrevista_client_ep?WSDL#%7Bhttp%3A%2F%2Fxmlns.oracle.com%2Fapp_eaes_soaint%2FSOA_Database_2%2Fbpel_updateobsentrevista%7Dbpel_updateobsentrevista_client_ep"
+          uri="../co/edu/javeriana/proxies/updateentrevista/proxy/bpel_updateobsentrevista_client_ep.wsdl"/>
+</catalog>

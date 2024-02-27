@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.9.14" id="DataBindings"
+             SeparateXMLFiles="false" Package="adf_soporte" ClientType="Generic">
+  <pageMap>
+    <page path="/WEB-INF/edu/javeriana/filtradoseleccioncandidato/taskflows/HT_EvaluarSeleccionarCandidato.xml#HT_EvaluarSeleccionarCandidato@inicializarManageBean"
+          usageId="adf_soporte_HT_EvaluarSeleccionarCandidato_HT_EvaluarSeleccionarCandidato_inicializarManageBeanPageDef"/>
+    <page path="/WEB-INF/edu/javeriana/filtradoseleccioncandidato/taskflows/HT_EvaluarSeleccionarCandidato.xml#HT_EvaluarSeleccionarCandidato@savePayload"
+          usageId="adf_soporte_HT_EvaluarSeleccionarCandidato_HT_EvaluarSeleccionarCandidato_savePayloadPageDef"/>
+    <page path="/WEB-INF/edu/javeriana/filtradoseleccioncandidato/taskflows/HT_EvaluarCurriculum.xml#HT_EvaluarCurriculum@inicializarManageBean"
+          usageId="adf_soporte_HT_EvaluarCurriculum_HT_EvaluarCurriculum_inicializarManageBeanPageDef"/>
+    <page path="/WEB-INF/edu/javeriana/filtradoseleccioncandidato/taskflows/HT_EvaluarCurriculum.xml#HT_EvaluarCurriculum@savePayload"
+          usageId="adf_soporte_HT_EvaluarCurriculum_HT_EvaluarCurriculum_savePayloadPageDef"/>
+    <page path="/WEB-INF/edu/javeriana/filtradoseleccioncandidato/taskflows/HT_EntrevistarCandidatos.xml#HT_EntrevistarCandidatos@inicializarManageBean"
+          usageId="adf_soporte_HT_EntrevistarCandidatos_HT_EntrevistarCandidatos_inicializarManageBeanPageDef"/>
+    <page path="/WEB-INF/edu/javeriana/filtradoseleccioncandidato/taskflows/HT_EntrevistarCandidatos.xml#HT_EntrevistarCandidatos@savePayload"
+          usageId="adf_soporte_HT_EntrevistarCandidatos_HT_EntrevistarCandidatos_savePayloadPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="adf_soporte_HT_EvaluarSeleccionarCandidato_HT_EvaluarSeleccionarCandidato_inicializarManageBeanPageDef"
+          path="edu.javeriana.filtradoseleccioncandidato.taskflows.HT_EvaluarSeleccionarCandidato_HT_EvaluarSeleccionarCandidato_inicializarManageBeanPageDef"/>
+    <page id="adf_soporte_HT_EvaluarSeleccionarCandidato_HT_EvaluarSeleccionarCandidato_savePayloadPageDef"
+          path="edu.javeriana.filtradoseleccioncandidato.taskflows.HT_EvaluarSeleccionarCandidato_HT_EvaluarSeleccionarCandidato_savePayloadPageDef"/>
+    <page id="adf_soporte_HT_EvaluarCurriculum_HT_EvaluarCurriculum_inicializarManageBeanPageDef"
+          path="edu.javeriana.filtradoseleccioncandidato.taskflows.HT_EvaluarCurriculum_HT_EvaluarCurriculum_inicializarManageBeanPageDef"/>
+    <page id="adf_soporte_HT_EvaluarCurriculum_HT_EvaluarCurriculum_savePayloadPageDef"
+          path="edu.javeriana.filtradoseleccioncandidato.taskflows.HT_EvaluarCurriculum_HT_EvaluarCurriculum_savePayloadPageDef"/>
+    <page id="adf_soporte_HT_EntrevistarCandidatos_HT_EntrevistarCandidatos_inicializarManageBeanPageDef"
+          path="edu.javeriana.filtradoseleccioncandidato.taskflows.HT_EntrevistarCandidatos_HT_EntrevistarCandidatos_inicializarManageBeanPageDef"/>
+    <page id="adf_soporte_HT_EntrevistarCandidatos_HT_EntrevistarCandidatos_savePayloadPageDef"
+          path="edu.javeriana.filtradoseleccioncandidato.taskflows.HT_EntrevistarCandidatos_HT_EntrevistarCandidatos_savePayloadPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="ADF_Soporte_HT_EvaluarSeleccionarCandidato" path="adf_soporte.ADF_Soporte_HT_EvaluarSeleccionarCandidato"/>
+    <dc id="ADF_Soporte_HT_EvaluarCurriculum" path="adf_soporte.ADF_Soporte_HT_EvaluarCurriculum"/>
+    <dc id="ADF_Soporte_HT_EntrevistarCandidatos" path="adf_soporte.ADF_Soporte_HT_EntrevistarCandidatos"/>
+  </dataControlUsages>
+</Application>

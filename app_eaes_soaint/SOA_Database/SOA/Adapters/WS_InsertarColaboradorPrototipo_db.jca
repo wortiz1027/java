@@ -1,0 +1,12 @@
+<adapter-config name="WS_InsertarColaboradorPrototipo" adapter="db" wsdlLocation="../WSDLs/WS_InsertarColaboradorPrototipo.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  
+  <connection-factory UIConnectionName="conn_javeriana" location="eis/DB/conn_javeriana"/>
+  <endpoint-interaction portType="WS_InsertarColaboradorPrototipo_ptt" operation="WS_InsertarColaboradorPrototipo">
+    <interaction-spec className="oracle.tip.adapter.db.DBStoredProcedureInteractionSpec">
+      <property name="SchemaName" value="JAVERIANA"/>
+      <property name="ProcedureName" value="INS_COLABORADORPROTOTIPO"/>
+      <property name="GetActiveUnitOfWork" value="false"/>
+    </interaction-spec>
+  </endpoint-interaction>
+
+</adapter-config>

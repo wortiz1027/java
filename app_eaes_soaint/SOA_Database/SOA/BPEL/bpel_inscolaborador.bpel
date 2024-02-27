@@ -1,0 +1,90 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Oracle JDeveloper BPEL Designer 
+  
+  Created: Fri Apr 03 01:15:00 COT 2020
+  Author:  javeriana
+  Type: BPEL 2.0 Process
+  Purpose: Synchronous BPEL Process
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<process name="bpel_inscolaborador"
+               targetNamespace="http://xmlns.oracle.com/app_eaes_soaint/SOA_Database/bpel_inscolaborador"
+               xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+               xmlns:client="http://xmlns.oracle.com/app_eaes_soaint/SOA_Database/bpel_inscolaborador"
+               xmlns:ora="http://schemas.oracle.com/xpath/extension"
+               xmlns:ui="http://xmlns.oracle.com/soa/designer"
+               xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+         xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:ns1="http://xmlns.oracle.com/pcbpel/adapter/db/app_eaes_soaint/SOA_Database/WS_InsertarColaborador"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:ns3="http://xmlns.javeriana.edu.co/co/schemas/process/bpm/InsertarColaborador/v1.0"
+         xmlns:ns2="http://xmlns.oracle.com/pcbpel/adapter/db/sp/WS_InsertarColaborador">
+
+    <import ui:processWSDL="true" namespace="http://xmlns.oracle.com/app_eaes_soaint/SOA_Database/bpel_inscolaborador" location="../WSDLs/bpel_inscolaborador.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <!-- 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        PARTNERLINKS                                                      
+        List of services participating in this BPEL process               
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    --> 
+  <partnerLinks>
+    <!-- 
+      The 'client' role represents the requester of this service. It is 
+      used for callback. The location and correlation information associated
+      with the client role are automatically set using WS-Addressing.
+    -->
+    <partnerLink name="bpel_inscolaborador_client" partnerLinkType="client:bpel_inscolaborador" myRole="bpel_inscolaboradorProvider"/>
+    <partnerLink name="WS_InsertarColaborador" partnerLinkType="ns1:WS_InsertarColaborador_plt"
+                 partnerRole="WS_InsertarColaborador_role"/>
+  </partnerLinks>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      VARIABLES                                                        
+      List of messages and XML documents used within this BPEL process 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <variables>
+    <!-- Reference to the message passed as input during initiation -->
+    <variable name="inputVariable" messageType="client:bpel_inscolaboradorRequestMessage"/>
+
+    <!-- Reference to the message that will be returned to the requester-->
+    <variable name="outputVariable" messageType="client:bpel_inscolaboradorResponseMessage"/>
+    <variable name="invk_input" messageType="ns1:args_in_msg"/>
+  </variables>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     ORCHESTRATION LOGIC                                               
+     Set of activities coordinating the flow of messages across the    
+     services integrated within this business process                  
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <sequence name="main">
+
+    <!-- Receive input from requestor. (Note: This maps to operation defined in bpel_inscolaborador.wsdl) -->
+    <receive name="receiveInput" partnerLink="bpel_inscolaborador_client" portType="client:bpel_inscolaborador" operation="process" variable="inputVariable" createInstance="yes"/>
+    <assign name="T3_ins_colaborador">
+      <bpelx:annotation>
+        <bpelx:pattern patternName="bpelx:transformation"></bpelx:pattern>
+      </bpelx:annotation>
+      <copy>
+        <from>ora:doXSLTransformForDoc("../Transformations/T3_ins_colaborador.xsl", $inputVariable.payload)</from>
+        <to variable="invk_input" part="InputParameters"/>
+      </copy>
+    </assign>
+    <invoke name="invk_insertarcolabordor" partnerLink="WS_InsertarColaborador"
+            portType="ns1:WS_InsertarColaborador_ptt" operation="WS_InsertarColaborador" inputVariable="invk_input"
+            bpelx:invokeAsDetail="no"/>
+    <assign name="Asignar_response">
+      <copy>
+        <from><literal>OK</literal></from>
+        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$outputVariable.payload/ns3:ejecucion</to>
+      </copy>
+    </assign>
+    <!-- Generate reply to synchronous request -->
+    <reply name="replyOutput" partnerLink="bpel_inscolaborador_client" portType="client:bpel_inscolaborador" operation="process" variable="outputVariable"/>
+  </sequence>
+</process>

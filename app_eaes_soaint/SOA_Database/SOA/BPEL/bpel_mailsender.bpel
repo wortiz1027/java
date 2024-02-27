@@ -1,0 +1,91 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Oracle JDeveloper BPEL Designer 
+  
+  Created: Mon Apr 06 03:21:24 COT 2020
+  Author:  javeriana
+  Type: BPEL 2.0 Process
+  Purpose: Synchronous BPEL Process
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<process name="bpel_mailsender"
+               targetNamespace="http://xmlns.oracle.com/app_eaes_soaint/SOA_Database/bpel_mailsender"
+               xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+               xmlns:client="http://xmlns.oracle.com/app_eaes_soaint/SOA_Database/bpel_mailsender"
+               xmlns:ora="http://schemas.oracle.com/xpath/extension"
+               xmlns:ui="http://xmlns.oracle.com/soa/designer"
+               xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+         xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable" xmlns:ns1="http://javeriana.edu.co/"
+         xmlns:ns2="http://xmlns.javeriana.edu.co/co/schemas/process/bpm/MailSender/v1.0">
+
+    <import ui:processWSDL="true" namespace="http://xmlns.oracle.com/app_eaes_soaint/SOA_Database/bpel_mailsender" location="../WSDLs/bpel_mailsender.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <!-- 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        PARTNERLINKS                                                      
+        List of services participating in this BPEL process               
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    --> 
+  <partnerLinks>
+    <!-- 
+      The 'client' role represents the requester of this service. It is 
+      used for callback. The location and correlation information associated
+      with the client role are automatically set using WS-Addressing.
+    -->
+    <partnerLink name="bpel_mailsender_client" partnerLinkType="client:bpel_mailsender" myRole="bpel_mailsenderProvider"/>
+    <partnerLink name="WS_MailSender" partnerLinkType="ns1:WS_MailSender" partnerRole="SendEmail"/>
+  </partnerLinks>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      VARIABLES                                                        
+      List of messages and XML documents used within this BPEL process 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <variables>
+    <!-- Reference to the message passed as input during initiation -->
+    <variable name="inputVariable" messageType="client:bpel_mailsenderRequestMessage"/>
+
+    <!-- Reference to the message that will be returned to the requester-->
+    <variable name="outputVariable" messageType="client:bpel_mailsenderResponseMessage"/>
+    <variable name="ink_input" messageType="ns1:enviar"/>
+    <variable name="ink_output" messageType="ns1:enviarResponse"/>
+  </variables>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     ORCHESTRATION LOGIC                                               
+     Set of activities coordinating the flow of messages across the    
+     services integrated within this business process                  
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <sequence name="main">
+
+    <!-- Receive input from requestor. (Note: This maps to operation defined in bpel_mailsender.wsdl) -->
+    <receive name="receiveInput" partnerLink="bpel_mailsender_client" portType="client:bpel_mailsender" operation="process" variable="inputVariable" createInstance="yes"/>
+    <assign name="Asignar_request">
+      <copy>
+        <from>$inputVariable.payload/ns2:direcciones</from>
+        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ink_input.parameters/correo/direcciones</to>
+      </copy>
+      <copy>
+        <from>$inputVariable.payload/ns2:subject</from>
+        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ink_input.parameters/correo/subject</to>
+      </copy>
+      <copy>
+        <from>$inputVariable.payload/ns2:body</from>
+        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$ink_input.parameters/correo/text</to>
+      </copy>
+    </assign>
+    <invoke name="ink_mailsender" partnerLink="WS_MailSender" portType="ns1:SendEmail"
+            operation="enviar" inputVariable="ink_input" outputVariable="ink_output" bpelx:invokeAsDetail="no"/>
+    <assign name="Asignar_response">
+      <copy>
+        <from>$ink_output.parameters/return</from>
+        <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$outputVariable.payload/ns2:ejecucion</to>
+      </copy>
+    </assign>
+    <!-- Generate reply to synchronous request -->
+    <reply name="replyOutput" partnerLink="bpel_mailsender_client" portType="client:bpel_mailsender" operation="process" variable="outputVariable"/>
+  </sequence>
+</process>

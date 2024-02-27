@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:javeriana="http://xmlns.javeriana.edu.co/co/schemas/process/bpm/ConsultarPrototipo/v1.0" targetNamespace="http://xmlns.javeriana.edu.co/co/schemas/process/bpm/ConsultarPrototipo/v1.0" elementFormDefault="qualified">
+  <xsd:complexType name="InputType">
+    <xsd:sequence>
+      <xsd:element name="codigoPrototipo" type="xsd:decimal" maxOccurs="1" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PrototipoType">
+    <xsd:sequence>
+      <xsd:element name="codigoPrototipo" type="xsd:decimal" minOccurs="0"/>
+      <xsd:element name="titulo" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="fechaInicio" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="fechaCierre" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="detalle" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="estado" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="presupuesto" type="xsd:decimal" minOccurs="0"/>
+      <xsd:element name="tipo" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="conocimientos" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="request" type="javeriana:InputType"/>
+  <xsd:element name="response" type="javeriana:PrototipoType"/>
+</xsd:schema>

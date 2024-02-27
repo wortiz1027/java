@@ -1,0 +1,21 @@
+# +-----------------------------------------------------
+# |         SPRING DATASOURCE CONFIG
+# +-----------------------------------------------------
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${DB_ML_CHALLENGE_HOST:eyw6324oty5fsovx.cbetxkdyhwsb.us-east-1.rds.amazonaws.com}/${DB_ML_CHALLENGE_DB:s2mgoefor21fkef4}
+    username: ${DB_ML_CHALLENGE_USERNAME:memsn6opag5rk6nd}
+    password: ${DB_ML_CHALLENGE_PASSWORD:r0tmvzs1lzfl7x6z}
+
+# +-----------------------------------------------------
+# |         SPRING LOGGIN CONFIG
+# +-----------------------------------------------------
+logging:
+  level:
+    org.springframework.web: INFO
+    org.springframework.web.client.RestTamplate: INFO
+    co.com.merdadolibre.challenge: INFO
+  pattern:
+    console: "%d{yyyy-MMM-dd HH:mm:ss a} [%t] %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"

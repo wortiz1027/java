@@ -1,0 +1,3 @@
+# AutoConfigurations
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  org.workshop.starter.autoconfigure.EncoderAutoConfiguration

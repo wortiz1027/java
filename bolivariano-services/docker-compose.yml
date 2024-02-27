@@ -1,0 +1,30 @@
+# -------------------------------------------------------------------
+# - DOCKER COMPOSE FILE
+# - AUTOR: Equipo 5
+# - FECHA: 17-Septiembre-2020
+# - DESCRIPCION: Docker compose file que permite la
+# -              creacion de 1 contenedor para el servicio de bolivariano
+# -------------------------------------------------------------------
+
+version: '3.7'
+services:
+  bolivariano-service:
+    image: wortiz1027/bolivariano-service:latest
+    container_name: bolivariano-service
+    hostname: bolivariano-service
+    restart: always
+    ports:
+      - 7071:7071
+    networks:
+      - ntw_backend
+    environment:
+      - SERVICE_PORTS=7071
+      - FTP_HOST=10.100.137.182
+      - FTP_PORT=21
+      - FTP_USER=toures
+      - FTP_PASS=T0u3r3sBal0n
+      - FTP_USER_HOME=/home/vsftpd/toures/bolivariano.csv
+
+networks:
+  ntw_backend:
+    external: true

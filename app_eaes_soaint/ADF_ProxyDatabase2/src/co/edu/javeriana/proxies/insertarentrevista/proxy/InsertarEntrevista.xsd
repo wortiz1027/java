@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:javeriana="http://xmlns.javeriana.edu.co/co/schemas/process/bpm/InsertarEntrevista/v1.0" targetNamespace="http://xmlns.javeriana.edu.co/co/schemas/process/bpm/InsertarEntrevista/v1.0" elementFormDefault="qualified">
+  <xsd:complexType name="InsertarEntrevistaType">
+    <xsd:sequence>
+      <xsd:element name="codigoCurriculum" type="xsd:decimal" maxOccurs="1" minOccurs="0"/>
+      <xsd:element name="codigoColaborador" type="xsd:decimal" maxOccurs="1" minOccurs="0"/>
+      <xsd:element name="codigoVacante" type="xsd:decimal" maxOccurs="1" minOccurs="0"/>
+      <xsd:element name="fechaRealizacion" type="xsd:dateTime" minOccurs="0"/>
+      <xsd:element name="resultado" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="fechaEmisionResultado" type="xsd:dateTime" minOccurs="1"/>
+      <xsd:element name="observaciones" type="xsd:string" minOccurs="1"/>
+      <xsd:element name="evaluarSeleccion" type="xsd:string" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ResponseType">
+    <xsd:sequence>
+      <xsd:element name="ejecucion" type="xsd:string" maxOccurs="1" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="request" type="javeriana:InsertarEntrevistaType"/>
+  <xsd:element name="response" type="javeriana:ResponseType"/>
+</xsd:schema>

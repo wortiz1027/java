@@ -1,0 +1,30 @@
+version: "3.1"
+services:
+  web-services:
+    image: web-services
+    container_name: web-services
+    build:
+      context: .
+      dockerfile: "Payara/Dockerfile"
+    ports:
+      - 8080:8080
+      - 4848:4848
+    depends_on: 
+      - domiciliaciondb
+    networks: 
+      - backend
+  domiciliaciondb:
+    image: domiciliaciondb
+    container_name: domiciliaciondb
+    build: "MariaDB/."
+    environment:
+      - MYSQL_ROOT_PASSWORD=my-secret-pw
+    volumes:
+      - $HOME/data/mariadb/domiciliaciondb:/var/lib/mysql
+    ports:
+      - 3306:3306
+    networks: 
+      - backend
+networks:
+  backend:
+    external: true

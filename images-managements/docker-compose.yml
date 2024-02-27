@@ -1,0 +1,47 @@
+# -----------------------------------------------------------------------------
+# - DOCKERFILE
+# - AUTOR: Brian Suarez | Eduardo Franco | Jhon Celemin | Wilman Ortiz
+# - FECHA: 06-Octubre-2020
+# - DESCRIPCION: Docker-compose que permite la creacion del
+# -              contenedor con el servicio de comandos y queries de productos
+# ------------------------------------------------------------------------------
+
+version: '3.7'
+services:
+  images-command-services:
+    image: wortiz1027/images-command-services:latest
+    container_name: images-command-services
+    hostname: images-command-services
+    restart: always
+    ports:
+      - 8083:8083
+      - 6083:6083
+    environment:  
+      - CONFIG_SERVER=http://10.39.1.85:9090
+      - EUREKA_SERVER=http://10.39.1.85:9091/eureka
+      - EUREKA_HOST=10.39.1.85
+      - RABBITMQ_HOST=10.39.1.85
+      - DB_IMAGES_COMMAND_HOST=10.39.1.130
+      - IMAGE_HOST=10.39.1.94
+    networks:
+      - ntw_backend
+  images-query-services:
+    image: wortiz1027/images-query-services:latest
+    container_name: images-query-services
+    hostname: images-query-services
+    restart: always
+    ports:
+      - 8084:8084
+      - 6084:6084
+    environment:  
+      - CONFIG_SERVER=http://10.39.1.85:9090
+      - EUREKA_SERVER=http://10.39.1.85:9091/eureka
+      - EUREKA_HOST=10.39.1.85
+      - RABBITMQ_HOST=10.39.1.85      
+      - DB_IMAGES_QUERY_HOST=10.39.1.130
+      - IMAGE_HOST=10.39.1.94
+    networks:
+      - ntw_backend
+networks:
+  ntw_backend:
+    external: true

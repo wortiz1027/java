@@ -1,0 +1,21 @@
+CREATE OR REPLACE PACKAGE PAQUETE_CONSULTAS AS  
+    PROCEDURE CON_ENTREVISTA_CURRICULUM (
+        V_ID_CURRICULUM IN CURRICULUM.ID_CURRICULUM%TYPE,
+        V_ARRAY_ENTREVISTAS OUT array_Entrevista_Type
+    );
+END PAQUETE_CONSULTAS;
+COMMIT;
+
+CREATE OR REPLACE PACKAGE BODY PAQUETE_CONSULTAS AS
+    PROCEDURE CON_ENTREVISTA_CURRICULUM (
+        V_ID_CURRICULUM IN CURRICULUM.ID_CURRICULUM%TYPE,
+        V_ARRAY_ENTREVISTAS OUT array_Entrevista_Type
+    ) AS 
+    BEGIN
+        SELECT entrevista_type(en.id_entrevista, en.id_curriculum, en.id_colaborador, en.id_vacante, en.fecha_realizacion, en.resultado, en.fecha_emision_resultado, en.observaciones)
+        BULK COLLECT INTO V_ARRAY_ENTREVISTAS
+        FROM ENTREVISTA EN
+        WHERE en.id_curriculum = v_id_curriculum;
+    END CON_ENTREVISTA_CURRICULUM;
+END PAQUETE_CONSULTAS;
+commit;

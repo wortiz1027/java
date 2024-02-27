@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns0:organization xmlns:ns0="http://xmlns.oracle.com/bpm/organization" xmlns:ns2="http://xmlns.oracle.com/bpm/lpg/peopleQuery" xmlns:ns3="http://xmlns.oracle.com/bpm/identity" xmlns:ns1="http://xmlns.oracle.com/bpel/workflow/taskQuery" xmlns:ns4="http://xmlns.oracle.com/bpel/workflow/task">
+   <ns0:updateExistingObjects>false</ns0:updateExistingObjects>
+   <ns0:organizationalUnits/>
+   <ns0:applicationRoles>
+      <ns0:applicationRole id="BPM_Estrategico.ProcessOwner" isProcessRole="true">
+         <ns3:name>BPM_Estrategico.Process Owner</ns3:name>
+         <ns0:processRole id="ProcessOwner" name="Process Owner"/>
+      </ns0:applicationRole>
+      <ns0:applicationRole id="BPM_Estrategico.ProcessReviewer" isProcessRole="true">
+         <ns3:name>BPM_Estrategico.Process Reviewer</ns3:name>
+         <ns0:processRole id="ProcessReviewer" name="Process Reviewer"/>
+      </ns0:applicationRole>
+      <ns0:applicationRole id="BPM_Estrategico.Gerente" isProcessRole="true">
+         <ns3:name>BPM_Estrategico.Gerente</ns3:name>
+         <ns0:processRole id="Gerente" name="Gerente"/>
+      </ns0:applicationRole>
+      <ns0:applicationRole id="BPM_Estrategico.Arquitecto" isProcessRole="true">
+         <ns3:name>BPM_Estrategico.Arquitecto</ns3:name>
+         <ns0:processRole id="Arquitecto" name="Arquitecto"/>
+      </ns0:applicationRole>
+      <ns0:applicationRole id="BPM_Estrategico.FuncionaldeNegocio" isProcessRole="true">
+         <ns3:name>BPM_Estrategico.Funcional de Negocio</ns3:name>
+         <ns0:processRole id="FuncionaldeNegocio" name="Funcional de Negocio"/>
+      </ns0:applicationRole>
+      <ns0:applicationRole id="BPM_Estrategico.EquipodeDesarrollo" isProcessRole="true">
+         <ns3:name>BPM_Estrategico.Equipo de Desarrollo</ns3:name>
+         <ns0:processRole id="EquipodeDesarrollo" name="Equipo de Desarrollo"/>
+      </ns0:applicationRole>
+      <ns0:applicationRole id="BPM_Estrategico.Juridico" isProcessRole="true">
+         <ns3:name>BPM_Estrategico.Juridico</ns3:name>
+         <ns0:processRole id="Juridico" name="Juridico"/>
+      </ns0:applicationRole>
+   </ns0:applicationRoles>
+   <ns0:applicationRoleOrgUnitCalendarAssociations/>
+   <ns0:participantPropertiesList/>
+   <ns0:holidayRules/>
+   <ns0:calendarRules/>
+   <ns0:businessParameters/>
+</ns0:organization>

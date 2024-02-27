@@ -1,0 +1,23 @@
+# -----------------------------------------------------------------------------
+# - DOCKERFILE
+# - AUTOR: Brian Suarez | Eduardo Franco | Jhon Celemin | Wilman Ortiz
+# - FECHA: 06-Octubre-2020
+# - DESCRIPCION: Docker-compose que permite la creacion del
+# -              contenedor con el servicio de comandos y queries de productos
+# ------------------------------------------------------------------------------
+
+version: '3.7'
+services:
+  server-configuration-services:
+    image: wortiz1027/server-configuration-services:latest
+    container_name: server-configuration-services
+    hostname: server-configuration-services
+    restart: always
+    ports:
+      - 9090:9090
+      - 6190:6190
+    networks:
+      - ntw_backend
+networks:
+  ntw_backend:
+    external: true

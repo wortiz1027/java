@@ -1,0 +1,49 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:jrn="http://co.bolivariano.com/journeys"
+           targetNamespace="http://co.bolivariano.com/journeys"
+           elementFormDefault="qualified">
+
+    <xs:complexType name="Passenger">
+        <xs:sequence>
+            <xs:element name="nombres" type="xs:string"/>
+            <xs:element name="apellidos" type="xs:string"/>
+            <xs:element name="tipoDocumento" type="xs:string"/>
+            <xs:element name="numeroDocumento" type="xs:string"/>
+            <xs:element name="fecha" type="xs:string"/>
+            <xs:element name="hora" type="xs:string"/>
+            <xs:element name="origen" type="xs:string"/>
+            <xs:element name="destino" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="JourneyList">
+        <xs:sequence>
+            <xs:element name="journeys" type="jrn:Passenger" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Header">
+        <xs:sequence>
+            <xs:element name="code" type="xs:string"/>
+            <xs:element name="description" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="GetJourneyRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="key" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetJourneyResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="header" type="jrn:Header"/>
+                <xs:element name="information" type="jrn:JourneyList"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

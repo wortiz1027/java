@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.7.0</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>co.com.client.encoder</groupId>
+    <artifactId>client-encoder</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>client-encoder</name>
+    <description>client-encoder</description>
+
+    <organization>
+        <name>developer.io</name>
+        <url>https://developer.io/</url>
+    </organization>
+
+    <developers>
+        <developer>
+            <id>wortiz</id>
+            <name>Wilman Ortiz</name>
+            <email>wilman.ortiz@gmail.com</email>
+            <url>https://developer.io/</url>
+            <organization>developer.io</organization>
+            <organizationUrl>https://developer.io/</organizationUrl>
+            <roles>
+                <role>Desarrollador Senior</role>
+            </roles>
+            <timezone>America/Bogota</timezone>
+            <properties>
+                <picture>http://www.oorsprong.org/WebSamples.CountryInfo/Images/Colombia.jpg</picture>
+            </properties>
+        </developer>
+    </developers>
+
+    <scm>
+        <url>https://github.com/wortiz1027/employee-services</url>
+        <connection>scm:git:git@github.com:wortiz1027/employee-services.git</connection>
+        <developerConnection>scm:git:git@github.com:wortiz1027/employee-services.git</developerConnection>
+        <tag>master</tag>
+    </scm>
+
+    <repositories>
+        <repository>
+            <id>maven-public</id>
+            <name>maven-public</name>
+            <url>http://server_nexus:8081/repository/maven-public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>develop-snapshot</id>
+            <url>http://localhost:8280/repository/develop-snapshot/</url>
+        </snapshotRepository>
+        <repository>
+            <id>develop-releases</id>
+            <url>http://localhost:8280/repository/develop-releases/</url>
+        </repository>
+    </distributionManagement>
+
+    <properties>
+        <java.version>11</java.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.workshop</groupId>
+            <artifactId>encoder-spring-boot-starter</artifactId>
+            <version>0.0.11-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

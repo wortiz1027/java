@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<wsdl:definitions name="bpel_consultacandidatos" targetNamespace="http://xmlns.oracle.com/app_eaes_soaint/SOA_Database_2/bpel_consultacandidatos" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:client="http://xmlns.oracle.com/app_eaes_soaint/SOA_Database_2/bpel_consultacandidatos" xmlns:ns1="http://xmlns.javeriana.edu.co/co/schemas/process/bpm/ConsultarCandidatos/v1.0" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:documentation>
+    <abstractWSDL>http://bpm-dv1:7003/soa-infra/services/default/SOA_Database_2!1.0.0/WSDLs/bpel_consultacandidatos.wsdl</abstractWSDL>
+  </wsdl:documentation>
+  <plnk:partnerLinkType name="bpel_consultacandidatos">
+    <plnk:role name="bpel_consultacandidatosProvider" portType="client:bpel_consultacandidatos"/>
+  </plnk:partnerLinkType>
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="http://xmlns.javeriana.edu.co/co/schemas/process/bpm/ConsultarCandidatos/v1.0" schemaLocation="ConsultarCandidatos.xsd"/>
+    </schema>
+  </wsdl:types>
+  <wsdl:message name="bpel_consultacandidatosRequestMessage">
+    <wsdl:part name="payload" element="ns1:Generico"/>
+  </wsdl:message>
+  <wsdl:message name="bpel_consultacandidatosResponseMessage">
+    <wsdl:part name="payload" element="ns1:Candidatos"/>
+  </wsdl:message>
+  <wsdl:portType name="bpel_consultacandidatos">
+    <wsdl:operation name="process">
+      <wsdl:input message="client:bpel_consultacandidatosRequestMessage"/>
+      <wsdl:output message="client:bpel_consultacandidatosResponseMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="bpel_consultacandidatosBinding" type="client:bpel_consultacandidatos">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="process">
+      <soap:operation style="document" soapAction="process"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="bpel_consultacandidatos_client_ep">
+    <wsdl:port name="bpel_consultacandidatos_pt" binding="client:bpel_consultacandidatosBinding">
+      <soap:address location="http://bpm-dv1:7003/soa-infra/services/default/SOA_Database_2/bpel_consultacandidatos_client_ep"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,45 @@
+# -----------------------------------------------------------------------------
+# - DOCKERFILE
+# - AUTOR: Brian Suarez | Eduardo Franco | Jhon Celemin | Wilman Ortiz
+# - FECHA: 06-Octubre-2020
+# - DESCRIPCION: Docker-compose que permite la creacion del
+# -              contenedor con el servicio de comandos y queries de productos
+# ------------------------------------------------------------------------------
+
+version: '3.7'
+services:
+  vendors-command-services:
+    image: wortiz1027/vendors-command-services:latest
+    container_name: vendors-command-services
+    hostname: vendors-command-services
+    restart: always
+    ports:
+      - 8100:8100
+      - 6100:6100
+    environment:  
+      - CONFIG_SERVER=http://10.39.1.85:9090
+      - EUREKA_SERVER=http://10.39.1.85:9091/eureka
+      - EUREKA_HOST=10.39.1.85
+      - RABBITMQ_HOST=10.39.1.85
+      - DB_VENDORS_COMMAND_HOST=10.39.1.130
+    networks:
+      - ntw_backend
+  vendors-query-services:
+    image: wortiz1027/vendors-query-services:latest
+    container_name: vendors-query-services
+    hostname: vendors-query-services
+    restart: always
+    ports:
+      - 8101:8101
+      - 6101:6101
+    environment:  
+      - CONFIG_SERVER=http://10.39.1.85:9090
+      - EUREKA_SERVER=http://10.39.1.85:9091/eureka
+      - EUREKA_HOST=10.39.1.85
+      - RABBITMQ_HOST=10.39.1.85
+      - DB_VENDORS_QUERY_HOST=10.39.1.130       
+    networks:
+      - ntw_backend
+networks:
+  ntw_backend:
+    external: true

@@ -1,0 +1,918 @@
+@charset "UTF-8";
+/**ADFFaces_Skin_File / DO NOT REMOVE**/
+@namespace af "http://xmlns.oracle.com/adf/faces/rich";
+@namespace dvt "http://xmlns.oracle.com/dss/adf/faces";
+
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300ita‌​lic,400italic,500,500italic,700,700italic,900italic,900);
+
+/* - - - - - MAQUETACION - - - - - */
+
+.AFDefaultFont:alias,body {
+    font-family: 'Roboto';
+    font-size: 14px !important;
+    font-weight: normal !important;
+}
+
+af|document {
+    background-color: #f7f7f7;
+    height: 200px;
+    background-image: none;
+    background-repeat: no-repeat;
+    padding: 0;
+    margin: 0;
+}
+
+af|document::splash-screen-content{
+    background-color:white;
+}
+
+af|document::splash-screen{
+    background-color:white;
+}
+
+af|document::splash-screen-content{
+    border:white;
+    background-color:white;
+}
+
+af|document::splash-screen-message{
+    display: none;
+}
+
+af|document::splash-screen-cell{
+    background-color:white;
+}
+
+af|document::splash-screen-icon{
+    content:url("/images/spinner.gif");
+    margin: auto ;
+}
+
+.sinBorders {
+    border: none !important;
+}
+
+.bg {
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    border: 0px;
+}
+
+.background1 {
+    height: 25px;
+    width: 100%;
+    background-color: #82b1ce; 
+    border: 0px;
+}
+
+.background2 {
+    height:100%;
+    width: 100%;
+    background-color: #f4f4f4;
+    border: 1px;
+}
+
+.user-info {
+    width: 95%;
+    height: 25px;
+    color: #fcfdff;
+    padding-top: 5px;
+}
+
+.container {
+    clear: both;
+    margin: 30px;    
+    position: relative;
+    background-color: #f4f4f4;
+    border-radius: 4px 4px 4px 4px;
+    border: 0px;
+}
+
+.header-content {
+    width: 100%;
+    height: 110px !important;
+    background-color: #f4f4f4;
+    border-radius: 4px 4px 0px 0px;
+    border: 1px Black ;
+    box-shadow: 0px 0px 2px 0px #888888;
+}
+
+.user {
+    width: 100%;
+    height: 25px;
+    background-color: #f4f4f4;
+    border-radius: 4px 4px 0px 0px;
+    border: 0px;
+    color: White !important;
+    float: left !important;
+}
+
+.page-info {
+    height: 110px !important;
+    width: 100% !important;
+    border: 0px;
+}
+
+.page-name {
+    width: 70%;
+    height: 120px;
+    float: left;
+    border: 0px;
+}
+
+.logo {
+    width: 30%;
+    height: 120px;
+    float: left;
+    border: 0px;
+}
+
+.content {
+    position: relative;
+    background-color: #f4f4f4;
+    margin: 10px;
+    border: 0px;
+}
+
+.footer {    
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 20px;
+    background-color: #82b1ce;
+    border-radius: 0px 0px 4px 4px;
+    border: 0px;
+    color: #fcfdff;
+    padding-top: 5px;
+}
+
+.labelInformacionUsuario {
+    font-size: 12px !important;
+    display: inline-block !important;
+    letter-spacing: 0.2px !important;
+    width: 100% !important;
+    padding-top: 10px;
+}
+
+.tituloPantalla {
+    height: 100% !important;
+    width: 850px !important;
+    float: left !important;
+    box-sizing: border-box !important;
+    margin: auto !important;
+    padding-left: 40px !important;;
+}
+
+.logoPantalla {
+    height: 100% !important;
+    float: left !important;
+    box-sizing: border-box;
+}
+
+.labelTituloPantalla {
+    font-size: xx-large !important;
+    color: #fff !important;
+    letter-spacing: 0.2px;
+}
+
+.contentInfoUser {
+    float: right !important;
+    width: 700px !important;
+}
+
+.secciones {
+    width: 100% !important;
+    padding: 10px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+/* - - - - - MAQUETACION - - - - - */
+
+/* - - - - - COMPONENTES - - - - - */
+
+/* - - - - - INPUT FILE - - - - - */
+
+/*af|inputFile af|commandButton {
+    background: #0572ce !important;
+    border: transparent !important;
+    width: auto !important;
+    text-align: center !important;
+    padding: 0px !important;     
+    cursor: pointer;
+}
+
+af|inputFile af|commandButton::text {
+    text-shadow: none !important;
+    letter-spacing: 2px;
+    color: #fcfdff;
+    font-family: 'Arial' !important;
+}*/
+
+/* - - - - - INPUT FILE - - - - - */
+
+/* - - - - -   BUTTON  - - - - - */
+/*af|button {
+    background: #0572ce !important;
+    border: transparent !important;
+    border-radius: 2px;
+    width: 90px !important;
+    text-align: center !important;
+    padding: .4em .8em;
+    font-size: .9em;
+    font-weight: 700;
+    border-width: 2px;
+    border-style: solid;
+    text-align: center;
+    white-space: nowrap;   
+    cursor: pointer;
+}*/
+
+af|button { 
+    /*display: inline-block;
+    background-color: transparent;
+    background-image: -webkit-linear-gradient(bottom, #E4E8EA 0%, #E8EBED 50%, #f1f3f4 96.36%, #FFFFFF 100%);
+    font-family: 'Roboto';
+    text-shadow: none;
+    background: #0572ce !important;
+    border: transparent !important;
+    border-radius: 2px;
+    width: 99px !important;
+    padding: 6px 6px 6px 6px;
+    font-size: 14px;
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;*/
+    background: #0572ce !important;
+    border: transparent !important;
+    border-radius: 2px;
+    width: 90px !important;
+    text-align: center !important;
+    padding: 0px 0px 0px 0px;
+    font-size: 14px;
+    font-weight: 600;
+    border-width: 2px;
+    border-style: solid;
+    text-align: center;
+    white-space: nowrap;   
+    cursor: pointer;
+}
+
+af|button.tamanioauto {
+    background: #0572ce !important;
+    border: transparent !important;
+    width: auto !important;
+    text-align: center !important;
+    padding: 0px !important;     
+    cursor: pointer;
+}
+
+af|button.tamanioauto2 {
+    background: #0572ce !important;
+    border: transparent !important;    
+    text-align: center !important;
+    padding: 0px !important;     
+    cursor: pointer;   
+    width: auto !important;
+}
+
+af|button.tamanioauto3 {
+    background: #E5E9EC !important;
+    border: transparent !important;    
+    text-align: center !important;
+    padding: 0px !important;     
+    cursor: pointer;   
+    width: auto !important;
+    border: 1px !important;
+    border-color: #D0E4F3;
+}
+
+af|button.tamanioauto3::text {
+    text-shadow: none !important;
+    color: #474646;    
+}
+
+af|button.btnEliminar {
+    background-image: url("/images/ico-basura.png") !important;
+    background: #ff1a1a !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    border: transparent !important;
+    vertical-align: middle !important; 
+}
+
+af|button::text {
+    text-shadow: none !important;
+    letter-spacing: 2px;
+    color: #fcfdff;
+    font-family: 'Roboto' !important;
+    letter-spacing: 1px;
+}
+
+af|button::link {     
+    cursor: pointer;
+    padding: 8px;
+}
+
+af|button::link:focus {
+    color: #333333;  
+}
+
+/*af|button:hover {
+    background: #84c3de !important;
+    border: transparent !important;    
+    text-align: center !important;
+    padding: 6px !important;     
+    cursor: pointer;   
+    animation: none !important;
+    transition: none !important;
+}
+
+af|button:disabled.tamanioauto2 {
+    background: #D8D8D8 !important;
+    border: transparent !important;    
+    text-align: center !important;
+    padding: 6px !important;     
+    cursor: pointer;   
+    width: auto !important;
+}
+
+af|button:disabled::link {
+    border: transparent !important;
+    border-radius: 2px;
+    width: 90px !important;
+    text-align: center !important;
+    padding: .4em .8em;   
+    border-width: 2px;
+    border-style: solid;
+    text-align: center; 
+    cursor: pointer;
+    background-color: #D8D8D8;
+    color: White;
+}
+*/
+/* - - - - -   BUTTON  - - - - - */
+
+/* - - - - - PANEL BOX - - - - - */
+.contentPanelBox,
+.contentPanelBoxExtraInfo{
+    border-radius: 10px !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    background: White ;
+}
+
+.contentPanelBox af|panelBox::content,
+.contentPanelBox af|panelBox::header-start:core:default,
+.contentPanelBox af|panelBox::header-center:core:default,
+.contentPanelBox af|panelBox::header-end:core:default,
+.contentPanelBox af|panelBox::footer-start:core:default,
+.contentPanelBox af|panelBox::footer-center:core:default,
+.contentPanelBox af|panelBox::footer-end:core:default,
+.contentPanelBox af|panelBox::center:core:default,
+.contentPanelBox af|showDetailFrame::content,
+.contentPanelBox af|showDetailFrame::header-start:core:default,
+.contentPanelBox af|showDetailFrame::header-center:core:default,
+.contentPanelBox af|showDetailFrame::header-end:core:default,
+.contentPanelBox af|showDetailFrame::footer-start:core:default,
+.contentPanelBox af|showDetailFrame::footer-center:core:default,
+.contentPanelBox af|showDetailFrame::footer-end:core:default,
+.contentPanelBox af|showDetailFrame::center:core:default {
+    background-color: White;
+    background-image: none !important;
+    background-repeat: no-repeat;
+    border-radius: 0px !important ;
+}
+
+.contentPanelBox af|panelBox::center:core:default,
+.contentPanelBox af|showDetailFrame::center:core:default {
+    border-left-width: 0px;
+    padding-right: 15px;
+}
+
+.contentPanelBox af|panelBox::header-start,
+.contentPanelBox af|showDetailFrame::header-start {
+    padding-left: 10px !important;
+}
+.contentPanelBox af|panelBox::header-start:core:default,
+.contentPanelBox af|showDetailFrame::header-start:core:default{
+    border-radius:30px 0px 0px 0px !important;
+}
+
+.contentPanelBox af|panelBox::header-end:core:default,
+.contentPanelBox af|showDetailFrame::header-end:core:default {
+    border-radius:0px 30px 0px 0px !important;
+}
+
+.contentPanelBox af|panelBox::footer-start:core:default,
+.contentPanelBox af|showDetailFrame::footer-start:core:default {
+    border-radius:0px 0px 0px 30px !important;
+}
+
+.contentPanelBox af|panelBox::footer-end:core:default,
+.contentPanelBox af|showDetailFrame::footer-end:core:default {
+    border-radius:0px 0px 30px 0px !important;
+}
+
+.contentPanelBoxExtraInfo af|panelBox::content,
+.contentPanelBoxExtraInfo af|panelBox::header-start:core:default,
+.contentPanelBoxExtraInfo af|panelBox::header-center:core:default,
+.contentPanelBoxExtraInfo af|panelBox::header-end:core:default,
+.contentPanelBoxExtraInfo af|panelBox::footer-start:core:default,
+.contentPanelBoxExtraInfo af|panelBox::footer-center:core:default,
+.contentPanelBoxExtraInfo af|panelBox::footer-end:core:default,
+.contentPanelBoxExtraInfo af|panelBox::center:core:default{
+    background-color: #f2f2f2 !important;
+    background-image: none;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+.contentPanelBoxExtraInfo af|panelBox::center:core:default {
+    border-left-width: 0px !important;
+    padding-right: 0px !important;
+    background-color: White;
+}
+
+.contentPanelBoxExtraInfo af|panelBox::header-start{
+    padding-left: 10px;
+}
+
+.contentPanelBoxExtraInfo af|panelBox::header-start:core:default{
+    border-radius:30px 0px 0px 0px;
+}
+
+.contentPanelBoxExtraInfo af|panelBox::header-end:core:default{
+    border-radius:0px 30px 0px 0px;
+}
+
+.contentPanelBoxExtraInfo af|panelBox::header-element{
+    margin: 0px 0px 0px 0px !important;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+.contentPanelBoxExtraInfoBottom{
+    border-radius: 10px;
+    padding-top: 0px;
+}
+
+.contentPanelBoxExtraInfoBottom af|panelBox::content,
+.contentPanelBoxExtraInfoBottom af|panelBox::header-start:core:default,
+.contentPanelBoxExtraInfoBottom af|panelBox::header-center:core:default,
+.contentPanelBoxExtraInfoBottom af|panelBox::header-end:core:default,
+.contentPanelBoxExtraInfoBottom af|panelBox::footer-start:core:default,
+.contentPanelBoxExtraInfoBottom af|panelBox::footer-center:core:default,
+.contentPanelBoxExtraInfoBottom af|panelBox::footer-end:core:default,
+.contentPanelBoxExtraInfoBottom af|panelBox::center:core:default{
+    background-color: #f2f2f2 !important;
+    background-image: none;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+.contentPanelBoxExtraInfoBottom af|panelBox::center:core:default {
+    border-left-width: 0px;
+    padding-right: 0px;
+    background-color: White;
+}
+
+.contentPanelBoxExtraInfoBottom af|panelBox::footer-start{
+    padding-left: 10px;
+}
+
+.contentPanelBoxExtraInfoBottom af|panelBox::footer-start:core:default{
+    border-radius:0px 0px 0px 30px;
+}
+
+.contentPanelBoxExtraInfoBottom af|panelBox::footer-end:core:default{
+    border-radius:0px 0px 30px 0px;
+}
+/* - - - - - PANEL BOX - - - - - */
+
+/* - - - - - SHOW DETAIL HEADER - - - - - */
+
+af|showDetailHeader {
+    border: #C3C0B5 solid 1px !important;
+    border-top-left-radius: 5px !important;
+    border-top-right-radius: 5px !important;
+    border-bottom-left-radius: 5px !important;
+    border-bottom-right-radius: 5px !important;
+    -moz-border: #C3C0B5 solid 1px !important;
+    -moz-border-top-left-radius: 5px !important;
+    -moz-border-top-right-radius: 5px !important;
+    -moz-border-bottom-left-radius: 5px !important;
+    -moz-border-bottom-right-radius: 5px !important;
+    -webkit-border: #C3C0B5 solid 1px !important;
+    -webkit-border-top-left-radius: 5px !important;
+    -webkit-border-top-right-radius: 5px !important;
+    -webkit-border-bottom-left-radius: 5px !important;
+    -webkit-border-bottom-right-radius: 5px !important;
+    -o-border: #C3C0B5 solid 1px !important;
+    -o-border-top-left-radius: 5px !important;
+    -o-border-top-right-radius: 5px !important;
+    -o-border-bottom-left-radius: 5px !important;
+    -o-border-bottom-right-radius: 5px !important;
+    -ms-border: #C3C0B5 solid 1px !important;
+    -ms-border-top-left-radius: 5px !important;
+    -ms-border-top-right-radius: 5px !important;
+    -ms-border-bottom-left-radius: 5px !important;
+    -ms-border-bottom-right-radius: 5px !important;
+    margin-top: 25px !important;
+    margin-left: 5px !important;
+    padding: 10px 10px !important;
+}
+/**
+Mueve la seccion del titulo a la parte superior entre el borde.
+**/
+af|showDetailHeader::title0, af|showDetailHeader::title1, af|showDetailHeader::title2, af|showDetailHeader::title3 {
+    position: relative !important;
+    top: -27px !important;
+    /**/
+
+    left: 7px !important;
+    /**/
+}
+/**
+Pinta el fondo del recuadro del texto en blanco
+**/
+af|showDetailHeader::title-text0, af|showDetailHeader::title-text1, af|showDetailHeader::title-text2, af|showDetailHeader::title-text3 {
+    background: #FFFFFF !important;
+}
+
+.fondoGris af|showDetailHeader::title-text0 {
+    background: #F4F4F4 !important;
+}
+/**
+Oculta el icono del disclosure del panel
+**/
+af|showDetailHeader::disclosed-icon-style, af|showDetailHeader::undisclosed-icon-style {
+    display: none !important;
+}
+/**
+Desplaza el contenido internamente en el panel.
+**/
+af|showDetailHeader::content0 {
+    padding: 0px 15px 15px 15px !important;
+}
+
+/* - - - - - SHOW DETAIL HEADER - - - - - */
+
+/* - - - - - TABLEs - - - - - */
+
+.contentTable{
+    margin: 0px 0px 0px 0px;
+}
+
+.contentTable af|table {
+    
+}
+
+.contentTable af|column::column-header-cell {
+    font-size: 12px;
+    text-align: center;
+    font-style: normal;
+    font-weight: bold;
+    padding: 15px;
+    white-space: normal;    
+}
+
+.contentTable af|column::data-cell {
+    font-size: 12px;
+    color: #444444;
+    line-height: 1.42857143;
+    vertical-align: top;
+    font-style: normal;
+    font-weight: 400;
+    text-align: center;
+}
+
+.contentTable af|column::banded-data-cell{
+    background-color: #F4F4F4;
+    height:20px;
+    border-top: 1px solid #C5C6C8;
+    padding: 14px 2px;
+    font-size: 12px;
+    color: #444444;
+    line-height: 1.42857143;
+    vertical-align: top;
+    font-style: normal;
+    font-weight: 400;
+    text-align: center;
+}
+
+.contentTable af|table::data-row:Selected:Focused af|column::data-cell{
+    background-color: #BAC5DC;
+}
+.contentTable af|table::data-row:Selected:Focused af|column::banded-data-cell{
+    background-color: #BAC5DC;
+}
+
+/* - - - - - TABLEs - - - - - */
+
+/* - - - - - COMPONENTES - - - - - */
+
+/* ------ Estilos bootstrap ------*/
+
+.row,
+.row:before,
+.row:after {
+  display: table !important;
+  content: " ";
+  width:100%;
+}
+
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+  position: relative;
+  min-height: 1px;
+  /*padding-right: 0px;
+  padding-left: 0px;*/
+}
+.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
+  float: left;
+}
+.col-xs-12 {
+  width: 100%;
+}
+.col-xs-11 {
+  width: 91.66666667%;
+}
+.col-xs-10 {
+  width: 83.33333333%;
+}
+.col-xs-9 {
+  width: 75%;
+}
+.col-xs-8 {
+  width: 66.66666667%;
+}
+.col-xs-7 {
+  width: 58.33333333%;
+}
+.col-xs-6 {
+  width: 50%;
+}
+.col-xs-5 {
+  width: 41.66666667%;
+}
+.col-xs-4 {
+  width: 33.33333333%;
+}
+.col-xs-3 {
+  width: 25%;
+}
+.col-xs-2 {
+  width: 16.66666667%;
+}
+.col-xs-1 {
+  width: 8.33333333%;
+}
+.col-xs-pull-12 {
+  right: 100%;
+}
+.col-xs-pull-11 {
+  right: 91.66666667%;
+}
+.col-xs-pull-10 {
+  right: 83.33333333%;
+}
+.col-xs-pull-9 {
+  right: 75%;
+}
+.col-xs-pull-8 {
+  right: 66.66666667%;
+}
+.col-xs-pull-7 {
+  right: 58.33333333%;
+}
+.col-xs-pull-6 {
+  right: 50%;
+}
+.col-xs-pull-5 {
+  right: 41.66666667%;
+}
+.col-xs-pull-4 {
+  right: 33.33333333%;
+}
+.col-xs-pull-3 {
+  right: 25%;
+}
+.col-xs-pull-2 {
+  right: 16.66666667%;
+}
+.col-xs-pull-1 {
+  right: 8.33333333%;
+}
+.col-xs-pull-0 {
+  right: auto;
+}
+.col-xs-push-12 {
+  left: 100%;
+}
+.col-xs-push-11 {
+  left: 91.66666667%;
+}
+.col-xs-push-10 {
+  left: 83.33333333%;
+}
+.col-xs-push-9 {
+  left: 75%;
+}
+.col-xs-push-8 {
+  left: 66.66666667%;
+}
+.col-xs-push-7 {
+  left: 58.33333333%;
+}
+.col-xs-push-6 {
+  left: 50%;
+}
+.col-xs-push-5 {
+  left: 41.66666667%;
+}
+.col-xs-push-4 {
+  left: 33.33333333%;
+}
+.col-xs-push-3 {
+  left: 25%;
+}
+.col-xs-push-2 {
+  left: 16.66666667%;
+}
+.col-xs-push-1 {
+  left: 8.33333333%;
+}
+.col-xs-push-0 {
+  left: auto;
+}
+.col-xs-offset-12 {
+  margin-left: 100%;
+}
+.col-xs-offset-11 {
+  margin-left: 91.66666667%;
+}
+.col-xs-offset-10 {
+  margin-left: 83.33333333%;
+}
+.col-xs-offset-9 {
+  margin-left: 75%;
+}
+.col-xs-offset-8 {
+  margin-left: 66.66666667%;
+}
+.col-xs-offset-7 {
+  margin-left: 58.33333333%;
+}
+.col-xs-offset-6 {
+  margin-left: 50%;
+}
+.col-xs-offset-5 {
+  margin-left: 41.66666667%;
+}
+.col-xs-offset-4 {
+  margin-left: 33.33333333%;
+}
+.col-xs-offset-3 {
+  margin-left: 25%;
+}
+.col-xs-offset-2 {
+  margin-left: 16.66666667%;
+}
+.col-xs-offset-1 {
+  margin-left: 8.33333333%;
+}
+.col-xs-offset-0 {
+  margin-left: 0;
+}
+
+/*------------ Estilo para que FormLayout se estire ---------------*/
+
+.stretchedTable{
+    padding-right: 25px !important;
+    padding-left: 25px !important;
+}
+.stretchedForm af|panelFormLayout::column{
+   /* min-height: 1px !important;*/
+    padding-right: 20px !important;
+    padding-left: 20px !important;
+    padding-bottom: 2px !important;
+    vertical-align: middle;
+}
+
+.stretchedForm af|panelFormLayout,
+.stretchedForm table,
+.stretchedForm tbody tr td {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+.stretchedForm af|inputText::content, 
+.stretchedForm af|inputText.AFDisabled af|inputText::content {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.stretchedForm af|selectOneChoice::content, 
+.stretchedForm af|selectOneChoice.AFDisabled af|selectOneChoice::content {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.stretchedForm af|inputDate::content {
+    width: 85% !important;
+    max-width: 85% !important;
+}
+
+.stretchedForm  .AFPanelFormLayoutContentCell {
+    padding-top: 4px!important;
+}
+
+.stretchedFormCheck af|panelFormLayout::column{
+   /* min-height: 1px !important;*/
+    padding-right: 5px !important;
+    padding-left: 5px !important;
+    padding-bottom: 2px !important;
+    vertical-align: middle;
+}
+
+.stretchedFormCheck af|panelFormLayout,
+.stretchedFormCheck table,
+.stretchedFormCheck tbody tr td {
+    width: 98% !important;
+    max-width: 98% !important;
+}
+.stretchedFormCheck af|inputText::content, 
+.stretchedFormCheck af|inputText.AFDisabled af|inputText::content {
+    width: 98% !important;
+    max-width: 98% !important;
+}
+
+.stretchedFormCheck af|selectOneChoice::content, 
+.stretchedFormCheck af|selectOneChoice.AFDisabled af|selectOneChoice::content {
+    width: 98% !important;
+    max-width: 98% !important;
+}
+
+.stretchedFormCheck af|inputDate::content {
+    width: 85% !important;
+    max-width: 85% !important;
+}
+
+.stretchedFormCheck  .AFPanelFormLayoutContentCell {
+    padding-top: 4px!important;
+}
+
+.pglContentRoot {
+    padding-right: 18px;
+}
+
+.pglPanelBoxContent {
+    padding: 20px;
+}
+
+.contentPanelBoxPadding {
+    padding-top: 10px !important;   
+    padding-left: 20px !important;
+    padding-right: 10px !important;
+    padding-bottom: 10px !important;
+}
+
+.socAccionSeguir {
+    padding-bottom : 5px !important; 
+    padding-left : 5px !important; 
+    padding-right : 5px !important; 
+    padding-top : 5px !important; 
+    width : 400px !important;
+}
+
+.titulosNegrilla{
+    font-weight: bold;
+}
+
+.paddingGenerico15 {
+    padding: 15px;
+}
+.colorMensajeAvisos{
+    color: Red;
+}
+
+.titulosNegrilla{
+    font-weight: bold;
+}
+
+.panelGroupHorizontal {
+    width:100%; 
+    margin:0 auto; 
+    overflow:hidden; 
+    float:left;
+}
+
+af|panelGroupLayout .espacioLimites{
+    padding-right: 30px; 
+    padding-left: 30px;
+}
+
+.padding-table-columns af|panelFormLayout::column {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}

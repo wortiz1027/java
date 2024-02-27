@@ -1,0 +1,82 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Oracle JDeveloper BPEL Designer 
+  
+  Created: Thu Apr 02 00:08:52 COT 2020
+  Author:  javeriana
+  Type: BPEL 2.0 Process
+  Purpose: Synchronous BPEL Process
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<process name="bpel_recursosdisponibles"
+               targetNamespace="http://xmlns.oracle.com/app_eaes_soaint/SOA_Database/bpel_recursosdisponibles"
+               xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+               xmlns:client="http://xmlns.oracle.com/app_eaes_soaint/SOA_Database/bpel_recursosdisponibles"
+               xmlns:ora="http://schemas.oracle.com/xpath/extension"
+               xmlns:ui="http://xmlns.oracle.com/soa/designer"
+               xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+         xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:ns1="http://xmlns.oracle.com/pcbpel/adapter/db/app_eaes_soaint/SOA_Database/WS_RecursosDisponibles">
+
+    <import ui:processWSDL="true" namespace="http://xmlns.oracle.com/app_eaes_soaint/SOA_Database/bpel_recursosdisponibles" location="../WSDLs/bpel_recursosdisponibles.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <!-- 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        PARTNERLINKS                                                      
+        List of services participating in this BPEL process               
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    --> 
+  <partnerLinks>
+    <!-- 
+      The 'client' role represents the requester of this service. It is 
+      used for callback. The location and correlation information associated
+      with the client role are automatically set using WS-Addressing.
+    -->
+    <partnerLink name="bpel_recursosdisponibles_client" partnerLinkType="client:bpel_recursosdisponibles" myRole="bpel_recursosdisponiblesProvider"/>
+    <partnerLink name="WS_RecursosDisponibles" partnerLinkType="ns1:WS_RecursosDisponibles_plt"
+                 partnerRole="WS_RecursosDisponibles_role"/>
+  </partnerLinks>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      VARIABLES                                                        
+      List of messages and XML documents used within this BPEL process 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <variables>
+    <!-- Reference to the message passed as input during initiation -->
+    <variable name="inputVariable" messageType="client:bpel_recursosdisponiblesRequestMessage"/>
+
+    <!-- Reference to the message that will be returned to the requester-->
+    <variable name="outputVariable" messageType="client:bpel_recursosdisponiblesResponseMessage"/>
+    <variable name="invk_input" messageType="ns1:args_in_msg"/>
+    <variable name="invk_output" messageType="ns1:args_out_msg"/>
+  </variables>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     ORCHESTRATION LOGIC                                               
+     Set of activities coordinating the flow of messages across the    
+     services integrated within this business process                  
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <sequence name="main">
+
+    <!-- Receive input from requestor. (Note: This maps to operation defined in bpel_recursosdisponibles.wsdl) -->
+    <receive name="receiveInput" partnerLink="bpel_recursosdisponibles_client" portType="client:bpel_recursosdisponibles" operation="process" variable="inputVariable" createInstance="yes"/>
+    <invoke name="invk_recursosdisponibles" partnerLink="WS_RecursosDisponibles"
+            portType="ns1:WS_RecursosDisponibles_ptt" operation="WS_RecursosDisponibles" inputVariable="invk_input"
+            outputVariable="invk_output" bpelx:invokeAsDetail="no"/>
+    <assign name="T1_recursos_disponibles">
+      <bpelx:annotation>
+        <bpelx:pattern patternName="bpelx:transformation"></bpelx:pattern>
+      </bpelx:annotation>
+      <copy>
+        <from>ora:doXSLTransformForDoc("../Transformations/T1_recursos_disponibles.xsl", $invk_output.OutputParameters)</from>
+        <to variable="outputVariable" part="payload"/>
+      </copy>
+    </assign>
+    <!-- Generate reply to synchronous request -->
+    <reply name="replyOutput" partnerLink="bpel_recursosdisponibles_client" portType="client:bpel_recursosdisponibles" operation="process" variable="outputVariable"/>
+  </sequence>
+</process>
